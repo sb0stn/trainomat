@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
 function ListItem({ item, index }) {
   return (
     <tr style={{ backgroundColor: index % 2 == 0 ? "#EDEDED" : "#F5F5F5" }}>
       <td>
-        <a href="www.test.de">{item.data.title}</a>
+        <Link to={`items/${item.key}`}>{item.data.title}</Link>
       </td>
       <td>{item.data.itemType}</td>
       <td>{item.data.date}</td>
