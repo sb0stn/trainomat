@@ -1,8 +1,12 @@
 function ListItem({ item, index }) {
   return (
-    <li style={{ listStyleType: "none" }}>
-      <a href="www.test.de">{item.data.title}</a>
-    </li>
+    <tr style={{ backgroundColor: index % 2 == 0 ? "#EDEDED" : "#F5F5F5" }}>
+      <td>
+        <a href="www.test.de">{item.data.title}</a>
+      </td>
+      <td>{item.data.itemType}</td>
+      <td>{item.data.date}</td>
+    </tr>
   );
 }
 

@@ -32,11 +32,20 @@ function App() {
 
   return (
     <main>
-      <ul style={{ padding: "0" }}>
-        {data.map((item, index) => {
-          return <ListItem item={item} index={index} key={index} />;
-        })}
-      </ul>
+      <table>
+        <thead style={{ textAlign: "left" }}>
+          <tr>
+            <th>Titel</th>
+            <th>Typ</th>
+            <th>Datum</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((item, index) => {
+            return <ListItem item={item} index={index} key={index} />;
+          })}
+        </tbody>
+      </table>
       <aside>More information</aside>
     </main>
   );
