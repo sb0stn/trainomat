@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import "./App.css";
 import ListItem from "./Components/ListItem";
 
@@ -31,11 +31,14 @@ function App() {
   }
 
   return (
-    <>
-      {data.map((item, index) => {
-        return <ListItem item={item} index={index} />;
-      })}
-    </>
+    <main>
+      <ul style={{ padding: "0" }}>
+        {data.map((item, index) => {
+          return <ListItem item={item} index={index} key={index} />;
+        })}
+      </ul>
+      <aside>More information</aside>
+    </main>
   );
 }
 
