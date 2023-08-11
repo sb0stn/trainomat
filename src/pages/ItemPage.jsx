@@ -15,7 +15,7 @@ function Item() {
       <p>{state.data.abstractNote}</p>
       <h2>Tags</h2>
       {state.data.tags.map((tag, index) => {
-        return <span>{tag.tag}</span>;
+        return <span key={index}>{tag.tag}</span>;
       })}
     </main>
   );

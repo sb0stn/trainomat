@@ -1,32 +1,12 @@
 import { useState, useEffect, Fragment } from "react";
+import { useLoaderData } from "react-router-dom";
 import "./App.css";
 import ListItem from "./components/ListItem";
 
 function App() {
-  const [data, setData] = useState();
+  const { items } = useLoaderData();
 
-  const ZOTERO_API_BASE_URL = "https://api.zotero.org";
-  const ZOTERO_GROUP_ID = "2580211";
-
-  useEffect(() => {
-    const dataFetch = async () => {
-      const data = await (
-        await fetch(
-          //`${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/items?start=194&limit=100` //limit
-          //`${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/items?q=ios` //search
-          `${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/items?tag=(P) Xcode` //tag
-        )
-      ).json();
-
-      console.log(data);
-
-      setData(data);
-    };
-
-    dataFetch();
-  }, []);
-
-  if (!data) {
+  if (!items) {
     return <p>loading</p>;
   }
 
@@ -41,7 +21,7 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {data.map((item, index) => {
+          {items.map((item, index) => {
             return <ListItem item={item} index={index} key={index} />;
           })}
         </tbody>
@@ -49,6 +29,21 @@ function App() {
       <aside>More information</aside>
     </main>
   );
+}
+
+export async function loader() {
+  const ZOTERO_API_BASE_URL = "https://api.zotero.org";
+  const ZOTERO_GROUP_ID = "2580211";
+
+  const items = await (
+    await fetch(
+      //`${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/items?start=194&limit=100` //limit
+      //`${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/items?q=ios` //search
+      `${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/items?tag=(P) Xcode` //tag
+    )
+  ).json();
+
+  return { items };
 }
 
 export default App;
