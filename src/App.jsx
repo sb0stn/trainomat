@@ -1,6 +1,6 @@
 import { useState, useEffect, Fragment } from "react";
 import "./App.css";
-import ListItem from "./Components/ListItem";
+import ListItem from "./components/ListItem";
 
 function App() {
   const [data, setData] = useState();
