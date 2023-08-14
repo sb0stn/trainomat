@@ -3,14 +3,16 @@ import "./App.css";
 import Select from "react-select";
 
 function App() {
-  const { items } = useLoaderData();
+  const { items, libraryTags } = useLoaderData();
 
   if (!items) {
     return <p>loading</p>;
   }
 
   //TODO query tags
-  const tags = [{ value: "(C) Mobile Apps", label: "(C) Mobile Apps" }];
+  const tags = libraryTags.map((tag) => {
+    return { value: tag.tag, label: tag.tag };
+  });
 
   return (
     <main>
@@ -23,7 +25,13 @@ function App() {
             placeholder="Suchbegriff"
           />
           {/* TODO Headlines */}
-          <Select name="tags" options={tags} isMulti placeholder="Tags" />
+          <Select
+            name="tags"
+            options={tags}
+            isMulti
+            placeholder="Tags"
+            closeMenuOnSelect={false}
+          />
           <button type="submit">Suche</button>
         </Form>
       </div>
@@ -41,18 +49,28 @@ export async function loader({ request }) {
   let url = new URL(request.url);
   let searchTerm = url.searchParams.get("q");
 
-  let tags = url.searchParams.get("tags");
-  console.log(tags);
+  let searchTags = url.searchParams.getAll("tags");
+  console.log(searchTags);
+
+  let tagString = "";
+  searchTags.map((tag) => (tagString += `&tag=${tag}`));
+  console.log(tagString);
 
   const items = await (
     await fetch(
       //`${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/items?start=194&limit=100` //limit
-      `${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/items?q=${searchTerm}&tag=${tags}` //search
+      `${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/items?q=${searchTerm}${tagString}&limit=100` //search
       //`${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/items?tag=(P) Xcode` //tag
     )
   ).json();
 
-  return { items };
+  const libraryTags = await (
+    await fetch(
+      `${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/tags?limit=100`
+    )
+  ).json();
+
+  return { items, libraryTags };
 }
 
 export default App;
