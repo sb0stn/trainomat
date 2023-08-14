@@ -1,4 +1,4 @@
-import { useLoaderData, Form } from "react-router-dom";
+import { useLoaderData, Form, Outlet } from "react-router-dom";
 import "./App.css";
 import ListItem from "./components/ListItem";
 
@@ -13,26 +13,12 @@ function App() {
     <main>
       <div>
         <Form method="get" action="/">
-          <input aria-label="search products" type="text" name="q" />
+          <input aria-label="search products" type="search" name="q" />
           <button type="submit">Search</button>
         </Form>
       </div>
 
-      <table>
-        <thead style={{ textAlign: "left" }}>
-          <tr>
-            <th>Titel</th>
-            <th>Typ</th>
-            <th>Datum</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map((item, index) => {
-            return <ListItem item={item} index={index} key={index} />;
-          })}
-        </tbody>
-      </table>
-      <aside>More information</aside>
+      <Outlet />
     </main>
   );
 }
