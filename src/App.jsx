@@ -1,6 +1,6 @@
 import { useLoaderData, Form, Outlet } from "react-router-dom";
 import "./App.css";
-import ListItem from "./components/ListItem";
+import Select from "react-select";
 
 function App() {
   const { items } = useLoaderData();
@@ -9,12 +9,22 @@ function App() {
     return <p>loading</p>;
   }
 
+  //TODO query tags
+  const tags = [{ value: "(C) Mobile Apps", label: "(C) Mobile Apps" }];
+
   return (
     <main>
       <div>
         <Form method="get" action="/">
-          <input aria-label="search products" type="search" name="q" />
-          <button type="submit">Search</button>
+          <input
+            aria-label="search products"
+            type="search"
+            name="q"
+            placeholder="Suchbegriff"
+          />
+          {/* TODO Headlines */}
+          <Select name="tags" options={tags} isMulti placeholder="Tags" />
+          <button type="submit">Suche</button>
         </Form>
       </div>
 
@@ -31,10 +41,13 @@ export async function loader({ request }) {
   let url = new URL(request.url);
   let searchTerm = url.searchParams.get("q");
 
+  let tags = url.searchParams.get("tags");
+  console.log(tags);
+
   const items = await (
     await fetch(
       //`${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/items?start=194&limit=100` //limit
-      `${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/items?q=${searchTerm}&tag=(P) Xcode` //search
+      `${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/items?q=${searchTerm}&tag=${tags}` //search
       //`${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/items?tag=(P) Xcode` //tag
     )
   ).json();
