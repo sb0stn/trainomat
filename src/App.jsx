@@ -9,7 +9,6 @@ function App() {
     return <p>loading</p>;
   }
 
-  //TODO query tags
   const tags = libraryTags.map((tag) => {
     return { value: tag.tag, label: tag.tag };
   });
@@ -47,7 +46,9 @@ export async function loader({ request }) {
 
   console.log(request);
   let url = new URL(request.url);
-  let searchTerm = url.searchParams.get("q");
+
+  //If no search tearm is provided (first visit) set the term to an empty string
+  let searchTerm = url.searchParams.get("q") ? url.searchParams.get("q") : "";
 
   let searchTags = url.searchParams.getAll("tags");
   console.log(searchTags);
@@ -56,6 +57,7 @@ export async function loader({ request }) {
   searchTags.map((tag) => (tagString += `&tag=${tag}`));
   console.log(tagString);
 
+  // TODO use react query
   const items = await (
     await fetch(
       //`${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/items?start=194&limit=100` //limit
