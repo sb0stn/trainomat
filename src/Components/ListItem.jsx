@@ -5,7 +5,11 @@ function ListItem({ item, index }) {
     <tr style={{ backgroundColor: index % 2 == 0 ? "#EDEDED" : "#F5F5F5" }}>
       <td>
         <Link to={`items/${item.key}`} state={item}>
-          {item.data.title}
+          {item.data.title
+            ? item.data.title
+            : item.data.nameOfAct
+            ? item.data.nameOfAct
+            : "Kein Titel verfügbar"}
         </Link>
       </td>
       <td>{item.data.itemType}</td>
