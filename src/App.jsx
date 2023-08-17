@@ -21,15 +21,32 @@ function App() {
             aria-label="search products"
             type="search"
             name="q"
-            placeholder="Suchbegriff"
+            placeholder="Suchbegriff eingeben"
+            className="search"
           />
           {/* TODO Headlines */}
           <Select
             name="tags"
             options={tags}
             isMulti
-            placeholder="Tags"
+            placeholder="Tags auswählen"
             closeMenuOnSelect={false}
+            styles={{
+              option: (baseStyles, state) => ({
+                ...baseStyles,
+                color: "black",
+                backgroundColor: state.isFocused ? "#d4d4d4" : "#E6E6E6",
+                borderRadius: "2px",
+                padding: "2px 8px",
+                width: "fit-content",
+                display: "inline-block",
+                margin: "2px",
+              }),
+              menuList: (baseStyles, state) => ({
+                ...baseStyles,
+                padding: "4px 8px",
+              }),
+            }}
           />
           <button type="submit">Suche</button>
         </Form>
@@ -44,18 +61,15 @@ export async function loader({ request }) {
   const ZOTERO_API_BASE_URL = "https://api.zotero.org";
   const ZOTERO_GROUP_ID = "2580211";
 
-  console.log(request);
   let url = new URL(request.url);
 
   //If no search tearm is provided (first visit) set the term to an empty string
   let searchTerm = url.searchParams.get("q") ? url.searchParams.get("q") : "";
 
   let searchTags = url.searchParams.getAll("tags");
-  console.log(searchTags);
 
   let tagString = "";
   searchTags.map((tag) => (tagString += `&tag=${tag}`));
-  console.log(tagString);
 
   // TODO use react query
   const items = await (
@@ -65,6 +79,8 @@ export async function loader({ request }) {
       //`${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/items?tag=(P) Xcode` //tag
     )
   ).json();
+
+  console.log(items);
 
   const libraryTags = await (
     await fetch(

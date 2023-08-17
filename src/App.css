@@ -1,5 +1,16 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 24px 8px;
+}
+
+Form > * {
+  margin-bottom: 8px;
+}
+.search {
+  min-height: 38px;
+  border-color: hsl(0, 0, 80%);
+  border-radius: 4px;
+  border-width: 1px;
+  box-sizing: border-box;
+  width: 100%;
 }
