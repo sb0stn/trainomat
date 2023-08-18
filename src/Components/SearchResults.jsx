@@ -1,22 +1,24 @@
-import { useLoaderData, useRouteLoaderData } from "react-router-dom";
+import { useRouteLoaderData } from "react-router-dom";
 import ListItem from "./ListItem";
+import styles from "./SearchResults.module.css";
 
 export default function SearchResults() {
   const { items } = useRouteLoaderData("root");
-
-  console.log(items);
 
   if (!items) {
     return <p>loading</p>;
   }
 
   return (
-    <table>
+    <table className={styles.table}>
       <thead style={{ textAlign: "left" }}>
-        <tr>
+        <tr className={styles.row}>
           <th>Titel</th>
-          <th>Typ</th>
           <th>Datum</th>
+          {/* <th>Rating</th> */}
+          <th>Typ</th>
+          {/* <th>Rolle</th> */}
+          {/* <th>Skill Level</th> */}
         </tr>
       </thead>
       <tbody>
