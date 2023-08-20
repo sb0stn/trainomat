@@ -1,13 +1,17 @@
+import { useLoaderData } from "react-router-dom";
 import ListItem from "../components/ListItem";
 import styles from "./ItemList.module.css";
 import { useQuery } from "@tanstack/react-query";
 
 export default function SearchResults() {
-  const { data: items } = useQuery(itemsQuery());
+  const { q, tags } = useLoaderData();
+  const { data: items } = useQuery(itemsQuery(q, tags));
 
   if (!items) {
     return <p>loading</p>;
   }
+
+  console.log(items);
 
   return (
     <table className={styles.table}>
@@ -30,27 +34,42 @@ export default function SearchResults() {
   );
 }
 
-const itemsQuery = () => ({
-  queryKey: ["items"],
+const itemsQuery = (q, tags) => ({
+  queryKey: ["items", q, tags],
   queryFn: async () => {
-    const response = await fetch(
-      `https://api.zotero.org/groups/2580211/items?limit=100`
-    );
+    const url = new URL("https://api.zotero.org/groups/2580211/items");
+
+    q && url.searchParams.append("q", q);
+
+    tags.forEach((tag) => {
+      url.searchParams.append("tag", tag);
+    });
+
+    url.searchParams.append("limit", 100);
+
+    const response = await fetch(url);
 
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
+
     return response.json();
   },
 });
 
 export const loader =
   (queryClient) =>
-  async ({ params }) => {
-    const query = itemsQuery();
+  async ({ request }) => {
+    const url = new URL(request.url);
+    const q = url.searchParams.get("q");
+    const tags = url.searchParams.getAll("tags");
 
-    return (
-      queryClient.getQueryData(query.queryKey) ??
-      (await queryClient.fetchQuery(query))
-    );
+    console.log(q);
+    console.log(tags);
+    const query = itemsQuery(q, tags);
+
+    queryClient.getQueryData(query.queryKey) ??
+      (await queryClient.fetchQuery(query));
+
+    return { q, tags };
   };
