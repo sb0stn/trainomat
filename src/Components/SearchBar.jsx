@@ -2,10 +2,12 @@ import { Form, useSubmit } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import Select from "react-select";
 import { useDebounce } from "rooks";
+import { useState } from "react";
 
 export default function SearchBar() {
   const submit = useSubmit();
-  const debouncedSubmit = useDebounce(submit, 500);
+  const debouncedSubmit = useDebounce(submit, 100);
+  const [queryString, setQueryString] = useState("");
 
   const { isLoading, isError, data, error } = useQuery(["tags"], async () => {
     const response = await fetch(
@@ -19,32 +21,39 @@ export default function SearchBar() {
     return response.json();
   });
 
-  if (isLoading) {
-    return "Loading";
+  let tags;
+  if (!isLoading) {
+    tags = data.map((tag) => {
+      return { value: tag.tag, label: tag.tag };
+    });
   }
-
-  console.log(data);
-
-  const tags = data.map((tag) => {
-    return { value: tag.tag, label: tag.tag };
-  });
 
   return (
     <Form method="get" action="/">
       <input
+        style={{ fontSize: "16px" }}
         type="search"
         aria-label="search products"
         name="q"
         placeholder="Suchbegriff eingeben"
         className="search"
-        onChange={(event) => debouncedSubmit(event.currentTarget.form)}
+        onChange={(event) => {
+          setQueryString(event.currentTarget.value);
+          debouncedSubmit(event.currentTarget.form);
+        }}
       />
       <Select
         name="tags"
         options={tags}
         isMulti
         placeholder="Tags auswählen"
-        closeMenuOnSelect={false}
+        closeMenuOnSelect={true}
+        onChange={(selectedValue, action) => {
+          let tagString = "";
+          selectedValue.map((tag) => (tagString += `&tags=${tag.value}`));
+
+          submit(`?q=${queryString}&${tagString}`);
+        }}
         styles={{
           option: (baseStyles, state) => ({
             ...baseStyles,
@@ -62,7 +71,6 @@ export default function SearchBar() {
           }),
         }}
       />
-      <button type="submit">Suche</button>
     </Form>
   );
 }
