@@ -1,8 +1,12 @@
-import { Form } from "react-router-dom";
+import { Form, useSubmit } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import Select from "react-select";
+import { useDebounce } from "rooks";
 
 export default function SearchBar() {
+  const submit = useSubmit();
+  const debouncedSubmit = useDebounce(submit, 500);
+
   const { isLoading, isError, data, error } = useQuery(["tags"], async () => {
     const response = await fetch(
       "https://api.zotero.org/groups/2580211/tags?limit=100/"
@@ -33,6 +37,7 @@ export default function SearchBar() {
         name="q"
         placeholder="Suchbegriff eingeben"
         className="search"
+        onChange={(event) => debouncedSubmit(event.currentTarget.form)}
       />
       <Select
         name="tags"

@@ -64,8 +64,6 @@ export const loader =
     const q = url.searchParams.get("q");
     const tags = url.searchParams.getAll("tags");
 
-    console.log(q);
-    console.log(tags);
     const query = itemsQuery(q, tags);
 
     queryClient.getQueryData(query.queryKey) ??
