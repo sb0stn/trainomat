@@ -1,11 +1,17 @@
-import { useLoaderData, Form, Outlet } from "react-router-dom";
+import { Form, Outlet } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+
 import "./App.css";
 import Select from "react-select";
 
 function App() {
-  const { items, libraryTags } = useLoaderData();
+  //const { items, libraryTags } = useLoaderData();
 
-  if (!items) {
+  const { data: items } = useQuery(itemsQuery());
+
+  console.log(items);
+
+  if (items) {
     return <p>loading</p>;
   }
 
@@ -18,8 +24,8 @@ function App() {
       <div>
         <Form method="get" action="/">
           <input
-            aria-label="search products"
             type="search"
+            aria-label="search products"
             name="q"
             placeholder="Suchbegriff eingeben"
             className="search"
@@ -57,6 +63,32 @@ function App() {
   );
 }
 
+const itemsQuery = () => ({
+  queryKey: ["items"],
+  queryFn: async () => {
+    const response = await fetch(
+      `https://api.zotero.org/groups/2580211/items?limit=100`
+    );
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  },
+});
+
+export const loader =
+  (queryClient) =>
+  async ({ params }) => {
+    const query = itemsQuery();
+
+    return (
+      queryClient.getQueryData(query.queryKey) ??
+      (await queryClient.fetchQuery(query))
+    );
+  };
+
+/* 
 export async function loader({ request }) {
   const ZOTERO_API_BASE_URL = "https://api.zotero.org";
   const ZOTERO_GROUP_ID = "2580211";
@@ -64,8 +96,7 @@ export async function loader({ request }) {
   let url = new URL(request.url);
 
   //If no search tearm is provided (first visit) set the term to an empty string
-  let searchTerm = url.searchParams.get("q") ? url.searchParams.get("q") : "";
-
+  let searchTerm = url.searchParams.get("q") ?? "";
   let searchTags = url.searchParams.getAll("tags");
 
   let tagString = "";
@@ -74,9 +105,7 @@ export async function loader({ request }) {
   // TODO use react query
   const items = await (
     await fetch(
-      //`${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/items?start=194&limit=100` //limit
       `${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/items?q=${searchTerm}${tagString}&limit=100` //search
-      //`${ZOTERO_API_BASE_URL}/groups/${ZOTERO_GROUP_ID}/items?tag=(P) Xcode` //tag
     )
   ).json();
 
@@ -89,6 +118,6 @@ export async function loader({ request }) {
   ).json();
 
   return { items, libraryTags };
-}
+} */
 
 export default App;
