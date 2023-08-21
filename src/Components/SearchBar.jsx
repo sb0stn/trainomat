@@ -21,9 +21,63 @@ export default function SearchBar() {
     return response.json();
   });
 
-  let tags;
+  const contentOptions = [];
+  const certificateOptions = [];
+  const freeOrFeeOptions = [];
+  const languageOptions = [];
+  const licencesOptions = [];
+  const operatingSystemOptions = [];
+  const programOptions = [];
+  const roleOptions = [];
+  const ratingOptions = [];
+  const skillLevelOptions = [];
+  const technologyOptions = [];
+  const typeOfResourceOptions = [];
+  const othersOptions = [];
+
+  const optionsMapping = {
+    C: contentOptions,
+    Ce: certificateOptions,
+    F: freeOrFeeOptions,
+    La: languageOptions,
+    Li: licencesOptions,
+    OS: operatingSystemOptions,
+    P: programOptions,
+    R: roleOptions,
+    Ra: ratingOptions,
+    SL: skillLevelOptions,
+    T: technologyOptions,
+    Ty: typeOfResourceOptions,
+  };
+
+  let groupedTags = [
+    { label: "Content", options: contentOptions },
+    { label: "Certificate", options: certificateOptions },
+    { label: "Free or Fee", options: freeOrFeeOptions },
+    { label: "Language", options: languageOptions },
+    { label: "Licences", options: licencesOptions },
+    { label: "Operating Systems", options: operatingSystemOptions },
+    { label: "Programs", options: programOptions },
+    { label: "Role", options: roleOptions },
+    { label: "Rating", options: ratingOptions },
+    { label: "Skill Level", options: skillLevelOptions },
+    { label: "Technology", options: technologyOptions },
+    { label: "Type of Resource", options: typeOfResourceOptions },
+    { label: "Others", options: othersOptions },
+  ];
+
   if (!isLoading) {
-    tags = data.map((tag) => {
+    const tags = data.map((tag) => {
+      const matches = tag.tag.match(/\((.*?)\)/); // Extract text inside parentheses
+      if (matches && matches[1]) {
+        const abbreviation = matches[1];
+        const optionArray = optionsMapping[abbreviation];
+        if (optionArray) {
+          optionArray.push({ value: tag.tag, label: tag.tag });
+          return { value: tag.tag, label: tag.tag };
+        }
+      }
+      othersOptions.push({ value: tag.tag, label: tag.tag }); // Push to othersOptions array
       return { value: tag.tag, label: tag.tag };
     });
   }
@@ -44,7 +98,7 @@ export default function SearchBar() {
       />
       <Select
         name="tags"
-        options={tags}
+        options={groupedTags}
         isMulti
         placeholder="Tags auswählen"
         closeMenuOnSelect={true}
