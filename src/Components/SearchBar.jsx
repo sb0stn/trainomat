@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export default function SearchBar() {
   const submit = useSubmit();
-  const debouncedSubmit = useDebounce(submit, 100);
+  const debouncedSubmit = useDebounce(submit, 500);
   const [queryString, setQueryString] = useState("");
 
   const { isLoading, isError, data, error } = useQuery(["tags"], async () => {
