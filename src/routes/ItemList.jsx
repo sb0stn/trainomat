@@ -20,7 +20,7 @@ export default function SearchResults() {
     return <p>loading</p>;
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (inView && hasNextPage) {
       fetchNextPage();
     }
