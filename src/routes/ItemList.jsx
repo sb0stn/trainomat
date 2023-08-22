@@ -106,7 +106,7 @@ export const loader =
   (queryClient) =>
   async ({ request }) => {
     const url = new URL(request.url);
-    const q = url.searchParams.get("q");
+    const q = url.searchParams.get("q") ?? "";
     const tags = url.searchParams.getAll("tags");
 
     const query = itemsQuery(q, tags);

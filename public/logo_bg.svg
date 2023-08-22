@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="104.74mm" height="104.74mm" version="1.1" viewBox="0 0 104.74 104.74" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <mask id="mask50" maskUnits="userSpaceOnUse">
+   <g transform="translate(.10142 .10901)">
+    <circle cx="13.487" cy="39.024" r="8.2038" fill="#6b8f9d" stroke-width=".26458"/>
+    <circle cx="33.686" cy="31.274" r="6.4967" fill="#6b8f9d" stroke-width=".20953"/>
+    <circle cx="22.107" cy="15.167" r="6.4967" fill="#6b8f9d" stroke-width=".20953"/>
+    <circle cx="10.232" cy="8.9327" r="5.6802" fill="#6b8f9d" stroke-width=".1832"/>
+    <circle cx="-1.1987" cy="43.298" r="5.6802" fill="#6b8f9d" stroke-width=".1832"/>
+    <circle cx="7.5595" cy="24.297" r="5.4263" fill="#6b8f9d" stroke-width=".175"/>
+    <circle cx="17.908" cy="25.757" r="4.2835" fill="#6b8f9d" stroke-width=".13815"/>
+    <circle cx="-6.0274" cy="33.566" r="4.2835" fill="#6b8f9d" stroke-width=".13815"/>
+    <circle cx="-8.2496" cy="16.805" r="4.5374" fill="#6b8f9d" stroke-width=".14634"/>
+    <circle cx="-1.8952" cy="4.0439" r="5.6802" fill="#6b8f9d" stroke-width=".1832"/>
+    <circle cx="19.813" cy="3.4083" r="4.5374" fill="#6b8f9d" stroke-width=".14634"/>
+    <circle cx="1.274" cy="15.281" r="4.5374" fill="#6b8f9d" stroke-width=".14634"/>
+    <circle cx="39.6" cy="15.153" r="9.6813" fill="#6b8f9d" stroke-width=".31223"/>
+    <circle cx="27.337" cy="41.609" r="4.5374" fill="#6b8f9d" stroke-width=".14634"/>
+    <circle cx="13.99" cy="52.862" r="4.5374" fill="#6b8f9d" stroke-width=".14634"/>
+    <circle cx="1.9467" cy="33.986" r="2.9404" fill="#6b8f9d" stroke-width=".094833"/>
+    <circle cx="-.65541" cy="28.026" r="2.6047" fill="#6b8f9d" stroke-width=".084005"/>
+    <circle cx="-6.5311" cy="24.921" r="3.2762" fill="#6b8f9d" stroke-width=".10566"/>
+    <circle cx="23.519" cy="32.223" r="2.9404" fill="#6b8f9d" stroke-width=".094833"/>
+    <circle cx="26.54" cy="24.837" r="2.6047" fill="#6b8f9d" stroke-width=".084005"/>
+    <circle cx="12.691" cy="17.45" r="2.6047" fill="#6b8f9d" stroke-width=".084005"/>
+    <circle cx="28.975" cy="5.4471" r="3.6959" fill="#6b8f9d" stroke-width=".1192"/>
+    <circle cx="22.008" cy="48.004" r="2.9404" fill="#6b8f9d" stroke-width=".094833"/>
+    <circle cx="6.0596" cy="48.507" r="2.6047" fill="#6b8f9d" stroke-width=".084005"/>
+    <circle cx="-.25235" cy="21.932" r="1.6814" fill="#6b8f9d" stroke-width=".054227"/>
+   </g>
+  </mask>
+ </defs>
+ <g transform="translate(-52.631 -96.131)">
+  <circle cx="105" cy="148.5" r="52.369" fill="#fff" stroke-width=".27894"/>
+  <circle transform="matrix(1.9793 0 0 1.9793 76.239 94.608)" cx="14.531" cy="27.228" r="26.458" fill="#007196" mask="url(#mask50)" stroke-width=".7223"/>
+ </g>
+</svg>
