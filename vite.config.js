@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ["./node_modules/react", "/react-dom"]
+      external: ["./node_modules/react", "./node_modules/react-dom", "./node_modules/react-dom/client"]
     }
   }
 })
