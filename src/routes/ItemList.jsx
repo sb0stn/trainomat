@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
-import ListItem from "../components/ListItem";
+import ListItem from "../components/ListItem.jsx";
 import styles from "./ItemList.module.css";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";
