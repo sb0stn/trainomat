@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 
-function Item() {
+function ItemDetail() {
   let { state } = useLocation();
 
   console.log(state);
@@ -21,4 +21,4 @@ function Item() {
   );
 }
 
-export default Item;
+export default ItemDetail;
