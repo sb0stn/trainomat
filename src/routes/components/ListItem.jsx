@@ -20,6 +20,7 @@ import {
   faVial,
   faVideo,
 } from "@fortawesome/free-solid-svg-icons";
+import React, { useEffect, useState } from "react";
 
 function Type({ item }) {
   const itemTypeMap = {
@@ -188,6 +189,21 @@ function SkillLevel({ item }) {
 }
 
 function ListItem({ item, index }) {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  // Update window width on resize
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <tr
       style={{ backgroundColor: index % 2 == 0 ? "#EEF4FA" : "#F8FAFC" }}
@@ -205,7 +221,11 @@ function ListItem({ item, index }) {
         </Link>
       </td>
       <td className={styles.date}>
-        <span>{item.data.date}</span>
+        <span>
+          {item.data.date && windowWidth > 1000
+            ? item.data.date
+            : item.data.date?.slice(0, 4)}
+        </span>
       </td>
       {/*       <td>
         <Rating item={item} />
