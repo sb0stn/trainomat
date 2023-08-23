@@ -53,9 +53,6 @@ export default function SearchResults() {
               </React.Fragment>
             );
           })}
-          {/*           {items.pages[0].data.map((item, index) => {
-            return <ListItem item={item} index={index} key={index} />;
-          })} */}
         </tbody>
       </table>
       <button
