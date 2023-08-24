@@ -13,6 +13,7 @@ export default function SearchResults() {
     status,
     fetchNextPage,
     hasNextPage,
+    isFetching,
     isFetchingNextPage,
   } = useInfiniteQuery(itemsQuery(q, tags));
 
@@ -32,6 +33,7 @@ export default function SearchResults() {
     <p>Error: {error.message}</p>
   ) : (
     <>
+      <h2>Suchergebnisse: {items?.pages[0]?.totalResults}</h2>
       <table className={styles.table}>
         <thead style={{ textAlign: "left" }}>
           <tr className={styles.row}>
@@ -55,6 +57,9 @@ export default function SearchResults() {
           })}
         </tbody>
       </table>
+      <h2 style={{ display: isFetchingNextPage ? "block" : "none" }}>
+        Loading Next Page...
+      </h2>
       <button
         style={{ visibility: "hidden" }}
         ref={ref}
@@ -90,11 +95,17 @@ const itemsQuery = (q, tags) => ({
     const nextCursorFromLink =
       nextPageLink && new URL(nextPageLink[1]).searchParams.get("start");
 
+    const totalResults = response.headers.get("Total-Results");
+
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
 
-    return { data: await response.json(), nextId: nextCursorFromLink };
+    return {
+      data: await response.json(),
+      nextId: nextCursorFromLink,
+      totalResults: totalResults,
+    };
   },
   getNextPageParam: (lastPage, pages) => lastPage.nextId,
 });

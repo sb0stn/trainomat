@@ -85,7 +85,6 @@ export default function SearchBar() {
   return (
     <Form method="get" action="/">
       <input
-        style={{ fontSize: "16px" }}
         type="search"
         aria-label="search products"
         name="q"
@@ -109,6 +108,10 @@ export default function SearchBar() {
           submit(`?q=${queryString}&${tagString}`);
         }}
         styles={{
+          control: (baseStyles, state) => ({
+            ...baseStyles,
+            borderColor: "#121212",
+          }),
           option: (baseStyles, state) => ({
             ...baseStyles,
             color: "black",
