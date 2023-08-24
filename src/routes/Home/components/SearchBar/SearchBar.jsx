@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import Select from "react-select";
 import { useDebounce } from "rooks";
 import { useState } from "react";
+import styles from "./SearchBar.module.css";
 
 export default function SearchBar() {
   const submit = useSubmit();
@@ -83,51 +84,54 @@ export default function SearchBar() {
   }
 
   return (
-    <Form method="get" action="/">
-      <input
-        type="search"
-        aria-label="search products"
-        name="q"
-        placeholder="Suchbegriff eingeben"
-        className="search"
-        onChange={(event) => {
-          setQueryString(event.currentTarget.value);
-          debouncedSubmit(event.currentTarget.form);
-        }}
-      />
-      <Select
-        name="tags"
-        options={groupedTags}
-        isMulti
-        placeholder="Tags auswählen"
-        closeMenuOnSelect={true}
-        onChange={(selectedValue, action) => {
-          let tagString = "";
-          selectedValue.map((tag) => (tagString += `&tags=${tag.value}`));
-
-          submit(`?q=${queryString}&${tagString}`);
-        }}
-        styles={{
-          control: (baseStyles, state) => ({
-            ...baseStyles,
-            borderColor: "#121212",
-          }),
-          option: (baseStyles, state) => ({
-            ...baseStyles,
-            color: "black",
-            backgroundColor: state.isFocused ? "#d4d4d4" : "#E6E6E6",
-            borderRadius: "2px",
-            padding: "2px 8px",
-            width: "fit-content",
-            display: "inline-block",
-            margin: "2px",
-          }),
-          menuList: (baseStyles, state) => ({
-            ...baseStyles,
-            padding: "4px 8px",
-          }),
-        }}
-      />
+    <Form method="get" action="/" className={styles.form}>
+      <div className={styles.container}>
+        <h1>Suche nach Dokumenten zu digitaler Barrierefreiheit</h1>
+        <input
+          type="search"
+          aria-label="search products"
+          name="q"
+          placeholder="Suchbegriff eingeben"
+          className="search"
+          onChange={(event) => {
+            setQueryString(event.currentTarget.value);
+            debouncedSubmit(event.currentTarget.form);
+          }}
+        />
+        <Select
+          name="tags"
+          options={groupedTags}
+          isMulti
+          placeholder="Tags auswählen"
+          closeMenuOnSelect={true}
+          onChange={(selectedValue, action) => {
+            let tagString = "";
+            selectedValue.map((tag) => (tagString += `&tags=${tag.value}`));
+            submit(`?q=${queryString}&${tagString}`);
+          }}
+          styles={{
+            control: (baseStyles, state) => ({
+              ...baseStyles,
+              borderColor: "#121212",
+            }),
+            option: (baseStyles, state) => ({
+              ...baseStyles,
+              color: "black",
+              backgroundColor: state.isFocused ? "#d4d4d4" : "#E6E6E6",
+              borderRadius: "2px",
+              padding: "2px 8px",
+              width: "fit-content",
+              display: "inline-block",
+              margin: "2px",
+            }),
+            menuList: (baseStyles, state) => ({
+              ...baseStyles,
+              padding: "4px 8px",
+            }),
+          }}
+        />
+        <button>Suchen</button>
+      </div>
     </Form>
   );
 }

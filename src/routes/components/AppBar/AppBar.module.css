@@ -4,6 +4,7 @@
   align-items: center;
   grid-gap: 12px;
   margin: 0 auto;
+  background-color: #f3f8fe;
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr 2fr 1fr;

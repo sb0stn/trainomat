@@ -1,0 +1,26 @@
+.form {
+  background-color: #f3f8fe;
+  padding: 24px 0;
+}
+
+.form button {
+  width: 100%;
+  background-color: #72aef3;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  padding: 8px 0;
+  border-radius: 4px;
+}
+
+.container {
+  background-color: #d0e4fb;
+  border-radius: 4px;
+  padding: 24px 48px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.container > * {
+  margin-bottom: 8px;
+}

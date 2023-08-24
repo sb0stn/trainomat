@@ -1,6 +1,6 @@
-import SearchBar from "../SearchBar/SearchBar";
 import logo from "../../../assets/logo.svg";
 import styles from "./AppBar.module.css";
+import { Link } from "react-router-dom";
 
 export default function AppBar() {
   return (
@@ -9,7 +9,17 @@ export default function AppBar() {
         <img className={styles.logo_svg} src={logo} alt="Logo" />
         <span className={styles.logo_text}>TRAINOMAT</span>
       </div>
-      <SearchBar className={styles.searchBar} />
+      <nav>
+        <ol>
+          <li>
+            <Link to={"/"}>Home</Link>
+          </li>
+          <li>
+            {" "}
+            <Link to={"/about"}>About</Link>
+          </li>
+        </ol>
+      </nav>
     </header>
   );
 }

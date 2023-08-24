@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
-import ListItem from "./components/ListItem/ListItem.jsx";
+import ListItem from "../../../components/ListItem/ListItem.jsx";
 import styles from "./ItemList.module.css";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";
@@ -13,7 +13,6 @@ export default function SearchResults() {
     status,
     fetchNextPage,
     hasNextPage,
-    isFetching,
     isFetchingNextPage,
   } = useInfiniteQuery(itemsQuery(q, tags));
 
