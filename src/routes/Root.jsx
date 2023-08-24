@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
-import SearchBar from "./components/SearchBar.jsx";
+import AppBar from "./components/AppBar/AppBar.jsx";
 import "./Root.css";
 
 function Root() {
   return (
     <main>
-      <SearchBar />
+      <AppBar />
       <Outlet />
     </main>
   );

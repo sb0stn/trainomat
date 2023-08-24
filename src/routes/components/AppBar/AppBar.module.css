@@ -1,0 +1,34 @@
+.header {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "search";
+  align-items: center;
+  grid-gap: 12px;
+  max-width: 700px;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    grid-template-areas: "header search .";
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+}
+
+.logo_container {
+  display: flex;
+  grid-area: header;
+}
+
+.logo_svg {
+  width: 50px;
+  margin-right: 12px;
+}
+
+.logo_text {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.searchBar {
+  grid-area: search;
+}
