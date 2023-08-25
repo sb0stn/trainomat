@@ -1,3 +1,8 @@
+.table_container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
 .table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -7,4 +12,13 @@
 .row {
   display: grid;
   grid-template-columns: 1fr 108px 159px;
+}
+
+.row th {
+  font-weight: 400;
+  color: #04182f;
+}
+
+.row th:nth-child(1) {
+  margin-left: 12px;
 }

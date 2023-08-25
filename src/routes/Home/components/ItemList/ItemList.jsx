@@ -32,41 +32,45 @@ export default function SearchResults() {
     <p>Error: {error.message}</p>
   ) : (
     <>
-      <h2>Suchergebnisse: {items?.pages[0]?.totalResults}</h2>
-      <table className={styles.table}>
-        <thead style={{ textAlign: "left" }}>
-          <tr className={styles.row}>
-            <th>Titel</th>
-            <th>Datum</th>
-            {/* <th>Rating</th> */}
-            <th>Typ</th>
-            {/* <th>Rolle</th> */}
-            {/* <th>Skill Level</th> */}
-          </tr>
-        </thead>
-        <tbody>
-          {items.pages.map((page) => {
-            return (
-              <React.Fragment key={page.nextId}>
-                {page.data.map((item, index) => {
-                  return <ListItem item={item} index={index} key={index} />;
-                })}
-              </React.Fragment>
-            );
-          })}
-        </tbody>
-      </table>
-      <h2 style={{ display: isFetchingNextPage ? "block" : "none" }}>
-        Loading Next Page...
-      </h2>
-      <button
-        style={{ visibility: "hidden" }}
-        ref={ref}
-        onClick={() => fetchNextPage()}
-        disabled={!hasNextPage || isFetchingNextPage}
-      >
-        Next
-      </button>
+      <div className={styles.table_container}>
+        <h2 style={{ margin: "24px 12px" }}>
+          Suchergebnisse: {items?.pages[0]?.totalResults}
+        </h2>
+        <table className={styles.table}>
+          <thead style={{ textAlign: "left" }}>
+            <tr className={styles.row}>
+              <th>Titel</th>
+              <th>Datum</th>
+              {/* <th>Rating</th> */}
+              <th>Typ</th>
+              {/* <th>Rolle</th> */}
+              {/* <th>Skill Level</th> */}
+            </tr>
+          </thead>
+          <tbody>
+            {items.pages.map((page) => {
+              return (
+                <React.Fragment key={page.nextId}>
+                  {page.data.map((item, index) => {
+                    return <ListItem item={item} index={index} key={index} />;
+                  })}
+                </React.Fragment>
+              );
+            })}
+          </tbody>
+        </table>
+        <h2 style={{ display: isFetchingNextPage ? "block" : "none" }}>
+          Loading Next Page...
+        </h2>
+        <button
+          style={{ visibility: "hidden" }}
+          ref={ref}
+          onClick={() => fetchNextPage()}
+          disabled={!hasNextPage || isFetchingNextPage}
+        >
+          Next
+        </button>
+      </div>
     </>
   );
 }
