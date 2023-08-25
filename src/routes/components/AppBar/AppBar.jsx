@@ -22,7 +22,7 @@ export default function AppBar() {
               <NavLink
                 to={"/"}
                 className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ? styles.active : styles.link
+                  isActive ? styles.active : styles.link
                 }
               >
                 Home
@@ -32,7 +32,7 @@ export default function AppBar() {
               <NavLink
                 to={"/about"}
                 className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ? styles.active : styles.link
+                  isActive ? styles.active : styles.link
                 }
               >
                 About
