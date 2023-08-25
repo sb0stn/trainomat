@@ -1,18 +1,23 @@
 .header {
-  display: grid;
-  grid-template-columns: auto;
-  align-items: center;
-  grid-gap: 12px;
-  margin: 0 auto;
   background-color: #f3f8fe;
 
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 2fr 1fr;
-  }
+  padding: 24px 0;
+}
+
+.header_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .logo_container {
   display: flex;
+}
+
+.logo {
+  display: block;
 }
 
 .logo_svg {
@@ -26,5 +31,28 @@
   font-weight: 700;
 }
 
-.searchBar {
+.slogan {
+  color: #04182f95;
+  font-size: 0.9rem;
+}
+
+nav ol {
+  list-style-type: none;
+  display: flex;
+}
+
+nav ol li {
+  margin: 0 12px;
+}
+
+.link {
+  text-decoration: none;
+  color: #04182f;
+  font-weight: 700;
+}
+
+.active {
+  color: #04182f;
+  font-weight: 700;
+  text-decoration-thickness: 3px;
 }
