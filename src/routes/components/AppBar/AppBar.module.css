@@ -13,7 +13,9 @@
   padding: 0 12px;
 }
 
-.logo_container {
+.burger_menu {
+  margin: 8px;
+  font-size: 1.4rem;
 }
 
 .logo {
