@@ -7,13 +7,14 @@ export default function AppBar() {
     <header className={styles.header}>
       <div className={styles.header_container}>
         <div className={styles.logo_container}>
-          <img className={styles.logo_svg} src={logo} alt="Logo" />
           <div className={styles.logo}>
+            <img className={styles.logo_svg} src={logo} alt="Logo" />
+            <div className={styles.vertical_line}></div>
             <span className={styles.logo_text}>TRAINOMAT</span>
-            <p className={styles.slogan}>
-              Ein Projekt des Kompetenzzentrum für digitale Barrierefreiheit
-            </p>
           </div>
+          <span className={styles.slogan}>
+            Ein Projekt des Kompetenzzentrum für digitale Barrierefreiheit
+          </span>
         </div>
         <nav>
           <ol>

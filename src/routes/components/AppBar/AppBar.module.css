@@ -1,6 +1,5 @@
 .header {
   background-color: #f3f8fe;
-
   padding: 24px 0;
 }
 
@@ -10,14 +9,15 @@
   justify-content: space-between;
   max-width: 900px;
   margin: 0 auto;
+
+  padding: 0 12px;
 }
 
 .logo_container {
-  display: flex;
 }
 
 .logo {
-  display: block;
+  display: flex;
 }
 
 .logo_svg {
@@ -31,6 +31,11 @@
   font-weight: 700;
 }
 
+.vertical_line {
+  border-left: 3px solid #04182f;
+  margin-right: 12px;
+}
+
 .slogan {
   color: #04182f95;
   font-size: 0.9rem;
@@ -42,7 +47,7 @@ nav ol {
 }
 
 nav ol li {
-  margin: 0 12px;
+  margin: 0 0 0 12px;
 }
 
 .link {
@@ -55,4 +60,5 @@ nav ol li {
   color: #04182f;
   font-weight: 700;
   text-decoration-thickness: 3px;
+  text-underline-offset: 8px;
 }
