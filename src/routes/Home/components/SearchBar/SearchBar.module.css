@@ -1,6 +1,12 @@
 .form {
   background-color: #f3f8fe;
   padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 720px) {
+    padding: 12px 0;
+  }
 }
 
 .form button {
@@ -18,7 +24,11 @@
   border-radius: 4px;
   padding: 24px 48px;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 8px;
+
+  @media (max-width: 720px) {
+    padding: 24px 8px;
+  }
 }
 
 .container > * {
