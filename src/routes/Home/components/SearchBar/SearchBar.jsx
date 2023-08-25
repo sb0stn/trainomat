@@ -92,7 +92,7 @@ export default function SearchBar() {
           aria-label="search products"
           name="q"
           placeholder="Suchbegriff eingeben"
-          className="search"
+          className={styles.search}
           onChange={(event) => {
             setQueryString(event.currentTarget.value);
             debouncedSubmit(event.currentTarget.form);
@@ -112,7 +112,11 @@ export default function SearchBar() {
           styles={{
             control: (baseStyles, state) => ({
               ...baseStyles,
-              borderColor: "#121212",
+              border: "none",
+            }),
+            placeholder: (baseStyles, state) => ({
+              ...baseStyles,
+              color: "#04182F70",
             }),
             option: (baseStyles, state) => ({
               ...baseStyles,
