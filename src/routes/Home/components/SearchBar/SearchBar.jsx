@@ -139,7 +139,7 @@ export default function SearchBar() {
                   }, "")
                 : "";
             setSelectedTags(selectedValue);
-            submit(`?q=${queryString}${tagString}`);
+            submit(`?q=${inputValue}${tagString}`);
           }}
           styles={{
             control: (baseStyles, state) => ({
