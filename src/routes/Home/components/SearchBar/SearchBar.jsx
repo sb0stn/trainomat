@@ -2,13 +2,34 @@ import { Form, useSubmit } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import Select from "react-select";
 import { useDebounce } from "rooks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./SearchBar.module.css";
 
 export default function SearchBar() {
   const submit = useSubmit();
   const debouncedSubmit = useDebounce(submit, 200);
   const [queryString, setQueryString] = useState("");
+  const [selectedTags, setSelectedTags] = useState();
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const tagsParam = searchParams.getAll("tags");
+
+    if (tagsParam.length > 0) {
+      const tags = tagsParam
+        .filter((tag) => tag.trim() !== "") // Filter out empty string elements
+        .map((tag) => ({
+          value: tag.replace(/\+/g, " ").trim(),
+          label: tag.replace(/\+/g, " ").trim(),
+        }));
+      setSelectedTags(tags);
+    }
+
+    const qParam = searchParams.get("q");
+    if (qParam) {
+      setQueryString(qParam);
+    }
+  }, [location.search]);
 
   const { isLoading, isError, data, error } = useQuery(["tags"], async () => {
     const response = await fetch(
@@ -92,6 +113,7 @@ export default function SearchBar() {
           aria-label="search products"
           name="q"
           placeholder="Suchbegriff eingeben"
+          value={queryString}
           className={styles.search}
           onChange={(event) => {
             setQueryString(event.currentTarget.value);
@@ -104,10 +126,18 @@ export default function SearchBar() {
           isMulti
           placeholder="Tags auswählen"
           closeMenuOnSelect={true}
+          value={selectedTags}
+          hideSelectedOptions={false}
           onChange={(selectedValue, action) => {
-            let tagString = "";
-            selectedValue.map((tag) => (tagString += `&tags=${tag.value}`));
-            submit(`?q=${queryString}&${tagString}`);
+            console.log(selectedValue);
+            const tagString =
+              selectedValue.length > 0
+                ? selectedValue.reduce((acc, tag) => {
+                    return `${acc}&tags=${tag.value}`;
+                  }, "")
+                : "";
+            setSelectedTags(selectedValue);
+            submit(`?q=${queryString}${tagString}`);
           }}
           styles={{
             control: (baseStyles, state) => ({
