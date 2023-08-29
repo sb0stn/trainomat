@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  align-items: center;
+  background-color: #f3f8fe;
+  width: fit-content;
+  margin: 12px auto;
+  padding: 24px 48px;
+  border-radius: 4px;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+  color: #04182f;
+  margin: 12px;
+}
+
+.spinner {
+  animation: spin infinite 2s linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

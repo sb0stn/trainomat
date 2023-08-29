@@ -4,6 +4,7 @@ import ListItem from "../../../components/ListItem/ListItem.jsx";
 import styles from "./ItemList.module.css";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";
+import LoadNewPageIndicator from "./components/LoadNewPageIndicator.jsx";
 
 export default function SearchResults() {
   const { ref, inView } = useInView();
@@ -59,9 +60,10 @@ export default function SearchResults() {
             })}
           </tbody>
         </table>
-        <h2 style={{ display: isFetchingNextPage ? "block" : "none" }}>
-          Loading Next Page...
-        </h2>
+        <LoadNewPageIndicator
+          isFetchingNextPage={isFetchingNextPage}
+          pages={items?.pages}
+        />
         <button
           style={{ visibility: "hidden" }}
           ref={ref}
