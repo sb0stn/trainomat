@@ -8,6 +8,7 @@ import styles from "./SearchBar.module.css";
 export default function SearchBar() {
   const submit = useSubmit();
   const debouncedSubmit = useDebounce(submit, 200);
+  const [inputValue, setInputValue] = useState("");
   const [queryString, setQueryString] = useState("");
   const [selectedTags, setSelectedTags] = useState();
 
@@ -28,8 +29,9 @@ export default function SearchBar() {
     const qParam = searchParams.get("q");
     if (qParam) {
       setQueryString(qParam);
+      setInputValue(qParam); // Set the input value from the query string
     }
-  }, [location.search]);
+  }, []);
 
   const { isLoading, isError, data, error } = useQuery(["tags"], async () => {
     const response = await fetch(
@@ -113,10 +115,10 @@ export default function SearchBar() {
           aria-label="search products"
           name="q"
           placeholder="Suchbegriff eingeben"
-          value={queryString}
+          value={inputValue} // Update the value prop with inputValue
           className={styles.search}
           onChange={(event) => {
-            setQueryString(event.currentTarget.value);
+            setInputValue(event.currentTarget.value); // Update inputValue state
             debouncedSubmit(event.currentTarget.form);
           }}
         />
