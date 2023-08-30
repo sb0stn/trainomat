@@ -11,16 +11,14 @@ export default function AppBar() {
   return (
     <header className={styles.header}>
       <div className={styles.header_container}>
-        <div className={styles.logo_container}>
-          <div className={styles.logo}>
-            <img className={styles.logo_svg} src={logo} alt="Logo" />
-            <div className={styles.vertical_line}></div>
-            <span className={styles.logo_text}>TRAINOMAT</span>
-          </div>
-          <span className={styles.slogan}>
-            Ein Projekt des Kompetenzzentrum für digitale Barrierefreiheit
-          </span>
+        <div className={styles.logo}>
+          <img className={styles.logo_svg} src={logo} alt="Logo" />
+          <div className={styles.vertical_line}></div>
+          <span className={styles.logo_text}>TRAINOMAT</span>
         </div>
+        <span className={styles.slogan}>
+          Ein Projekt des Kompetenzzentrum für digitale Barrierefreiheit
+        </span>
         {isMobile ? (
           <FontAwesomeIcon icon={faBars} className={styles.burger_menu} />
         ) : (

@@ -4,9 +4,11 @@
 }
 
 .header_container {
-  display: flex;
+  display: grid;
+  grid-template-areas:
+    "logo nav"
+    "slogan slogan";
   align-items: center;
-  justify-content: space-between;
   max-width: 900px;
   margin: 0 auto;
 
@@ -15,32 +17,40 @@
 
 .burger_menu {
   margin: 8px;
-  font-size: 1.4rem;
+  font-size: 1.7rem;
+  grid-area: nav;
+  justify-self: end;
 }
 
 .logo {
   display: flex;
+  gap: 12px;
 }
 
 .logo_svg {
   width: 50px;
   height: 50px;
-  margin-right: 12px;
 }
 
 .logo_text {
   font-size: 2rem;
   font-weight: 700;
+  align-self: center;
 }
 
 .vertical_line {
   border-left: 3px solid #04182f;
-  margin-right: 12px;
 }
 
 .slogan {
   color: #04182f95;
   font-size: 0.9rem;
+  margin-top: 12px;
+}
+
+nav {
+  grid-area: nav;
+  justify-self: end;
 }
 
 nav ol {
