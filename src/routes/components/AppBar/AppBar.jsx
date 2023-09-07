@@ -17,7 +17,7 @@ export default function AppBar() {
           <span className={styles.logo_text}>TRAINOMAT</span>
         </div>
         <span className={styles.slogan}>
-          Ein Projekt des Kompetenzzentrum für digitale Barrierefreiheit
+          Eine Sammlung an Dokumenten zu digitaler Barrierefreiheit
         </span>
         {isMobile ? (
           <FontAwesomeIcon icon={faBars} className={styles.burger_menu} />
