@@ -80,7 +80,7 @@ export default function SearchResults() {
 const itemsQuery = (q, tags) => ({
   queryKey: ["items", q, tags],
   queryFn: async ({ pageParam = 0 }) => {
-    const url = new URL("https://api.zotero.org/groups/2580211/items");
+    const url = new URL("https://api.zotero.org/groups/4624031/items");
 
     q && url.searchParams.append("q", q);
 

@@ -35,7 +35,7 @@ export default function SearchBar() {
 
   const { isLoading, isError, data, error } = useQuery(["tags"], async () => {
     const response = await fetch(
-      "https://api.zotero.org/groups/2580211/tags?limit=100/"
+      "https://api.zotero.org/groups/4624031/tags?limit=100/"
     );
 
     if (!response.ok) {
