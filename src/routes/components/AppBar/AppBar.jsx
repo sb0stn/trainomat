@@ -19,10 +19,12 @@ export default function AppBar() {
         <span className={styles.slogan}>
           Eine Sammlung an Dokumenten zu digitaler Barrierefreiheit
         </span>
-        {isMobile ? (
-          <FontAwesomeIcon icon={faBars} className={styles.burger_menu} />
-        ) : (
-          <nav>
+        <nav>
+          {isMobile ? (
+            <>
+              <FontAwesomeIcon icon={faBars} className={styles.burger_menu} />
+            </>
+          ) : (
             <ol>
               <li>
                 <NavLink
@@ -45,8 +47,8 @@ export default function AppBar() {
                 </NavLink>
               </li>
             </ol>
-          </nav>
-        )}
+          )}
+        </nav>
       </div>
     </header>
   );
