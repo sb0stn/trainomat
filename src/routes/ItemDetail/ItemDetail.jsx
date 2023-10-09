@@ -11,27 +11,52 @@ function ItemDetail() {
   console.log(state);
   return (
     <main className={styles.main}>
-      {/*       <nav>
-        <Link
-          onClick={() => {
-            navigate(-1);
-          }}
-        >
-          <FontAwesomeIcon icon={faChevronLeft} />
-          Zurück
-        </Link>
-      </nav> */}
       <h1>{state.data.title}</h1>
-      <h2>Link</h2>
       <a href={state.data.url} target="_blank">
         {state.data.url}
       </a>
-      <h2>Abstract</h2>
       <p>{state.data.abstractNote}</p>
-      <h2>Tags</h2>
       {state.data.tags.map((tag, index) => {
         return <Tag key={index} tag={tag.tag} />;
       })}
+      <table>
+        <tr>
+          <td>Typ</td>
+          <td>{state.data.itemType}</td>
+        </tr>
+        <tr>
+          <td>Sprache</td>
+          <td>{state.data.language}</td>
+        </tr>
+        <tr>
+          <td>Author</td>
+          <td>{state.data.creators[0].name}</td>
+        </tr>
+        <tr>
+          <td>Datum</td>
+          <td>{state.data.date}</td>
+        </tr>
+        <tr>
+          <td>Ersteller</td>
+          <td>{state.meta.createdByUser.username}</td>
+        </tr>
+        <tr>
+          <td>Erstellt am</td>
+          <td>{state.data.dateAdded}</td>
+        </tr>
+        <tr>
+          <td>Modifiziert</td>
+          <td>{state.data.dateModified}</td>
+        </tr>
+        <tr>
+          <td>Zotero Link</td>
+          <td>
+            <a href={state.links.alternate.href}>
+              {state.links.alternate.href}
+            </a>
+          </td>
+        </tr>
+      </table>
     </main>
   );
 }
