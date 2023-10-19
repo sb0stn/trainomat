@@ -16,8 +16,8 @@ export default function SearchResults() {
   const searchParams = new URLSearchParams(location.search);
   const q = searchParams.get("q");
   const tags = searchParams.getAll("tags");
-  const sort = searchParams.get("sort");
-  const direction = searchParams.get("direction");
+  const sort = searchParams.get("sort") ?? "title"; //define default "title"
+  const direction = searchParams.get("direction") ?? "asc"; //define default "asc"
 
   const {
     data: items,
@@ -71,9 +71,15 @@ export default function SearchResults() {
     }
   }, [inView]);
 
+  //Triggered by Sort Click
+  //add sort and direction param to url
   function handleSort(sortParam) {
+    //if sortparam is the previous -> reverse direction
     const reverseDirection = direction === "asc" ? "desc" : "asc";
-    navigate(`?sort=${sortParam}&direction=${reverseDirection}`);
+
+    navigate(
+      `?q=${q}&tags=${tags}&sort=${sortParam}&direction=${reverseDirection}`
+    );
   }
 
   return status === "loading" ? (
