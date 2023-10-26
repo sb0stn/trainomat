@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import ListItem from "../../../components/ListItem/ListItem.jsx";
+import ListItem from "../../../../components/ListItem/ListItem.jsx";
 import styles from "./ItemList.module.css";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";
@@ -8,13 +8,13 @@ import LoadNewPageIndicator from "./components/LoadNewPageIndicator.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
-export default function SearchResults() {
+export default function SearchResults({ setStatus }) {
   const { ref, inView } = useInView();
   const navigate = useNavigate();
 
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const q = searchParams.get("q");
+  const q = searchParams.get("q") ?? "";
   const tags = searchParams.getAll("tags");
   const sort = searchParams.get("sort") ?? "title"; //define default "title"
   const direction = searchParams.get("direction") ?? "asc"; //define default "asc"
@@ -70,6 +70,10 @@ export default function SearchResults() {
       fetchNextPage();
     }
   }, [inView]);
+
+  useEffect(() => {
+    setStatus(status);
+  }, [status]);
 
   //Triggered by Sort Click
   //add sort and direction param to url

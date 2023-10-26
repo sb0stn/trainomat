@@ -5,7 +5,7 @@ import { useDebounce } from "rooks";
 import { useEffect, useState } from "react";
 import styles from "./SearchBar.module.css";
 
-export default function SearchBar() {
+export default function SearchBar({ status }) {
   const submit = useSubmit();
   const debouncedSubmit = useDebounce(submit, 200);
   const [inputValue, setInputValue] = useState("");
@@ -106,6 +106,8 @@ export default function SearchBar() {
     });
   }
 
+  console.log(status);
+
   return (
     <Form method="get" action="/" className={styles.form}>
       <div className={styles.container}>
@@ -166,7 +168,11 @@ export default function SearchBar() {
             }),
           }}
         />
-        <button>Suchen</button>
+        <button
+          className={status == "loading" ? styles.loadingButton : styles.button}
+        >
+          Suchen
+        </button>
       </div>
     </Form>
   );
