@@ -7,6 +7,8 @@ import { useInView } from "react-intersection-observer";
 import LoadNewPageIndicator from "./components/LoadNewPageIndicator.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export default function SearchResults({ setStatus }) {
   const { ref, inView } = useInView();
@@ -86,13 +88,8 @@ export default function SearchResults({ setStatus }) {
     );
   }
 
-  return status === "loading" ? (
-    <p>Loading...</p>
-  ) : status === "error" ? (
-    <p>Error: {error.message}</p>
-  ) : (
+  return (
     <>
-      {status}
       <div className={styles.table_container}>
         <h2 style={{ margin: "24px 12px" }}>
           Suchergebnisse: {items?.pages[0]?.totalResults}
@@ -116,28 +113,37 @@ export default function SearchResults({ setStatus }) {
                   <FontAwesomeIcon icon={faChevronDown} />
                 )}
               </th>
-              {/* <th>Rating</th> */}
               <th>Typ</th>
-              {/* <th>Rolle</th> */}
-              {/* <th>Skill Level</th> */}
             </tr>
           </thead>
-          <tbody>
-            {items.pages.map((page) => {
-              return (
-                <React.Fragment key={page.nextId}>
-                  {page.data.map((item, index) => {
-                    return <ListItem item={item} index={index} key={index} />;
-                  })}
-                </React.Fragment>
-              );
-            })}
-          </tbody>
+
+          {console.log(status)}
+
+          {status === "success" ? (
+            <tbody>
+              {items.pages.map((page) => {
+                return (
+                  <React.Fragment key={page.nextId}>
+                    {page.data.map((item, index) => {
+                      return <ListItem item={item} index={index} key={index} />;
+                    })}
+                  </React.Fragment>
+                );
+              })}
+            </tbody>
+          ) : (
+            <Skeleton count={100} />
+          )}
         </table>
-        <LoadNewPageIndicator
-          isFetchingNextPage={isFetchingNextPage}
-          pages={items?.pages}
-        />
+        {status === "success" ? (
+          <LoadNewPageIndicator
+            isFetchingNextPage={isFetchingNextPage}
+            pages={items?.pages}
+          />
+        ) : (
+          <></>
+        )}
+
         <button
           style={{ visibility: "hidden" }}
           ref={ref}
