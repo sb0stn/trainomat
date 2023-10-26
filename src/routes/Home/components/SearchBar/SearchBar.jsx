@@ -4,6 +4,8 @@ import Select from "react-select";
 import { useDebounce } from "rooks";
 import { useEffect, useState } from "react";
 import styles from "./SearchBar.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 export default function SearchBar({ status }) {
   const submit = useSubmit();
@@ -172,6 +174,14 @@ export default function SearchBar({ status }) {
           className={status == "loading" ? styles.loadingButton : styles.button}
         >
           Suchen
+          {status == "loading" ? (
+            <FontAwesomeIcon
+              icon={faCircleNotch}
+              className={`${styles.spinner} ${styles.icon}`}
+            />
+          ) : (
+            <></>
+          )}
         </button>
       </div>
     </Form>

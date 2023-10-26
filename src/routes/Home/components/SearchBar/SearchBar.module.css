@@ -70,3 +70,21 @@
 .search::placeholder {
   color: #04182f70;
 }
+
+.icon {
+  position: absolute;
+  margin-left: 6px;
+}
+
+.spinner {
+  animation: spin infinite 2s linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
