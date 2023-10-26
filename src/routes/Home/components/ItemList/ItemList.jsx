@@ -132,7 +132,13 @@ export default function SearchResults({ setStatus }) {
               })}
             </tbody>
           ) : (
-            <Skeleton count={100} />
+            <Skeleton
+              count={100}
+              style={{
+                height: "32px",
+                margin: "0 8px 8px 8px",
+              }}
+            />
           )}
         </table>
         {status === "success" ? (
@@ -144,14 +150,8 @@ export default function SearchResults({ setStatus }) {
           <></>
         )}
 
-        <button
-          style={{ visibility: "hidden" }}
-          ref={ref}
-          onClick={() => fetchNextPage()}
-          disabled={!hasNextPage || isFetchingNextPage}
-        >
-          Next
-        </button>
+        <button style={{ visibility: "hidden" }} ref={ref} />
+        {/* Element to detect end of page */}
       </div>
     </>
   );
