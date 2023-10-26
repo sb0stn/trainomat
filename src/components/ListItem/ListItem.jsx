@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "./ListItem.module.css";
 import React, { useEffect, useState } from "react";
 import Type from "./components/Type.jsx";
-import useIsMobile from "../../../Hooks/useIsMobile";
+import useIsMobile from "../../Hooks/useIsMobile";
 import Rating from "./components/Rating.jsx";
 import Role from "./components/Role.jsx";
 import SkillLevel from "./components/SkillLevel.jsx";
