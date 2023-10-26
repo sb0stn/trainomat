@@ -30,7 +30,7 @@ function ItemDetail() {
         </tr>
         <tr>
           <td>Author</td>
-          <td>{state.data.creators[0].name}</td>
+          <td>{state.data.creators[0]?.name}</td>
         </tr>
         <tr>
           <td>Datum</td>
@@ -38,7 +38,7 @@ function ItemDetail() {
         </tr>
         <tr>
           <td>Ersteller</td>
-          <td>{state.meta.createdByUser.username}</td>
+          <td>{state.meta.createdByUser?.username}</td>
         </tr>
         <tr>
           <td>Erstellt am</td>

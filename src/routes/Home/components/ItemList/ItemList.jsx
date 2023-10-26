@@ -133,10 +133,10 @@ export default function SearchResults({ setStatus }) {
             </tbody>
           ) : (
             <Skeleton
-              count={100}
+              count={20}
               style={{
                 height: "32px",
-                margin: "0 8px 8px 8px",
+                marginBottom: "8px",
               }}
             />
           )}
