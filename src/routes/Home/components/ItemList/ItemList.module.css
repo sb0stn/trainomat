@@ -22,3 +22,15 @@
 .row th:nth-child(1) {
   margin-left: 12px;
 }
+
+.active {
+  font-weight: 700 !important;
+}
+
+.chevron {
+  margin-left: 4px;
+}
+
+.clickable {
+  cursor: pointer;
+}

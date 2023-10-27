@@ -97,20 +97,42 @@ export default function SearchResults({ setStatus }) {
         <table className={styles.table}>
           <thead style={{ textAlign: "left" }}>
             <tr className={styles.row}>
-              <th onClick={() => handleSort("title")}>
+              <th
+                onClick={() => handleSort("title")}
+                className={`${styles.clickable} ${
+                  sort === "title" ? styles.active : ""
+                }`}
+              >
                 Titel
                 {direction == "desc" && sort == "title" ? (
-                  <FontAwesomeIcon icon={faChevronUp} />
+                  <FontAwesomeIcon
+                    icon={faChevronUp}
+                    className={styles.chevron}
+                  />
                 ) : (
-                  <FontAwesomeIcon icon={faChevronDown} />
+                  <FontAwesomeIcon
+                    icon={faChevronDown}
+                    className={styles.chevron}
+                  />
                 )}
               </th>
-              <th onClick={() => handleSort("dateAdded")}>
+              <th
+                onClick={() => handleSort("dateAdded")}
+                className={`${styles.clickable} ${
+                  sort === "dateAdded" ? styles.active : ""
+                }`}
+              >
                 Datum
                 {direction == "desc" && sort == "dateAdded" ? (
-                  <FontAwesomeIcon icon={faChevronUp} />
+                  <FontAwesomeIcon
+                    icon={faChevronUp}
+                    className={styles.chevron}
+                  />
                 ) : (
-                  <FontAwesomeIcon icon={faChevronDown} />
+                  <FontAwesomeIcon
+                    icon={faChevronDown}
+                    className={styles.chevron}
+                  />
                 )}
               </th>
               <th>Typ</th>
