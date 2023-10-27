@@ -34,3 +34,7 @@
 .clickable {
   cursor: pointer;
 }
+
+.chevronInactive {
+  color: #04182f60 !important;
+}

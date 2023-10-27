@@ -81,7 +81,8 @@ export default function SearchResults({ setStatus }) {
   //add sort and direction param to url
   function handleSort(sortParam) {
     //if sortparam is the previous -> reverse direction
-    const reverseDirection = direction === "asc" ? "desc" : "asc";
+    const reverseDirection =
+      sortParam === sort ? (direction === "asc" ? "desc" : "asc") : direction;
 
     navigate(
       `?q=${q}&tags=${tags}&sort=${sortParam}&direction=${reverseDirection}`
@@ -107,12 +108,16 @@ export default function SearchResults({ setStatus }) {
                 {direction == "desc" && sort == "title" ? (
                   <FontAwesomeIcon
                     icon={faChevronUp}
-                    className={styles.chevron}
+                    className={`${styles.chevron} ${
+                      sort !== "title" ? styles.chevronInactive : ""
+                    }`}
                   />
                 ) : (
                   <FontAwesomeIcon
                     icon={faChevronDown}
-                    className={styles.chevron}
+                    className={`${styles.chevron} ${
+                      sort !== "title" ? styles.chevronInactive : ""
+                    }`}
                   />
                 )}
               </th>
@@ -126,12 +131,16 @@ export default function SearchResults({ setStatus }) {
                 {direction == "desc" && sort == "dateAdded" ? (
                   <FontAwesomeIcon
                     icon={faChevronUp}
-                    className={styles.chevron}
+                    className={`${styles.chevron} ${
+                      sort !== "dateAdded" ? styles.chevronInactive : ""
+                    }`}
                   />
                 ) : (
                   <FontAwesomeIcon
                     icon={faChevronDown}
-                    className={styles.chevron}
+                    className={`${styles.chevron} ${
+                      sort !== "dateAdded" ? styles.chevronInactive : ""
+                    }`}
                   />
                 )}
               </th>
