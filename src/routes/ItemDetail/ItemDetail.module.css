@@ -1,4 +1,14 @@
 .main {
   max-width: 1400px;
-  padding: 0 12px;
+  padding: 24px 12px 0 12px;
+}
+
+.main > * {
+  margin-bottom: 16px;
+}
+
+.table {
+  display: block;
+  padding: 12px;
+  background-color: #ecf5ff;
 }

@@ -61,7 +61,7 @@ export default function SearchResults({ setStatus }) {
       return {
         data: await response.json(),
         nextId: nextCursorFromLink,
-        totalResults: totalResults,
+        totalResults,
       };
     },
     getNextPageParam: (lastPage, pages) => lastPage.nextId,

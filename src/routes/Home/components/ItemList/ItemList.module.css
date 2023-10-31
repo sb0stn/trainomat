@@ -12,6 +12,7 @@
 .row {
   display: grid;
   grid-template-columns: 1fr 108px 159px;
+  margin-bottom: 8px;
 }
 
 .row th {

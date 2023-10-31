@@ -1,0 +1,28 @@
+.note {
+  background-color: #fef8be;
+  position: relative;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 0;
+  border-bottom: 25px solid white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: rotate(-90deg);
+}
+
+.corner {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 0;
+  border-bottom: 25px solid #f4eda7;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: rotate(90deg);
+}
