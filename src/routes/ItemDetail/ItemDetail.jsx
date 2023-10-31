@@ -12,9 +12,13 @@ function ItemDetail() {
   console.log(state);
   return (
     <main className={styles.main}>
-      <h1>{state.data.title}</h1>
+      <h1 style={{ lineHeight: "100%" }}>{state.data.title}</h1>
       <div>
-        <a href={state.data.url} target="_blank">
+        <a
+          href={state.data.url}
+          target="_blank"
+          style={{ wordBreak: "break-all" }}
+        >
           {state.data.url}
         </a>
       </div>
@@ -24,45 +28,51 @@ function ItemDetail() {
           return <Tag key={index} tag={tag.tag} />;
         })}
       </div>
-      <table className={styles.table}>
-        <tr>
-          <td>Typ</td>
-          <td>{state.data.itemType}</td>
-        </tr>
-        <tr>
-          <td>Sprache</td>
-          <td>{state.data.language}</td>
-        </tr>
-        <tr>
-          <td>Author</td>
-          <td>{state.data.creators && state.data.creators[0]?.name}</td>
-        </tr>
-        <tr>
-          <td>Datum</td>
-          <td>{state.data.date}</td>
-        </tr>
-        <tr>
-          <td>Ersteller</td>
-          <td>{state.meta.createdByUser?.username}</td>
-        </tr>
-        <tr>
-          <td>Erstellt am</td>
-          <td>{state.data.dateAdded}</td>
-        </tr>
-        <tr>
-          <td>Modifiziert</td>
-          <td>{state.data.dateModified}</td>
-        </tr>
-        <tr>
-          <td>Zotero Link</td>
-          <td>
-            <a href={state.links.alternate.href} target="_blank">
-              {state.links.alternate.href}
-            </a>
-          </td>
-        </tr>
-      </table>
-      <Note note="abc"></Note>
+      <div className={styles.tableNoteContainer}>
+        <table className={styles.table}>
+          <tr>
+            <td>Typ</td>
+            <td>{state.data.itemType}</td>
+          </tr>
+          <tr>
+            <td>Sprache</td>
+            <td>{state.data.language}</td>
+          </tr>
+          <tr>
+            <td>Author</td>
+            <td>{state.data.creators && state.data.creators[0]?.name}</td>
+          </tr>
+          <tr>
+            <td>Datum</td>
+            <td>{state.data.date}</td>
+          </tr>
+          <tr>
+            <td>Ersteller</td>
+            <td>{state.meta.createdByUser?.username}</td>
+          </tr>
+          <tr>
+            <td>Erstellt am</td>
+            <td>{state.data.dateAdded}</td>
+          </tr>
+          <tr>
+            <td>Modifiziert</td>
+            <td>{state.data.dateModified}</td>
+          </tr>
+          <tr>
+            <td>Zotero Link</td>
+            <td>
+              <a
+                href={state.links.alternate.href}
+                target="_blank"
+                style={{ wordBreak: "break-all" }}
+              >
+                {state.links.alternate.href}
+              </a>
+            </td>
+          </tr>
+        </table>
+        <Note note={state.data.abstractNote}></Note>
+      </div>
     </main>
   );
 }

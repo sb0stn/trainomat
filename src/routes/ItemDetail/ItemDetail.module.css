@@ -12,3 +12,17 @@
   padding: 12px;
   background-color: #ecf5ff;
 }
+
+.tableNoteContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 12px;
+  @media (max-width: 980px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tableNoteContainer {
+  display: grid;
+  grid-gap: 12px;
+}

@@ -1,6 +1,7 @@
 .note {
   background-color: #fef8be;
   position: relative;
+  padding: 6px 12px 32px 12px;
 }
 
 .triangle {
@@ -25,4 +26,9 @@
   top: 0;
   right: 0;
   transform: rotate(90deg);
+}
+
+hr {
+  border: none;
+  border-top: 1px dotted #00000060;
 }

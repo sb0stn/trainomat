@@ -1,6 +1,6 @@
 import styles from "./Note.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faNoteSticky } from "@fortawesome/free-solid-svg-icons";
+import { faClipboard } from "@fortawesome/free-solid-svg-icons";
 
 export default function Note({ note }) {
   return (
@@ -8,9 +8,10 @@ export default function Note({ note }) {
       <div className={styles.triangle}></div>
       <div className={styles.corner}></div>
       <div style={{ display: "flex", alignItems: "center" }}>
-        <FontAwesomeIcon icon={faNoteSticky} />
+        <FontAwesomeIcon icon={faClipboard} style={{ marginRight: "6px" }} />
         <h2>Notiz</h2>
       </div>
+      <hr />
       <span>{note}</span>
     </div>
   );

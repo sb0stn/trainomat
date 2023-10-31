@@ -1,8 +1,10 @@
 .tag {
   margin-right: 4px;
+  margin-bottom: 4px;
   padding: 4px 8px;
   border-radius: 4px;
   background-color: #d0e4fb;
   font-size: 14px;
-  word-break: break-all;
+  white-space: nowrap;
+  display: inline-block;
 }
