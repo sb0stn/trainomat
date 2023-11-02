@@ -47,49 +47,61 @@ export default function SearchBar({ status }) {
     return response.json();
   });
 
-  const contentOptions = [];
-  const certificateOptions = [];
-  const freeOrFeeOptions = [];
-  const languageOptions = [];
-  const licencesOptions = [];
+  const applicationOptions = [];
   const operatingSystemOptions = [];
-  const programOptions = [];
+  const recommendationOptions = [];
+  const formatOptions = [];
+  const contentOptions = [];
+  const costOptions = [];
+  const licenseOptions = [];
+  const miniWorkshopOptions = [];
+  const notAccessibleOptions = [];
+  const qualificationOptions = [];
   const roleOptions = [];
-  const ratingOptions = [];
-  const skillLevelOptions = [];
+  const languageOptions = [];
   const technologyOptions = [];
-  const typeOfResourceOptions = [];
+  const userDiversityOptions = [];
+  const cpaccCourseOptions = [];
+  const certificateOptions = [];
   const othersOptions = [];
 
   const optionsMapping = {
-    C: contentOptions,
-    Ce: certificateOptions,
-    F: freeOrFeeOptions,
-    La: languageOptions,
-    Li: licencesOptions,
-    OS: operatingSystemOptions,
-    P: programOptions,
+    A: applicationOptions,
+    B: operatingSystemOptions,
+    E: recommendationOptions,
+    F: formatOptions,
+    I: contentOptions,
+    K: costOptions,
+    L: licenseOptions,
+    M: miniWorkshopOptions,
+    N: notAccessibleOptions,
+    Q: qualificationOptions,
     R: roleOptions,
-    Ra: ratingOptions,
-    SL: skillLevelOptions,
+    S: languageOptions,
     T: technologyOptions,
-    Ty: typeOfResourceOptions,
+    V: userDiversityOptions,
+    W1: cpaccCourseOptions,
+    Z: certificateOptions,
   };
 
   let groupedTags = [
-    { label: "Content", options: contentOptions },
-    { label: "Certificate", options: certificateOptions },
-    { label: "Free or Fee", options: freeOrFeeOptions },
-    { label: "Language", options: languageOptions },
-    { label: "Licences", options: licencesOptions },
-    { label: "Operating Systems", options: operatingSystemOptions },
-    { label: "Programs", options: programOptions },
-    { label: "Role", options: roleOptions },
-    { label: "Rating", options: ratingOptions },
-    { label: "Skill Level", options: skillLevelOptions },
-    { label: "Technology", options: technologyOptions },
-    { label: "Type of Resource", options: typeOfResourceOptions },
-    { label: "Others", options: othersOptions },
+    { label: "Anwendungen", options: applicationOptions },
+    { label: "Betriebssysteme", options: operatingSystemOptions },
+    { label: "Empfehlungen", options: recommendationOptions },
+    { label: "Formate", options: formatOptions },
+    { label: "Inhalt", options: contentOptions },
+    { label: "Kosten", options: costOptions },
+    { label: "Lizenzen", options: licenseOptions },
+    { label: "Mini-Workshops", options: miniWorkshopOptions },
+    { label: "Nicht zugänglich für", options: notAccessibleOptions },
+    { label: "Qualifikation", options: qualificationOptions },
+    { label: "Rollen", options: roleOptions },
+    { label: "Sprachen", options: languageOptions },
+    { label: "Technologien", options: technologyOptions },
+    { label: "Vielfalt der Benutzergruppen", options: userDiversityOptions },
+    { label: "CPACC-Kurs", options: cpaccCourseOptions },
+    { label: "Zertifikate", options: certificateOptions },
+    { label: "Andere", options: othersOptions },
   ];
 
   if (!isLoading) {
