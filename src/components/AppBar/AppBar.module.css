@@ -7,7 +7,8 @@
   display: grid;
   grid-template-areas:
     "logo nav"
-    "slogan slogan";
+    "slogan slogan"
+    "mobileMenu mobileMenu";
   align-items: center;
   max-width: 900px;
   margin: 0 auto;
@@ -15,11 +16,27 @@
   padding: 0 12px;
 }
 
-.burger_menu {
+.toggle_icon {
   margin: 8px;
   font-size: 1.7rem;
   grid-area: nav;
   justify-self: end;
+}
+
+.mobileMenu {
+  grid-area: mobileMenu;
+  background-color: #f3f8fe;
+  justify-content: center;
+}
+
+.mobileMenu ol {
+  display: block;
+  text-align: center;
+  padding: 24px 0 0 0;
+}
+
+.mobileMenu ol li {
+  margin: 0 0 24px 0;
 }
 
 .logo {

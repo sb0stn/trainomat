@@ -120,8 +120,6 @@ export default function SearchBar({ status }) {
     });
   }
 
-  console.log(status);
-
   return (
     <Form method="get" action="/" className={styles.form}>
       <div className={styles.container}>

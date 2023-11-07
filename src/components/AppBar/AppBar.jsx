@@ -1,12 +1,15 @@
 import logo from "../../assets/logo.svg";
 import styles from "./AppBar.module.css";
+import { useState } from "react";
+
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import useIsMobile from "../../Hooks/useIsMobile.jsx";
 
 export default function AppBar() {
   const isMobile = useIsMobile();
+  const [mobileMenu, setMobileMenu] = useState(false);
 
   return (
     <header className={styles.header}>
@@ -22,7 +25,19 @@ export default function AppBar() {
         <nav>
           {isMobile ? (
             <>
-              <FontAwesomeIcon icon={faBars} className={styles.burger_menu} />
+              {mobileMenu ? (
+                <FontAwesomeIcon
+                  icon={faXmark}
+                  className={styles.toggle_icon}
+                  onClick={() => setMobileMenu(!mobileMenu)}
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faBars}
+                  className={styles.toggle_icon}
+                  onClick={() => setMobileMenu(!mobileMenu)}
+                />
+              )}
             </>
           ) : (
             <ol>
@@ -49,6 +64,36 @@ export default function AppBar() {
             </ol>
           )}
         </nav>
+        {mobileMenu && (
+          <div className={styles.mobileMenu}>
+            <nav>
+              <ol>
+                <li>
+                  <NavLink
+                    to={"/"}
+                    className={({ isActive, isPending }) =>
+                      isActive ? styles.active : styles.link
+                    }
+                    onClick={() => setMobileMenu(!mobileMenu)}
+                  >
+                    Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to={"/about"}
+                    className={({ isActive, isPending }) =>
+                      isActive ? styles.active : styles.link
+                    }
+                    onClick={() => setMobileMenu(!mobileMenu)}
+                  >
+                    About
+                  </NavLink>
+                </li>
+              </ol>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );
