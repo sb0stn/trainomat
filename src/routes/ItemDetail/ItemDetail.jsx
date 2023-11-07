@@ -71,7 +71,9 @@ function ItemDetail() {
             </td>
           </tr>
         </table>
-        <Note note={state.data.abstractNote}></Note>
+        {state.data.abstractNote && (
+          <Note note={state.data.abstractNote}></Note>
+        )}
       </div>
     </main>
   );
