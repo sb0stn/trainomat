@@ -31,35 +31,23 @@ function ItemDetail() {
       <div className={styles.tableNoteContainer}>
         <table className={styles.table}>
           <tr>
-            <td>Typ</td>
+            <th>Typ</th>
             <td>{state.data.itemType}</td>
           </tr>
           <tr>
-            <td>Sprache</td>
+            <th>Sprache</th>
             <td>{state.data.language}</td>
           </tr>
           <tr>
-            <td>Author</td>
+            <th>Autor</th>
             <td>{state.data.creators && state.data.creators[0]?.name}</td>
           </tr>
           <tr>
-            <td>Datum</td>
+            <th>Datum</th>
             <td>{state.data.date}</td>
           </tr>
           <tr>
-            <td>Ersteller</td>
-            <td>{state.meta.createdByUser?.username}</td>
-          </tr>
-          <tr>
-            <td>Erstellt am</td>
-            <td>{state.data.dateAdded}</td>
-          </tr>
-          <tr>
-            <td>Modifiziert</td>
-            <td>{state.data.dateModified}</td>
-          </tr>
-          <tr>
-            <td>Zotero Link</td>
+            <th>Zotero Link</th>
             <td>
               <a
                 href={state.links.alternate.href}
