@@ -23,11 +23,11 @@ function ItemDetail() {
         </a>
       </div>
       <p>{state.data.abstractNote}</p>
-      <div>
+      <ul className={styles.tagsList}>
         {state.data.tags.map((tag, index) => {
           return <Tag key={index} tag={tag.tag} />;
         })}
-      </div>
+      </ul>
       <div className={styles.tableNoteContainer}>
         <table className={styles.table}>
           <tr>
@@ -71,9 +71,7 @@ function ItemDetail() {
             </td>
           </tr>
         </table>
-        {state.data.abstractNote && (
-          <Note note={state.data.abstractNote}></Note>
-        )}
+        {state.data.extra && <Note extra={state.data.extra}></Note>}
       </div>
     </main>
   );
