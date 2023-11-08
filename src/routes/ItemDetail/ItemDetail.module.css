@@ -9,7 +9,7 @@
 
 .table {
   display: block;
-  padding: 12px;
+  padding: 6px 12px 32px 12px;
   background-color: #ecf5ff;
 }
 
@@ -25,4 +25,8 @@
 .tableNoteContainer {
   display: grid;
   grid-gap: 12px;
+}
+
+.tagsList {
+  padding: 0;
 }
