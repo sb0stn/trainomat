@@ -1,5 +1,5 @@
 import { Form, useSubmit } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import Select from "react-select";
 import { useDebounce } from "rooks";
 import { useEffect, useState } from "react";
@@ -35,17 +35,35 @@ export default function SearchBar({ status }) {
     }
   }, []);
 
-  const { isLoading, isError, data, error } = useQuery(["tags"], async () => {
-    const response = await fetch(
-      "https://api.zotero.org/groups/4624031/tags?limit=100/"
-    );
+  const { data, isLoading, fetchNextPage, hasNextPage } = useInfiniteQuery({
+    queryKey: ["tags"],
+    queryFn: async ({ pageParam = 0 }) => {
+      const url = new URL(`https://api.zotero.org/groups/4624031/tags`);
+      url.searchParams.append("limit", 100);
+      url.searchParams.append("start", pageParam);
 
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
+      const response = await fetch(url);
 
-    return response.json();
+      const linkHeader = response.headers.get("Link");
+      const nextPageLink =
+        linkHeader && linkHeader.match(/<([^>]+)>; rel="next"/);
+      const nextCursorFromLink =
+        nextPageLink && new URL(nextPageLink[1]).searchParams.get("start");
+
+      return {
+        data: await response.json(),
+        nextId: nextCursorFromLink || null,
+      };
+    },
+    getNextPageParam: (lastPage, pages) => lastPage.nextId,
   });
+
+  // useEffect verwenden, um fetchNextPage nach dem ersten Laden aufzurufen
+  useEffect(() => {
+    if (!isLoading && hasNextPage) {
+      fetchNextPage();
+    }
+  }, [isLoading, hasNextPage, fetchNextPage]);
 
   const applicationOptions = [];
   const operatingSystemOptions = [];
@@ -105,18 +123,20 @@ export default function SearchBar({ status }) {
   ];
 
   if (!isLoading) {
-    const tags = data.map((tag) => {
-      const matches = tag.tag.match(/\((.*?)\)/); // Extract text inside parentheses
-      if (matches && matches[1]) {
-        const abbreviation = matches[1];
-        const optionArray = optionsMapping[abbreviation];
-        if (optionArray) {
-          optionArray.push({ value: tag.tag, label: tag.tag });
-          return { value: tag.tag, label: tag.tag };
+    const tags = data.pages.map((page) => {
+      page.data.map((tag) => {
+        const matches = tag.tag.match(/\((.*?)\)/); // Extract text inside parentheses
+        if (matches && matches[1]) {
+          const abbreviation = matches[1];
+          const optionArray = optionsMapping[abbreviation];
+          if (optionArray) {
+            optionArray.push({ value: tag.tag, label: tag.tag });
+            return { value: tag.tag, label: tag.tag };
+          }
         }
-      }
-      othersOptions.push({ value: tag.tag, label: tag.tag }); // Push to othersOptions array
-      return { value: tag.tag, label: tag.tag };
+        othersOptions.push({ value: tag.tag, label: tag.tag }); // Push to othersOptions array
+        return { value: tag.tag, label: tag.tag };
+      });
     });
   }
 
