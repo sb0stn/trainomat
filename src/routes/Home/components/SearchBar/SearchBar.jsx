@@ -123,7 +123,7 @@ export default function SearchBar({ status }) {
   return (
     <Form method="get" action="/" className={styles.form}>
       <div className={styles.container}>
-        <h1>Suche nach Dokumenten zu digitaler Barrierefreiheit</h1>
+        <h1>Suche nach Ressourcen zu digitaler Barrierefreiheit</h1>
         <input
           type="search"
           aria-label="search products"
@@ -182,6 +182,7 @@ export default function SearchBar({ status }) {
         />
         <button
           className={status == "loading" ? styles.loadingButton : styles.button}
+          disabled={status == "loading"}
         >
           Suchen
           {status == "loading" ? (
