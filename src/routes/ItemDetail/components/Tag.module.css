@@ -11,5 +11,6 @@
 }
 
 .tag:hover {
-  background-color: red;
+  background-color: #59a6ff;
+  color: white;
 }
