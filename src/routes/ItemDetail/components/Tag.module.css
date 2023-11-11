@@ -10,7 +10,8 @@
   cursor: pointer;
 }
 
-.tag:hover {
+.tag:hover,
+.tag:focus {
   background-color: #59a6ff;
   color: white;
 }
