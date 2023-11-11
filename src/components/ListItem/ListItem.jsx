@@ -47,18 +47,22 @@ function ListItem({ item, index }) {
             : item.data.date}
         </span>
       </td>
-      {/*       <td>
-        <Rating item={item} />
-      </td> */}
+      <td>
+        {item.data.creators && item.data.creators.length > 0
+          ? item.data.creators.map((creator) => (
+              <span key={creator.id}>
+                {creator.name
+                  ? creator.name
+                  : creator.firstName && creator.lastName
+                  ? `${creator.firstName} ${creator.lastName}`
+                  : null}
+              </span>
+            ))
+          : null}
+      </td>
       <td>
         <Type item={item} />
       </td>
-      {/*       <td>
-        <Role item={item} />
-      </td> */}
-      {/*       <td>
-        <SkillLevel item={item} />
-      </td> */}
     </tr>
   );
 }

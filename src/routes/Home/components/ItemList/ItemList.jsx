@@ -99,13 +99,19 @@ export default function SearchResults({ setStatus }) {
           <thead style={{ textAlign: "left" }}>
             <tr className={styles.row}>
               <th
+                tabIndex={0}
                 onClick={() => handleSort("title")}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handleSort("title");
+                  }
+                }}
                 className={`${styles.clickable} ${
                   sort === "title" ? styles.active : ""
                 }`}
               >
                 Titel
-                {direction == "desc" && sort == "title" ? (
+                {direction === "desc" && sort === "title" ? (
                   <FontAwesomeIcon
                     icon={faChevronUp}
                     className={`${styles.chevron} ${
@@ -122,13 +128,19 @@ export default function SearchResults({ setStatus }) {
                 )}
               </th>
               <th
+                tabIndex={0}
                 onClick={() => handleSort("dateAdded")}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handleSort("dateAdded");
+                  }
+                }}
                 className={`${styles.clickable} ${
                   sort === "dateAdded" ? styles.active : ""
                 }`}
               >
                 Datum
-                {direction == "desc" && sort == "dateAdded" ? (
+                {direction === "desc" && sort === "dateAdded" ? (
                   <FontAwesomeIcon
                     icon={faChevronUp}
                     className={`${styles.chevron} ${
@@ -144,11 +156,11 @@ export default function SearchResults({ setStatus }) {
                   />
                 )}
               </th>
+
+              <th>Autor</th>
               <th>Typ</th>
             </tr>
           </thead>
-
-          {console.log(status)}
 
           {status === "success" ? (
             <tbody>
@@ -168,6 +180,7 @@ export default function SearchResults({ setStatus }) {
               style={{
                 height: "32px",
                 marginBottom: "8px",
+                zIndex: -1,
               }}
             />
           )}
