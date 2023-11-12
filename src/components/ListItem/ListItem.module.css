@@ -1,14 +1,14 @@
 .row {
   padding: 4px 8px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
 }
 
 .link {
   text-decoration: none;
 }
 
-.titleTableData {
+.tableData {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -28,7 +28,7 @@
 }
 
 .date {
-  max-width: 10ch;
+  max-width: 11ch;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

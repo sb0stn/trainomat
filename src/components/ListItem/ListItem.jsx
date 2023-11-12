@@ -29,7 +29,7 @@ function ListItem({ item, index }) {
       style={{ backgroundColor: index % 2 == 0 ? "#EEF4FA" : "#F8FAFC" }}
       className={styles.row}
     >
-      <td className={styles.titleTableData}>
+      <td className={styles.tableData}>
         <Link to={`items/${item.key}`} state={item} className={styles.link}>
           <span className={styles.title}>
             {item.data.title
@@ -47,7 +47,7 @@ function ListItem({ item, index }) {
             : item.data.date}
         </span>
       </td>
-      <td>
+      <td className={styles.tableData}>
         {item.data.creators && item.data.creators.length > 0
           ? item.data.creators.map((creator) => (
               <span key={creator.id}>
