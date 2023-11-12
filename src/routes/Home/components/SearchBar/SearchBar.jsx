@@ -191,11 +191,14 @@ export default function SearchBar({ status }) {
                 : state.isFocused
                 ? "white"
                 : "black",
-              backgroundColor: state.isFocused
-                ? "#59A6FF"
-                : state.isSelected
-                ? "#092D57"
-                : "#E6E6E6",
+              backgroundColor:
+                state.isFocused && state.isSelected
+                  ? "#FF5959"
+                  : state.isSelected
+                  ? "#092D57"
+                  : state.isFocused
+                  ? "#59A6FF"
+                  : "#E6E6E6",
               borderRadius: "2px",
               padding: "2px 8px",
               width: "fit-content",
@@ -212,7 +215,7 @@ export default function SearchBar({ status }) {
           className={status == "loading" ? styles.loadingButton : styles.button}
           disabled={status == "loading"}
         >
-          Suchen
+          <span style={{ marginRight: "8px" }}>Suchen</span>
           {status == "loading" ? (
             <FontAwesomeIcon
               icon={faCircleNotch}
