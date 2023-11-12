@@ -20,8 +20,11 @@ import {
   faVideo,
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "../ListItem.module.css";
+import useWindowWidth from "../../../Hooks/useWindowWidth";
 
 export default function Type({ item }) {
+  const windowWidth = useWindowWidth();
+
   const itemTypeMap = {
     webpage: { icon: faLaptop, label: "Webpage" },
     attachment: { icon: faFile, label: "Attachment" },
@@ -42,7 +45,7 @@ export default function Type({ item }) {
   return (
     <span className={styles.type}>
       <FontAwesomeIcon icon={itemType.icon} className={`${styles.icon}`} />
-      {itemType.label}
+      {itemType.label && windowWidth > 978 ? itemType.label : null}
     </span>
   );
 }
