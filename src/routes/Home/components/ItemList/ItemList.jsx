@@ -113,14 +113,14 @@ export default function SearchResults({ setStatus }) {
                 Titel
                 {direction === "desc" && sort === "title" ? (
                   <FontAwesomeIcon
-                    icon={faChevronUp}
+                    icon={faChevronDown}
                     className={`${styles.chevron} ${
                       sort !== "title" ? styles.chevronInactive : ""
                     }`}
                   />
                 ) : (
                   <FontAwesomeIcon
-                    icon={faChevronDown}
+                    icon={faChevronUp}
                     className={`${styles.chevron} ${
                       sort !== "title" ? styles.chevronInactive : ""
                     }`}
@@ -138,18 +138,19 @@ export default function SearchResults({ setStatus }) {
                 className={`${styles.clickable} ${
                   sort === "dateAdded" ? styles.active : ""
                 }`}
+                style={{ paddingLeft: "4px" }}
               >
                 Datum
                 {direction === "desc" && sort === "dateAdded" ? (
                   <FontAwesomeIcon
-                    icon={faChevronUp}
+                    icon={faChevronDown}
                     className={`${styles.chevron} ${
                       sort !== "dateAdded" ? styles.chevronInactive : ""
                     }`}
                   />
                 ) : (
                   <FontAwesomeIcon
-                    icon={faChevronDown}
+                    icon={faChevronUp}
                     className={`${styles.chevron} ${
                       sort !== "dateAdded" ? styles.chevronInactive : ""
                     }`}
