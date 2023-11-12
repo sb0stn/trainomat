@@ -8,7 +8,10 @@ export default function Note({ extra }) {
       <div className={styles.triangle}></div>
       <div className={styles.corner}></div>
       <h2 style={{ display: "flex", alignItems: "center" }}>
-        <FontAwesomeIcon icon={faClipboard} style={{ marginRight: "6px" }} />
+        <FontAwesomeIcon
+          icon={faClipboard}
+          style={{ marginRight: "6px", width: "15px" }}
+        />
         Notiz
       </h2>
       <hr />
