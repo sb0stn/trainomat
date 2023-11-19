@@ -1,6 +1,6 @@
 .form {
   background-color: #f3f8fe;
-  padding: 18px 0;
+  padding: 6px 0 18px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,7 +38,7 @@
 .container {
   background-color: #d0e4fb;
   border-radius: 4px;
-  padding: 0 48px 24px 48px;
+  padding: 0 48px 18px 48px;
   max-width: 900px;
   margin: 0 8px;
 
