@@ -6,7 +6,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Root from "./routes/Root.jsx";
 import ItemDetail from "./routes/ItemDetail/ItemDetail.jsx";
 import Home from "./routes/Home/Home.jsx";
-import About from "./routes/About/About.jsx";
+import Info from "./routes/Info/Info.jsx";
 import "./index.css";
 
 const queryClient = new QueryClient();
@@ -25,8 +25,8 @@ const router = createBrowserRouter([
         element: <ItemDetail />,
       },
       {
-        path: "/about",
-        element: <About />,
+        path: "/info",
+        element: <Info />,
       },
     ],
   },

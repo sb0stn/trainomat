@@ -49,17 +49,17 @@ export default function AppBar() {
                     isActive ? styles.active : styles.link
                   }
                 >
-                  Home
+                  Startseite
                 </NavLink>
               </li>
               <li>
                 <NavLink
-                  to={"/about"}
+                  to={"/info"}
                   className={({ isActive, isPending }) =>
                     isActive ? styles.active : styles.link
                   }
                 >
-                  About
+                  Info
                 </NavLink>
               </li>
             </ol>
@@ -77,18 +77,18 @@ export default function AppBar() {
                     }
                     onClick={() => setMobileMenu(!mobileMenu)}
                   >
-                    Home
+                    Startseite
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
-                    to={"/about"}
+                    to={"/info"}
                     className={({ isActive, isPending }) =>
                       isActive ? styles.active : styles.link
                     }
                     onClick={() => setMobileMenu(!mobileMenu)}
                   >
-                    About
+                    Info
                   </NavLink>
                 </li>
               </ol>
