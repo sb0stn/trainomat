@@ -4,7 +4,12 @@ import { useState } from "react";
 
 import { NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faXmark,
+  faHome,
+  faInfoCircle,
+} from "@fortawesome/free-solid-svg-icons";
 import useIsMobile from "../../Hooks/useIsMobile.jsx";
 
 export default function AppBar() {
@@ -49,6 +54,10 @@ export default function AppBar() {
                     isActive ? styles.active : styles.link
                   }
                 >
+                  <FontAwesomeIcon
+                    icon={faHome}
+                    style={{ marginRight: "8px" }}
+                  />
                   Startseite
                 </NavLink>
               </li>
@@ -59,6 +68,10 @@ export default function AppBar() {
                     isActive ? styles.active : styles.link
                   }
                 >
+                  <FontAwesomeIcon
+                    icon={faInfoCircle}
+                    style={{ marginRight: "8px" }}
+                  />
                   Info
                 </NavLink>
               </li>
