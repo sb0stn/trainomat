@@ -2,19 +2,20 @@ import logo from "../../assets/logo.svg";
 import styles from "./AppBar.module.css";
 import { useState } from "react";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import useIsMobile from "../../Hooks/useIsMobile.jsx";
 
 export default function AppBar() {
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
   const [mobileMenu, setMobileMenu] = useState(false);
 
   return (
     <header className={styles.header}>
       <div className={styles.header_container}>
-        <div className={styles.logo}>
+        <div className={styles.logo} onClick={() => navigate("/")}>
           <img className={styles.logo_svg} src={logo} alt="Logo" />
           <div className={styles.vertical_line}></div>
           <span className={styles.logo_text}>TRAINOMAT</span>

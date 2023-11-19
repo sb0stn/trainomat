@@ -42,6 +42,7 @@
 .logo {
   display: flex;
   gap: 12px;
+  cursor: pointer;
 }
 
 .logo_svg {
