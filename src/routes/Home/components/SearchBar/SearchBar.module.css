@@ -1,6 +1,6 @@
 .form {
   background-color: #f3f8fe;
-  padding: 24px 0;
+  padding: 18px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,12 +49,12 @@
 }
 
 .container > * {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .container h1 {
   text-wrap: balance;
-  margin: 24px 0;
+  margin: 18px 0;
   font-size: clamp(1.1rem, 3vw, 2rem);
 }
 

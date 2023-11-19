@@ -1,6 +1,6 @@
 .header {
   background-color: #f3f8fe;
-  padding: 24px 0;
+  padding: 18px 0 12px 0;
 }
 
 .header_container {
@@ -12,7 +12,6 @@
   align-items: center;
   max-width: 900px;
   margin: 0 auto;
-
   padding: 0 12px;
 }
 
@@ -51,7 +50,7 @@
 }
 
 .logo_text {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   align-self: center;
 }
@@ -63,7 +62,7 @@
 .slogan {
   color: #04182f95;
   font-size: 0.9rem;
-  margin-top: 12px;
+  margin-top: 4px;
 }
 
 nav {
@@ -74,6 +73,7 @@ nav {
 nav ol {
   list-style-type: none;
   display: flex;
+  gap: 12px;
 }
 
 nav ol li {
