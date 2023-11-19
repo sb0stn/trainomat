@@ -90,6 +90,10 @@ export default function AppBar() {
                     }
                     onClick={() => setMobileMenu(!mobileMenu)}
                   >
+                    <FontAwesomeIcon
+                      icon={faHome}
+                      style={{ marginRight: "8px" }}
+                    />
                     Startseite
                   </NavLink>
                 </li>
@@ -101,6 +105,10 @@ export default function AppBar() {
                     }
                     onClick={() => setMobileMenu(!mobileMenu)}
                   >
+                    <FontAwesomeIcon
+                      icon={faInfoCircle}
+                      style={{ marginRight: "8px" }}
+                    />
                     Info
                   </NavLink>
                 </li>
