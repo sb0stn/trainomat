@@ -87,8 +87,9 @@ nav ol li {
 }
 
 .active {
-  color: #6aabf7 !important;
+  color: #59a6ff !important;
   font-weight: 700;
+  text-decoration: underline;
   text-decoration-thickness: 3px !important;
   text-underline-offset: 5px !important;
 }

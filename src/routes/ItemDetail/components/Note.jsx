@@ -1,21 +1,21 @@
 import styles from "./Note.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClipboard } from "@fortawesome/free-solid-svg-icons";
+import { faClipboard, faLightbulb } from "@fortawesome/free-solid-svg-icons";
 
 export default function Note({ extra }) {
   return (
-    <div className={styles.note}>
+    <section className={styles.note}>
       <div className={styles.triangle}></div>
       <div className={styles.corner}></div>
       <h2 style={{ display: "flex", alignItems: "center" }}>
         <FontAwesomeIcon
-          icon={faClipboard}
+          icon={faLightbulb}
           style={{ marginRight: "6px", width: "15px" }}
         />
-        Notiz
+        Anmerkung
       </h2>
       <hr />
       <span>{extra}</span>
-    </div>
+    </section>
   );
 }

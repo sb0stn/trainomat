@@ -25,6 +25,10 @@ p {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 a:link {
   color: #04182f;
 }
