@@ -26,7 +26,7 @@ function ListItem({ item, index }) {
 
   return (
     <tr
-      style={{ backgroundColor: index % 2 == 0 ? "#EEF4FA" : "#F8FAFC" }}
+      style={{ backgroundColor: (index % 2) - 1 == 0 ? "#ffffff" : "#F3F8FE" }}
       className={styles.row}
     >
       <td className={styles.tableData}>

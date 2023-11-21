@@ -1,3 +1,43 @@
-.i  {
-  color: red;
+.infoContainer {
+  max-width: 1400px;
+  margin: 24px auto;
+  padding: 0 12px;
+}
+
+.infoContainer h1 {
+  font-size: 2rem;
+}
+
+.infoContainer section {
+  margin-bottom: 24px;
+}
+
+.infoContainer h1,
+.infoContainer h2,
+.infoContainer h3 {
+  margin-bottom: 8px;
+}
+
+.infoContainer table,
+.infoContainer thead,
+.infoContainer tbody {
+  display: block;
+}
+
+.infoContainer th {
+  text-align: left;
+}
+
+.infoContainer thead tr,
+.infoContainer tbody tr {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.infoContainer td {
+  width: 100%;
+}
+
+.infoContainer tbody tr:nth-child(2n - 1) {
+  background-color: #f3f8fe;
 }

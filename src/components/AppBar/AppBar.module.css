@@ -81,14 +81,14 @@ nav ol li {
 }
 
 .link {
-  text-decoration: none;
-  color: #04182f;
+  text-decoration: none !important;
+  color: #04182f !important;
   font-weight: 700;
 }
 
 .active {
-  color: #59a6ff;
+  color: #6aabf7 !important;
   font-weight: 700;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 5px;
+  text-decoration-thickness: 3px !important;
+  text-underline-offset: 5px !important;
 }

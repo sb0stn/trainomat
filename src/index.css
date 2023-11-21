@@ -25,6 +25,23 @@ p {
   padding: 0;
 }
 
+a:link {
+  color: #04182f;
+}
+
+a:visited {
+  color: #04182f;
+}
+
+a:hover {
+  color: #04182f;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #004080;
+}
+
 td {
   padding: 4px;
 }
