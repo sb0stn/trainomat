@@ -40,13 +40,12 @@
 
 .logo {
   display: flex;
-  gap: 12px;
+  gap: 8px;
   cursor: pointer;
 }
 
 .logo_svg {
-  width: 50px;
-  height: 50px;
+  width: 40px;
 }
 
 .logo_text {
@@ -60,7 +59,7 @@
 }
 
 .slogan {
-  color: #04182f95;
+  color: #04182f;
   font-size: 0.9rem;
   margin-top: 4px;
 }
@@ -70,13 +69,14 @@ nav {
   justify-self: end;
 }
 
-nav ol {
+nav ul {
   list-style-type: none;
   display: flex;
   gap: 12px;
+  margin: 8px 0;
 }
 
-nav ol li {
+nav ul li {
   margin: 0 0 0 12px;
 }
 
