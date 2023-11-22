@@ -4,10 +4,10 @@ import "./Root.css";
 
 function Root() {
   return (
-    <main>
+    <>
       <AppBar />
       <Outlet />
-    </main>
+    </>
   );
 }
 

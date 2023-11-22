@@ -4,10 +4,10 @@ import { faClipboard, faLightbulb } from "@fortawesome/free-solid-svg-icons";
 
 export default function Note({ extra }) {
   return (
-    <section className={styles.note}>
+    <section aria-labelledby="noteHeading" className={styles.note}>
       <div className={styles.triangle}></div>
       <div className={styles.corner}></div>
-      <h2 style={{ display: "flex", alignItems: "center" }}>
+      <h2 id="noteHeading" style={{ display: "flex", alignItems: "center" }}>
         <FontAwesomeIcon
           icon={faLightbulb}
           style={{ marginRight: "6px", width: "15px" }}

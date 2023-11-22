@@ -90,114 +90,112 @@ export default function SearchResults({ setStatus }) {
   }
 
   return (
-    <>
-      <div className={styles.table_container}>
-        <h2 style={{ margin: "24px 12px" }}>
-          Suchergebnisse: {items?.pages[0]?.totalResults}
-        </h2>
-        <table className={styles.table}>
-          <thead style={{ textAlign: "left" }}>
-            <tr className={styles.row}>
-              <th
-                tabIndex={0}
-                onClick={() => handleSort("title")}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    handleSort("title");
-                  }
-                }}
-                className={`${styles.clickable} ${
-                  sort === "title" ? styles.active : ""
-                }`}
-              >
-                Titel
-                {direction === "desc" && sort === "title" ? (
-                  <FontAwesomeIcon
-                    icon={faChevronDown}
-                    className={`${styles.chevron} ${
-                      sort !== "title" ? styles.chevronInactive : ""
-                    }`}
-                  />
-                ) : (
-                  <FontAwesomeIcon
-                    icon={faChevronUp}
-                    className={`${styles.chevron} ${
-                      sort !== "title" ? styles.chevronInactive : ""
-                    }`}
-                  />
-                )}
-              </th>
-              <th
-                tabIndex={0}
-                onClick={() => handleSort("dateAdded")}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    handleSort("dateAdded");
-                  }
-                }}
-                className={`${styles.clickable} ${
-                  sort === "dateAdded" ? styles.active : ""
-                }`}
-                style={{ paddingLeft: "4px" }}
-              >
-                Datum
-                {direction === "desc" && sort === "dateAdded" ? (
-                  <FontAwesomeIcon
-                    icon={faChevronDown}
-                    className={`${styles.chevron} ${
-                      sort !== "dateAdded" ? styles.chevronInactive : ""
-                    }`}
-                  />
-                ) : (
-                  <FontAwesomeIcon
-                    icon={faChevronUp}
-                    className={`${styles.chevron} ${
-                      sort !== "dateAdded" ? styles.chevronInactive : ""
-                    }`}
-                  />
-                )}
-              </th>
-
-              <th>Autor</th>
-              <th>Typ</th>
-            </tr>
-          </thead>
-
-          {status === "success" ? (
-            <tbody>
-              {items.pages.map((page) => {
-                return (
-                  <React.Fragment key={page.nextId}>
-                    {page.data.map((item, index) => {
-                      return <ListItem item={item} index={index} key={index} />;
-                    })}
-                  </React.Fragment>
-                );
-              })}
-            </tbody>
-          ) : (
-            <Skeleton
-              count={20}
-              style={{
-                height: "32px",
-                marginBottom: "8px",
-                zIndex: -1,
+    <main aria-labelledby="search-headline" className={styles.table_container}>
+      <h2 id="search-headline" style={{ margin: "16px 12px" }}>
+        Suchergebnisse: {items?.pages[0]?.totalResults}
+      </h2>
+      <table className={styles.table}>
+        <thead style={{ textAlign: "left" }}>
+          <tr className={styles.row}>
+            <th
+              tabIndex={0}
+              onClick={() => handleSort("title")}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSort("title");
+                }
               }}
-            />
-          )}
-        </table>
-        {status === "success" ? (
-          <LoadNewPageIndicator
-            isFetchingNextPage={isFetchingNextPage}
-            pages={items?.pages}
-          />
-        ) : (
-          <></>
-        )}
+              className={`${styles.clickable} ${
+                sort === "title" ? styles.active : ""
+              }`}
+            >
+              Titel
+              {direction === "desc" && sort === "title" ? (
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  className={`${styles.chevron} ${
+                    sort !== "title" ? styles.chevronInactive : ""
+                  }`}
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faChevronUp}
+                  className={`${styles.chevron} ${
+                    sort !== "title" ? styles.chevronInactive : ""
+                  }`}
+                />
+              )}
+            </th>
+            <th
+              tabIndex={0}
+              onClick={() => handleSort("dateAdded")}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSort("dateAdded");
+                }
+              }}
+              className={`${styles.clickable} ${
+                sort === "dateAdded" ? styles.active : ""
+              }`}
+              style={{ paddingLeft: "4px" }}
+            >
+              Datum
+              {direction === "desc" && sort === "dateAdded" ? (
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  className={`${styles.chevron} ${
+                    sort !== "dateAdded" ? styles.chevronInactive : ""
+                  }`}
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faChevronUp}
+                  className={`${styles.chevron} ${
+                    sort !== "dateAdded" ? styles.chevronInactive : ""
+                  }`}
+                />
+              )}
+            </th>
 
-        <button style={{ visibility: "hidden" }} ref={ref} />
-        {/* Element to detect end of page */}
-      </div>
-    </>
+            <th>Autor</th>
+            <th>Typ</th>
+          </tr>
+        </thead>
+
+        {status === "success" ? (
+          <tbody>
+            {items.pages.map((page) => {
+              return (
+                <React.Fragment key={page.nextId}>
+                  {page.data.map((item, index) => {
+                    return <ListItem item={item} index={index} key={index} />;
+                  })}
+                </React.Fragment>
+              );
+            })}
+          </tbody>
+        ) : (
+          <Skeleton
+            count={20}
+            style={{
+              height: "32px",
+              marginBottom: "8px",
+              zIndex: -1,
+            }}
+          />
+        )}
+      </table>
+      {status === "success" ? (
+        <LoadNewPageIndicator
+          isFetchingNextPage={isFetchingNextPage}
+          pages={items?.pages}
+        />
+      ) : (
+        <></>
+      )}
+
+      <button style={{ visibility: "hidden" }} ref={ref} />
+      {/* Element to detect end of page */}
+    </main>
   );
 }

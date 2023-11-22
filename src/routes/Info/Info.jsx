@@ -366,7 +366,7 @@ export default function Info() {
   };
 
   return (
-    <div className={styles.infoContainer}>
+    <main className={styles.infoContainer}>
       <section aria-labelledby="trainomatHeading" role="region">
         <h1 id="trainomatHeading">TRAINomat</h1>
         <p>
@@ -408,16 +408,18 @@ export default function Info() {
         {renderTagsTable(tagsData)}
       </section>
 
-      <h2>Kategorien</h2>
-      {Object.entries(categoriesData).map(([key, value]) =>
-        renderCategoriesTable(value.items, key, value.headline, value.id)
-      )}
-    </div>
+      <section aria-labelledby="categoriesHeading">
+        <h2 id="categoriesHeading">Kategorien</h2>
+        {Object.entries(categoriesData).map(([key, value]) =>
+          renderCategoriesTable(value.items, key, value.headline, value.id)
+        )}
+      </section>
+    </main>
   );
 }
 
 const renderTagsTable = (data) => (
-  <section aria-labelledby="categoriesHeading" role="region">
+  <section aria-label="Tags Tabelle" role="region">
     <table>
       <thead>
         <tr>
@@ -431,10 +433,6 @@ const renderTagsTable = (data) => (
             <td>{category}</td>
             <td>
               <a href={`#${id}`}> {description}</a>
-              {/*               <FontAwesomeIcon
-                icon={faArrowDown}
-                style={{ marginLeft: "4px", width: "10px" }}
-              /> */}
             </td>
           </tr>
         ))}

@@ -20,7 +20,16 @@ export default function AppBar() {
   return (
     <header className={styles.header}>
       <div className={styles.header_container}>
-        <div className={styles.logo} onClick={() => navigate("/")}>
+        <div
+          className={styles.logo}
+          onClick={() => navigate("/")}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              navigate("/");
+            }
+          }}
+          tabIndex={0}
+        >
           <img className={styles.logo_svg} src={logo} alt="Logo" />
           <div className={styles.vertical_line}></div>
           <span className={styles.logo_text}>TRAINOMAT</span>
@@ -46,7 +55,7 @@ export default function AppBar() {
               )}
             </>
           ) : (
-            <ol>
+            <ul>
               <li>
                 <NavLink
                   to={"/"}
@@ -75,13 +84,13 @@ export default function AppBar() {
                   Info
                 </NavLink>
               </li>
-            </ol>
+            </ul>
           )}
         </nav>
         {mobileMenu && (
           <div className={styles.mobileMenu}>
             <nav>
-              <ol>
+              <ul>
                 <li>
                   <NavLink
                     to={"/"}
@@ -112,7 +121,7 @@ export default function AppBar() {
                     Info
                   </NavLink>
                 </li>
-              </ol>
+              </ul>
             </nav>
           </div>
         )}

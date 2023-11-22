@@ -123,9 +123,9 @@ export default function SearchBar({ status }) {
   ];
 
   if (!isLoading) {
-    const tags = data.pages.map((page) => {
+    data.pages.map((page) => {
       page.data.map((tag) => {
-        const matches = tag.tag.match(/\((.*?)\)/); // Extract text inside parentheses
+        const matches = tag.tag.match(/\((.*?)\)/);
         if (matches && matches[1]) {
           const abbreviation = matches[1];
           const optionArray = optionsMapping[abbreviation];
@@ -134,25 +134,26 @@ export default function SearchBar({ status }) {
             return { value: tag.tag, label: tag.tag };
           }
         }
-        othersOptions.push({ value: tag.tag, label: tag.tag }); // Push to othersOptions array
+        othersOptions.push({ value: tag.tag, label: tag.tag });
         return { value: tag.tag, label: tag.tag };
       });
     });
   }
 
   return (
-    <Form method="get" action="/" className={styles.form}>
+    <form aria-labelledby="form-headline" className={styles.form}>
       <div className={styles.container}>
-        <h1>Suche nach Ressourcen zu digitaler Barrierefreiheit</h1>
+        <h1 id="form-headline">
+          Suche nach Ressourcen zu digitaler Barrierefreiheit
+        </h1>
         <input
           type="search"
-          aria-label="search products"
           name="q"
           placeholder="Suchbegriff eingeben"
-          value={inputValue} // Update the value prop with inputValue
+          value={inputValue}
           className={styles.search}
           onChange={(event) => {
-            setInputValue(event.currentTarget.value); // Update inputValue state
+            setInputValue(event.currentTarget.value);
             debouncedSubmit(event.currentTarget.form);
           }}
         />
@@ -226,6 +227,6 @@ export default function SearchBar({ status }) {
           )}
         </button>
       </div>
-    </Form>
+    </form>
   );
 }

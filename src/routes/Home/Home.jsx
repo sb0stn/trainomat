@@ -6,9 +6,9 @@ export default function Home() {
   const [status, setStatus] = useState("");
 
   return (
-    <main>
+    <>
       <SearchBar status={status} />
       <ItemList setStatus={setStatus} />
-    </main>
+    </>
   );
 }
