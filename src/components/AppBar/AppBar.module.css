@@ -26,15 +26,16 @@
   grid-area: mobileMenu;
   background-color: #f3f8fe;
   justify-content: center;
+  place-self: center;
 }
 
-.mobileMenu ol {
+.mobileMenu ul {
   display: block;
-  text-align: center;
+  text-align: left;
   padding: 24px 0 0 0;
 }
 
-.mobileMenu ol li {
+.mobileMenu ul li {
   margin: 0 0 24px 0;
 }
 

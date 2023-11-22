@@ -1,7 +1,6 @@
 import logo from "../../assets/logo.svg";
 import styles from "./AppBar.module.css";
 import { useState } from "react";
-
 import { NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -88,42 +87,40 @@ export default function AppBar() {
           )}
         </nav>
         {mobileMenu && (
-          <div className={styles.mobileMenu}>
-            <nav>
-              <ul>
-                <li>
-                  <NavLink
-                    to={"/"}
-                    className={({ isActive, isPending }) =>
-                      isActive ? styles.active : styles.link
-                    }
-                    onClick={() => setMobileMenu(!mobileMenu)}
-                  >
-                    <FontAwesomeIcon
-                      icon={faHome}
-                      style={{ marginRight: "8px" }}
-                    />
-                    Startseite
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to={"/info"}
-                    className={({ isActive, isPending }) =>
-                      isActive ? styles.active : styles.link
-                    }
-                    onClick={() => setMobileMenu(!mobileMenu)}
-                  >
-                    <FontAwesomeIcon
-                      icon={faInfoCircle}
-                      style={{ marginRight: "8px" }}
-                    />
-                    Info
-                  </NavLink>
-                </li>
-              </ul>
-            </nav>
-          </div>
+          <nav className={styles.mobileMenu}>
+            <ul>
+              <li>
+                <NavLink
+                  to={"/"}
+                  className={({ isActive, isPending }) =>
+                    isActive ? styles.active : styles.link
+                  }
+                  onClick={() => setMobileMenu(!mobileMenu)}
+                >
+                  <FontAwesomeIcon
+                    icon={faHome}
+                    style={{ marginRight: "8px" }}
+                  />
+                  Startseite
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to={"/info"}
+                  className={({ isActive, isPending }) =>
+                    isActive ? styles.active : styles.link
+                  }
+                  onClick={() => setMobileMenu(!mobileMenu)}
+                >
+                  <FontAwesomeIcon
+                    icon={faInfoCircle}
+                    style={{ marginRight: "8px" }}
+                  />
+                  Info
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
         )}
       </div>
     </header>
