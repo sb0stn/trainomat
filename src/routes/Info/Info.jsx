@@ -419,7 +419,7 @@ export default function Info() {
 }
 
 const renderTagsTable = (data) => (
-  <section aria-label="Tags Tabelle" role="region">
+  <section aria-label="Tags">
     <table>
       <thead>
         <tr>
@@ -442,9 +442,9 @@ const renderTagsTable = (data) => (
 );
 
 const renderCategoriesTable = (data, heading, headline, id) => (
-  <section aria-labelledby={`${heading}Heading`} role="region" id={id}>
+  <section aria-labelledby={`${heading}Heading`} id={id}>
     <h3 id={`${heading}Heading`}>{headline}</h3>
-    <table>
+    <table aria-labelledby={`${heading}Heading`}>
       <thead>
         <tr>
           <th>Tag</th>

@@ -19,7 +19,9 @@ function ItemDetail() {
         <FontAwesomeIcon className={styles.icon} icon={faChevronLeft} />
         <span>Zurück</span>
       </nav>
-      <h1 style={{ lineHeight: "100%" }}>{state.data.title}</h1>
+      <h1 aria-label={state.data.title} style={{ lineHeight: "100%" }}>
+        {state.data.title}
+      </h1>
 
       <section aria-labelledby="ressourceHeading" className={styles.ressource}>
         <a
