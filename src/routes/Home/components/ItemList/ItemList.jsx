@@ -24,7 +24,6 @@ export default function SearchResults({ setStatus }) {
   const {
     data: items,
     status,
-    error,
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,

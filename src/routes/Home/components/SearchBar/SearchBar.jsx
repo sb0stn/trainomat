@@ -63,7 +63,7 @@ export default function SearchBar({ status }) {
     if (!isLoading && hasNextPage) {
       fetchNextPage();
     }
-  }, [isLoading, hasNextPage, fetchNextPage]);
+  }, [isLoading]);
 
   const applicationOptions = [];
   const operatingSystemOptions = [];
