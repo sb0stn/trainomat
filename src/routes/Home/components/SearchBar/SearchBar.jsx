@@ -194,11 +194,11 @@ export default function SearchBar({ status }) {
                 : "black",
               backgroundColor:
                 state.isFocused && state.isSelected
-                  ? "#FF5959"
+                  ? "#A02121"
                   : state.isSelected
-                  ? "#092D57"
+                  ? "#458775"
                   : state.isFocused
-                  ? "#59A6FF"
+                  ? "#1C589D"
                   : "#E6E6E6",
               borderRadius: "2px",
               padding: "2px 8px",
