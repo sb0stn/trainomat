@@ -20,6 +20,8 @@ export default function AppBar() {
     <header className={styles.header}>
       <div className={styles.header_container}>
         <div
+          role="button"
+          aria-label="Trainomat: Zum Startbildschirm navigieren"
           className={styles.logo}
           onClick={() => navigate("/")}
           onKeyDown={(e) => {
@@ -41,12 +43,14 @@ export default function AppBar() {
             <>
               {mobileMenu ? (
                 <FontAwesomeIcon
+                  aria-label="Menü schließen"
                   icon={faXmark}
                   className={styles.toggle_icon}
                   onClick={() => setMobileMenu(!mobileMenu)}
                 />
               ) : (
                 <FontAwesomeIcon
+                  aria-label="Menu öffnen"
                   icon={faBars}
                   className={styles.toggle_icon}
                   onClick={() => setMobileMenu(!mobileMenu)}

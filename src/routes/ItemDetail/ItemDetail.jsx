@@ -1,5 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect } from "react";
+
 import {
   faExternalLinkAlt,
   faChevronLeft,
@@ -13,13 +15,17 @@ function ItemDetail() {
   let { state } = useLocation();
   let navigate = useNavigate();
 
+  useEffect(() => {
+    document.title = `TRAINomat ${state.data.title}`;
+  }, []);
+
   return (
     <main className={styles.main}>
       <nav aria-label="Zurück" onClick={() => navigate(-1)} tabIndex={0}>
         <FontAwesomeIcon className={styles.icon} icon={faChevronLeft} />
         <span>Zurück</span>
       </nav>
-      <h1 aria-label={state.data.title} style={{ lineHeight: "100%" }}>
+      <h1 lang={state.data.language} style={{ lineHeight: "100%" }}>
         {state.data.title}
       </h1>
 
@@ -41,7 +47,7 @@ function ItemDetail() {
 
       <section aria-labelledby="description-headline">
         <h2 id="description-headline">Beschreibung</h2>
-        <p>{state.data.abstractNote}</p>
+        <p lang={state.data.language}>{state.data.abstractNote}</p>
       </section>
 
       <section aria-labelledby="tags-headline">

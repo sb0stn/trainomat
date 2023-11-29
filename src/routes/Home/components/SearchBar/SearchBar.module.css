@@ -69,10 +69,6 @@
   border: none;
 }
 
-.search::placeholder {
-  color: #04182f70;
-}
-
 .icon {
   position: absolute;
 }

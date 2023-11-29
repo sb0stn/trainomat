@@ -2,8 +2,12 @@ import styles from "./Info.module.css";
 import Tag from "../ItemDetail/components/Tag.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { useEffect } from "react";
 
 export default function Info() {
+  useEffect(() => {
+    document.title = `TRAINomat Info`;
+  }, []);
   const tagsData = [
     { category: "A", description: "Anwendungen", id: "anwendung" },
     { category: "B", description: "Betriebssystem", id: "betriebssystem" },

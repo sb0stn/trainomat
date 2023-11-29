@@ -1,4 +1,4 @@
-import { Form, useSubmit } from "react-router-dom";
+import { useSubmit } from "react-router-dom";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import Select from "react-select";
 import { useDebounce } from "rooks";
@@ -13,6 +13,7 @@ export default function SearchBar({ status }) {
   const [inputValue, setInputValue] = useState("");
   const [queryString, setQueryString] = useState("");
   const [selectedTags, setSelectedTags] = useState();
+  const [statusMessage, setStatusMessage] = useState("");
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -38,6 +39,8 @@ export default function SearchBar({ status }) {
   const { data, isLoading, fetchNextPage, hasNextPage } = useInfiniteQuery({
     queryKey: ["tags"],
     queryFn: async ({ pageParam = 0 }) => {
+      setStatusMessage("Daten werden geladen..."); // Statusmeldung: Daten werden geladen
+
       const url = new URL(`https://api.zotero.org/groups/4624031/tags`);
       url.searchParams.append("limit", 100);
       url.searchParams.append("start", pageParam);
@@ -49,6 +52,8 @@ export default function SearchBar({ status }) {
         linkHeader && linkHeader.match(/<([^>]+)>; rel="next"/);
       const nextCursorFromLink =
         nextPageLink && new URL(nextPageLink[1]).searchParams.get("start");
+
+      setStatusMessage("Daten erfolgreich geladen."); // Statusmeldung: Daten erfolgreich geladen
 
       return {
         data: await response.json(),
@@ -146,10 +151,13 @@ export default function SearchBar({ status }) {
         <h1 id="form-headline">
           Suche nach Ressourcen zu digitaler Barrierefreiheit
         </h1>
+        <div role="status" aria-live="assertive" aria-atomic="true">
+          {statusMessage && <p>{statusMessage}</p>}
+        </div>
         <input
           type="search"
           name="q"
-          placeholder="Suchbegriff eingeben"
+          placeholder="Suchbegriff eingeben: Titel, Autor, Jahr"
           value={inputValue}
           className={styles.search}
           onChange={(event) => {
@@ -183,7 +191,7 @@ export default function SearchBar({ status }) {
             }),
             placeholder: (baseStyles, state) => ({
               ...baseStyles,
-              color: "#04182F70",
+              color: "#767474",
             }),
             option: (baseStyles, state) => ({
               ...baseStyles,

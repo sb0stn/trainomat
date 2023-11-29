@@ -4,15 +4,16 @@ import { faExternalLinkAlt, faFile } from "@fortawesome/free-solid-svg-icons";
 
 export default function DocumentInformation({ state }) {
   return (
-    <section aria-labelledby="document-headline">
-      <table className={styles.table}>
-        <h2 id="document-headline">
-          <FontAwesomeIcon
-            icon={faFile}
-            style={{ marginRight: "6px", width: "15px" }}
-          />
-          Dokument Informationen
-        </h2>
+    <section className={styles.table} aria-labelledby="document-headline">
+      <h2 id="document-headline">
+        {" "}
+        <FontAwesomeIcon
+          icon={faFile}
+          style={{ marginRight: "6px", width: "15px" }}
+        />{" "}
+        Dokument Informationen
+      </h2>
+      <table>
         <tr>
           <th>Typ</th>
           <td>{state.data.itemType}</td>

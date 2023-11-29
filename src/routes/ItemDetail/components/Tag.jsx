@@ -6,6 +6,7 @@ export default function Tag({ tag }) {
 
   return (
     <li
+      role="button"
       tabIndex={0}
       onKeyDown={(e) => {
         if (e.key === "Enter") {
@@ -14,6 +15,7 @@ export default function Tag({ tag }) {
       }}
       onClick={() => navigate(`/?tags=${tag}`)}
       className={styles.tag}
+      aria-label={`Filtern nach Tag: ${tag}`}
     >
       {tag}
     </li>

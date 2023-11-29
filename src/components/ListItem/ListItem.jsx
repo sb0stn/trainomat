@@ -31,7 +31,7 @@ function ListItem({ item, index }) {
     >
       <td className={styles.tableData}>
         <Link to={`items/${item.key}`} state={item} className={styles.link}>
-          <span className={styles.title}>
+          <span className={styles.title} lang={item.data.language}>
             {item.data.title
               ? item.data.title
               : item.data.nameOfAct
