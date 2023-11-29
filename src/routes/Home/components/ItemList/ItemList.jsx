@@ -98,11 +98,6 @@ export default function SearchResults({ setStatus }) {
           <tr className={styles.row}>
             <th
               tabIndex={0}
-              aria-label={`Titel ${
-                sort === "title" && direction === "desc"
-                  ? "absteigend sortiert"
-                  : "sortieren"
-              }`}
               onClick={() => handleSort("title")}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
@@ -132,11 +127,6 @@ export default function SearchResults({ setStatus }) {
             </th>
             <th
               tabIndex={0}
-              aria-label={`Datum ${
-                sort === "datum" && direction === "desc"
-                  ? "absteigend sortiert"
-                  : "sortieren"
-              }`}
               onClick={() => handleSort("dateAdded")}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
