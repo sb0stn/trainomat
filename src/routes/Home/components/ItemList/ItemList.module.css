@@ -3,6 +3,26 @@
   margin: 0 auto;
 }
 
+.results_head {
+  display: flex;
+  padding: 8px 16px;
+  align-items: center;
+
+  @media (max-width: 600px) {
+    display: block;
+    padding: 12px 8px;
+  }
+}
+
+.results_head h2 {
+  flex: 2;
+  margin: 0 !important;
+}
+
+.results_head form {
+  flex: 1;
+}
+
 .table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -11,7 +31,7 @@
 
 .row {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 4fr 1.2fr 2fr 1.8fr;
   margin-bottom: 8px;
 }
 

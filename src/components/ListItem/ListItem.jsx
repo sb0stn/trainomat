@@ -49,17 +49,19 @@ function ListItem({ item, index }) {
       </td>
       <td className={styles.tableData}>
         {item.data.creators && item.data.creators.length > 0
-          ? item.data.creators.map((creator) => (
+          ? item.data.creators.map((creator, index) => (
               <span key={creator.id}>
                 {creator.name
                   ? creator.name
                   : creator.firstName && creator.lastName
                   ? `${creator.firstName} ${creator.lastName}`
                   : null}
+                {index < item.data.creators.length - 1 && ", "}
               </span>
             ))
           : null}
       </td>
+
       <td>
         <Type item={item} />
       </td>

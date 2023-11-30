@@ -166,7 +166,6 @@ export default function SearchBar({ status }) {
           value={selectedTags}
           hideSelectedOptions={false}
           onChange={(selectedValue, action) => {
-            console.log(selectedValue);
             const tagString =
               selectedValue.length > 0
                 ? selectedValue.reduce((acc, tag) => {

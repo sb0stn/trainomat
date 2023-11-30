@@ -1,14 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import ListItem from "../../../../components/ListItem/ListItem.jsx";
 import styles from "./ItemList.module.css";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";
 import LoadNewPageIndicator from "./components/LoadNewPageIndicator.jsx";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import Select from "react-select";
 
 export default function SearchResults({ setStatus }) {
   const { ref, inView } = useInView();
@@ -18,8 +17,42 @@ export default function SearchResults({ setStatus }) {
   const searchParams = new URLSearchParams(location.search);
   const q = searchParams.get("q") ?? "";
   const tags = searchParams.getAll("tags");
-  const sort = searchParams.get("sort") ?? "title"; //define default "title"
-  const direction = searchParams.get("direction") ?? "asc"; //define default "asc"
+  const sort = searchParams.get("sort") ?? "date"; //define default "title"
+  const direction = searchParams.get("direction") ?? "desc"; //define default "asc"
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const options = [
+    {
+      label: "Titel (aufsteigend)",
+      value: "titleAsc",
+      direction: "asc",
+      zoteroValue: "title",
+    },
+    {
+      label: "Titel (absteigend)",
+      value: "titleDesc",
+      direction: "desc",
+      zoteroValue: "title",
+    },
+    {
+      label: "Datum (aufsteigend)",
+      value: "dateAsc",
+      direction: "asc",
+      zoteroValue: "date",
+    },
+    {
+      label: "Datum (absteigend)",
+      value: "dateDesc",
+      direction: "desc",
+      zoteroValue: "date",
+    },
+    {
+      label: "Typ (aufsteigend)",
+      value: "itemTypeAsc",
+      direction: "asc",
+      zoteroValue: "itemType",
+    },
+  ];
 
   const {
     data: items,
@@ -76,85 +109,49 @@ export default function SearchResults({ setStatus }) {
     setStatus(status);
   }, [status]);
 
-  //Triggered by Sort Click
-  //add sort and direction param to url
-  function handleSort(sortParam) {
-    //if sortparam is the previous -> reverse direction
-    const reverseDirection =
-      sortParam === sort ? (direction === "asc" ? "desc" : "asc") : direction;
+  useEffect(() => {
+    const foundOption = options.find(
+      (option) =>
+        option.value.toLowerCase() === `${sort}${direction}`.toLowerCase() &&
+        option.direction.toLowerCase() === direction.toLowerCase()
+    );
 
+    setSelectedOption(foundOption || null);
+  }, [location]);
+
+  function handleSort(sortParam) {
     navigate(
-      `?q=${q}&tags=${tags}&sort=${sortParam}&direction=${reverseDirection}`
+      `?q=${q}&tags=${tags}&sort=${sortParam.zoteroValue}&direction=${sortParam.direction}`
     );
   }
 
   return (
     <main aria-labelledby="search-headline" className={styles.table_container}>
-      <h2 id="search-headline" style={{ margin: "16px 12px" }}>
-        Suchergebnisse: {items?.pages[0]?.totalResults}
-      </h2>
+      <div className={styles.results_head}>
+        <h2
+          id="search-headline"
+          style={{ margin: "16px 12px" }}
+          aria-live="polite"
+        >
+          Suchergebnisse {items?.pages[0]?.totalResults}
+        </h2>
+        <form role="form" aria-label="Sortieren">
+          <label>Sortieren</label>
+          <Select
+            options={options}
+            defaultValue={options[3]}
+            value={selectedOption}
+            isSearchable="false"
+            onChange={(selectedOption) => handleSort(selectedOption)}
+            placeholder="Sortieren nach..."
+          />
+        </form>
+      </div>
       <table className={styles.table}>
         <thead style={{ textAlign: "left" }}>
           <tr className={styles.row}>
-            <th
-              tabIndex={0}
-              onClick={() => handleSort("title")}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  handleSort("title");
-                }
-              }}
-              className={`${styles.clickable} ${
-                sort === "title" ? styles.active : ""
-              }`}
-            >
-              Titel
-              {direction === "desc" && sort === "title" ? (
-                <FontAwesomeIcon
-                  icon={faChevronDown}
-                  className={`${styles.chevron} ${
-                    sort !== "title" ? styles.chevronInactive : ""
-                  }`}
-                />
-              ) : (
-                <FontAwesomeIcon
-                  icon={faChevronUp}
-                  className={`${styles.chevron} ${
-                    sort !== "title" ? styles.chevronInactive : ""
-                  }`}
-                />
-              )}
-            </th>
-            <th
-              tabIndex={0}
-              onClick={() => handleSort("dateAdded")}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  handleSort("dateAdded");
-                }
-              }}
-              className={`${styles.clickable} ${
-                sort === "dateAdded" ? styles.active : ""
-              }`}
-              style={{ paddingLeft: "4px" }}
-            >
-              Datum
-              {direction === "desc" && sort === "dateAdded" ? (
-                <FontAwesomeIcon
-                  icon={faChevronDown}
-                  className={`${styles.chevron} ${
-                    sort !== "dateAdded" ? styles.chevronInactive : ""
-                  }`}
-                />
-              ) : (
-                <FontAwesomeIcon
-                  icon={faChevronUp}
-                  className={`${styles.chevron} ${
-                    sort !== "dateAdded" ? styles.chevronInactive : ""
-                  }`}
-                />
-              )}
-            </th>
+            <th>Titel</th>
+            <th t>Datum</th>
 
             <th>Autor</th>
             <th>Typ</th>
@@ -174,14 +171,16 @@ export default function SearchResults({ setStatus }) {
             })}
           </tbody>
         ) : (
-          <Skeleton
-            count={20}
-            style={{
-              height: "32px",
-              marginBottom: "8px",
-              zIndex: -1,
-            }}
-          />
+          <td>
+            <Skeleton
+              count={20}
+              style={{
+                height: "32px",
+                marginBottom: "8px",
+                zIndex: -1,
+              }}
+            />
+          </td>
         )}
       </table>
       {status === "success" ? (

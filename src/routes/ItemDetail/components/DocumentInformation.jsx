@@ -24,7 +24,15 @@ export default function DocumentInformation({ state }) {
         </tr>
         <tr>
           <th>Autor</th>
-          <td>{state.data.creators && state.data.creators[0]?.name}</td>
+          <td>
+            {state.data.creators &&
+              state.data.creators.map((creator, index) => (
+                <span key={index}>
+                  {creator.creatorType && creator.name}
+                  {index < state.data.creators.length - 1 && ", "}
+                </span>
+              ))}
+          </td>
         </tr>
         <tr>
           <th>Datum</th>
