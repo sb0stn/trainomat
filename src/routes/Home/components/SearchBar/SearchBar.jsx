@@ -147,6 +147,7 @@ export default function SearchBar({ status }) {
           Suche nach Ressourcen zu digitaler Barrierefreiheit
         </h1>
         <input
+          aria-labelledby="form-headline"
           type="search"
           name="q"
           placeholder="Suchbegriff eingeben: Titel, Autor, Jahr"

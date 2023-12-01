@@ -23,31 +23,31 @@ export default function SearchResults({ setStatus }) {
 
   const options = [
     {
-      label: "Titel aufsteigend Sortieren A-Z",
+      label: "Titel aufsteigend A-Z",
       value: "titleAsc",
       direction: "asc",
       zoteroValue: "title",
     },
     {
-      label: "Titel (absteigend)",
+      label: "Titel absteigend Z-A",
       value: "titleDesc",
       direction: "desc",
       zoteroValue: "title",
     },
     {
-      label: "Datum (aufsteigend)",
+      label: "Datum aufsteigend",
       value: "dateAsc",
       direction: "asc",
       zoteroValue: "date",
     },
     {
-      label: "Datum (absteigend)",
+      label: "Datum absteigend",
       value: "dateDesc",
       direction: "desc",
       zoteroValue: "date",
     },
     {
-      label: "Typ (aufsteigend)",
+      label: "Typ aufsteigend",
       value: "itemTypeAsc",
       direction: "asc",
       zoteroValue: "itemType",
