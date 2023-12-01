@@ -129,7 +129,7 @@ export default function SearchResults({ setStatus }) {
   return (
     <main aria-labelledby="search-headline" className={styles.table_container}>
       <div className={styles.results_head}>
-        <h2
+        <h3
           id="search-headline"
           style={{
             margin: "16px 12px",
@@ -140,10 +140,10 @@ export default function SearchResults({ setStatus }) {
           {items?.pages[0]?.totalResults === 1
             ? "Suchergebnis"
             : `${items?.pages[0]?.totalResults} Suchergebnisse`}{" "}
-        </h2>
+        </h3>
 
         <form role="redion" aria-label="Sortieren">
-          <h3>Sortieren</h3>
+          <h4>Sortieren</h4>
           {/*           //TODO nach suchanfragen g
            */}{" "}
           <Select
