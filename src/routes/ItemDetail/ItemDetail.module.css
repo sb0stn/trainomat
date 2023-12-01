@@ -1,10 +1,10 @@
 .main {
   max-width: 1200px;
-  padding: 24px 12px 0 12px;
+  padding: 12px 12px 0 12px;
 }
 
 .main > * {
-  margin-bottom: 28px;
+  margin-bottom: 12px;
 }
 
 .main h2 {

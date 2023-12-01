@@ -25,7 +25,7 @@ function ItemDetail() {
         <FontAwesomeIcon className={styles.icon} icon={faChevronLeft} />
         <span>Zurück</span>
       </nav>
-      <h1 lang={state.data.language} style={{ lineHeight: "100%" }}>
+      <h1 lang={state.data.language} style={{ lineHeight: "1.2" }}>
         {state.data.title}
       </h1>
 
