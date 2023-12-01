@@ -2,6 +2,9 @@
   padding: 4px 8px;
   display: grid;
   grid-template-columns: 4fr 1.2fr 2fr 1.8fr;
+  @media (max-width: 978px) {
+    grid-template-columns: 4fr 1.2fr 2fr 1fr;
+  }
 }
 
 .link {
@@ -25,85 +28,7 @@
 
 .icon {
   margin-right: 8px;
-}
-
-.date {
-  max-width: 11ch;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.rating {
-  background-color: #fff3e0;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-
-.novice {
-  display: inline-flex;
-  align-items: baseline;
-  color: #14560f;
-  background-color: #dfffdc;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-.intermediate {
-  display: inline-flex;
-  align-items: baseline;
-  color: #4b450a;
-  background-color: #fffacc;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-.advanced {
-  display: inline-flex;
-  align-items: center;
-  color: #460a15;
-  background-color: #ffe7eb;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-
-.developer {
-  color: #0f0b42;
-  background-color: #e0ddff;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-.designer {
-  color: #2f1b05;
-  background-color: #ffd7a9;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-.document_author {
-  color: #061d29;
-  background-color: #b9ddff;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-.manager {
-  color: #062923;
-  background-color: #bbf3ff;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-.speaker {
-  color: #272404;
-  background-color: #fff7ad;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-.tester {
-  color: #042305;
-  background-color: #b6ffb9;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-.video_editor {
-  color: #230404;
-  background-color: #ffe7e7;
-  padding: 4px 8px;
-  border-radius: 4px;
+  @media (max-width: 600px) {
+    margin: 0;
+  }
 }

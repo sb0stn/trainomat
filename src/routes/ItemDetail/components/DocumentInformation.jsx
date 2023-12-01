@@ -28,7 +28,7 @@ export default function DocumentInformation({ state }) {
             {state.data.creators &&
               state.data.creators.map((creator, index) => (
                 <span key={index}>
-                  {creator.creatorType && creator.name}
+                  {creator.creatorType === "author" && creator.name}
                   {index < state.data.creators.length - 1 && ", "}
                 </span>
               ))}

@@ -44,7 +44,7 @@ function ListItem({ item, index }) {
         <span>
           {item.data.date && isMobile
             ? item.data.date?.slice(0, 4)
-            : item.data.date}
+            : item.data.date?.slice(0, 10)}
         </span>
       </td>
       <td className={styles.tableData}>

@@ -23,7 +23,7 @@ export default function SearchResults({ setStatus }) {
 
   const options = [
     {
-      label: "Titel (aufsteigend)",
+      label: "Titel aufsteigend Sortieren A-Z",
       value: "titleAsc",
       direction: "asc",
       zoteroValue: "title",
@@ -124,19 +124,28 @@ export default function SearchResults({ setStatus }) {
       `?q=${q}&tags=${tags}&sort=${sortParam.zoteroValue}&direction=${sortParam.direction}`
     );
   }
+  console.log(items?.pages[0]?.totalResults);
 
   return (
     <main aria-labelledby="search-headline" className={styles.table_container}>
       <div className={styles.results_head}>
         <h2
           id="search-headline"
-          style={{ margin: "16px 12px" }}
+          style={{
+            margin: "16px 12px",
+            visibility: status === "loading" ? "hidden" : "visible",
+          }}
           aria-live="polite"
         >
-          Suchergebnisse {items?.pages[0]?.totalResults}
+          {items?.pages[0]?.totalResults === 1
+            ? "Suchergebnis"
+            : `${items?.pages[0]?.totalResults} Suchergebnisse`}{" "}
         </h2>
-        <form role="form" aria-label="Sortieren">
-          <label>Sortieren</label>
+
+        <form role="redion" aria-label="Sortieren">
+          <h3>Sortieren</h3>
+          {/*           //TODO nach suchanfragen g
+           */}{" "}
           <Select
             options={options}
             defaultValue={options[3]}

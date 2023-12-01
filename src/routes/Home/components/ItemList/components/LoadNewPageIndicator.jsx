@@ -9,6 +9,7 @@ export default function LoadNewPageIndicator({ isFetchingNextPage, pages }) {
     <div
       style={{ display: isFetchingNextPage ? "flex" : "none" }}
       className={styles.container}
+      aria-live="polite"
     >
       <FontAwesomeIcon
         icon={faCircleNotch}
@@ -16,7 +17,7 @@ export default function LoadNewPageIndicator({ isFetchingNextPage, pages }) {
       />
       <div>
         <p style={{ fontWeight: "700", color: "#04182F" }}>
-          {resultsLoaded ?? totalResults} / {totalResults}
+          {resultsLoaded ?? totalResults} von {totalResults} Dokumente ende.
         </p>
         <p style={{ color: "#04182F95" }}>Lade mehr Dokumente</p>
       </div>

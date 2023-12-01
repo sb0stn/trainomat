@@ -8,19 +8,25 @@
   padding: 8px 16px;
   align-items: center;
 
-  @media (max-width: 600px) {
+  @media (max-width: 550px) {
     display: block;
-    padding: 12px 8px;
+    padding: 4px 8px 12px 8px;
   }
 }
 
 .results_head h2 {
   flex: 2;
   margin: 0 !important;
+  @media (max-width: 700px) {
+    flex: 1;
+  }
 }
 
 .results_head form {
   flex: 1;
+  @media (max-width: 700px) {
+    flex: 1;
+  }
 }
 
 .table {
@@ -33,6 +39,9 @@
   display: grid;
   grid-template-columns: 4fr 1.2fr 2fr 1.8fr;
   margin-bottom: 8px;
+  @media (max-width: 978px) {
+    grid-template-columns: 4fr 1.2fr 2fr 1fr;
+  }
 }
 
 .row th {

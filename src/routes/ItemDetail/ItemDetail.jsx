@@ -54,14 +54,17 @@ function ItemDetail() {
         <h2 id="tags-headline">Tags</h2>
         <ul className={styles.tagsList}>
           {state.data.tags.map((tag, index) => {
-            return <Tag key={index} tag={tag.tag} />;
+            return (
+              <li>
+                <Tag key={index} tag={tag.tag} />
+              </li>
+            );
           })}
         </ul>
       </section>
+      {state.data.extra && <Note extra={state.data.extra} />}
 
       <DocumentInformation state={state} />
-
-      {state.data.extra && <Note extra={state.data.extra} />}
     </main>
   );
 }

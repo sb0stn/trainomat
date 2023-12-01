@@ -1,6 +1,9 @@
 .header {
   background-color: #f3f8fe;
   padding: 18px 0;
+  @media (max-width: 720px) {
+    padding: 10px 0;
+  }
 }
 
 .header_container {
@@ -83,7 +86,7 @@ nav ul li {
 
 .link {
   text-decoration: none !important;
-  color: #04182f !important;
+  color: #4a5765 !important;
   font-weight: 700;
 }
 

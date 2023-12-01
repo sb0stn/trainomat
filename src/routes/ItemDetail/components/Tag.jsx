@@ -5,7 +5,7 @@ export default function Tag({ tag }) {
   const navigate = useNavigate();
 
   return (
-    <li
+    <span
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
@@ -18,6 +18,6 @@ export default function Tag({ tag }) {
       aria-label={`Filtern nach Tag: ${tag}`}
     >
       {tag}
-    </li>
+    </span>
   );
 }
