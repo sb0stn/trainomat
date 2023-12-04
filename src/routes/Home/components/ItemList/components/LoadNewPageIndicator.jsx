@@ -17,7 +17,7 @@ export default function LoadNewPageIndicator({ isFetchingNextPage, pages }) {
       />
       <div>
         <p style={{ fontWeight: "700", color: "#04182F" }}>
-          {resultsLoaded ?? totalResults} von {totalResults} Dokumente ende.
+          {resultsLoaded ?? totalResults} von {totalResults}{" "}
         </p>
         <p style={{ color: "#04182F95" }}>Lade mehr Dokumente</p>
       </div>

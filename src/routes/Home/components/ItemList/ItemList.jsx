@@ -35,22 +35,28 @@ export default function SearchResults({ setStatus }) {
       zoteroValue: "title",
     },
     {
-      label: "Datum aufsteigend",
+      label: "Älteste zuerst",
       value: "dateAsc",
       direction: "asc",
       zoteroValue: "date",
     },
     {
-      label: "Datum absteigend",
+      label: "Neueste zuerst",
       value: "dateDesc",
       direction: "desc",
       zoteroValue: "date",
     },
     {
-      label: "Typ aufsteigend",
+      label: "Typ aufsteigend A-Z",
       value: "itemTypeAsc",
       direction: "asc",
       zoteroValue: "itemType",
+    },
+    {
+      label: "Neueste hinzugefügt",
+      value: "dateAddedDesc",
+      direction: "desc",
+      zoteroValue: "dateAdded",
     },
   ];
 
@@ -70,7 +76,7 @@ export default function SearchResults({ setStatus }) {
       });
 
       q && url.searchParams.append("q", q);
-      url.searchParams.append("limit", 100);
+      url.searchParams.append("limit", 50);
       url.searchParams.append("start", pageParam);
       url.searchParams.append("sort", sort ?? "title");
       url.searchParams.append("direction", direction ?? "asc");
@@ -144,13 +150,11 @@ export default function SearchResults({ setStatus }) {
 
         <form role="redion" aria-label="Sortieren">
           <h4>Sortieren</h4>
-          {/*           //TODO nach suchanfragen g
-           */}{" "}
+
           <Select
             options={options}
             defaultValue={options[3]}
             value={selectedOption}
-            isSearchable="false"
             onChange={(selectedOption) => handleSort(selectedOption)}
             placeholder="Sortieren nach..."
           />
