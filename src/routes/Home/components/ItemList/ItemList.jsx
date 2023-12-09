@@ -17,7 +17,7 @@ export default function SearchResults({ setStatus }) {
   const searchParams = new URLSearchParams(location.search);
   const q = searchParams.get("q") ?? "";
   const tags = searchParams.getAll("tags");
-  const sort = searchParams.get("sort") ?? "date"; //define default "title"
+  const sort = searchParams.get("sort") ?? "date"; //define default "title".
   const direction = searchParams.get("direction") ?? "desc"; //define default "asc"
   const [selectedOption, setSelectedOption] = useState(null);
 
