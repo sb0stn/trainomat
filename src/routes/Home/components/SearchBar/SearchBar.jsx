@@ -11,7 +11,7 @@ export default function SearchBar({ status }) {
   const submit = useSubmit();
   const debouncedSubmit = useDebounce(submit, 200);
   const [inputValue, setInputValue] = useState("");
-  const [queryString, setQueryString] = useState("");
+  const [_, setQueryString] = useState("");
   const [selectedTags, setSelectedTags] = useState();
 
   useEffect(() => {
@@ -148,7 +148,7 @@ export default function SearchBar({ status }) {
         </h1>
         <div className={styles.flabel}>
           <input
-            autocomplete="off"
+            autoComplete="off"
             id="search-field"
             aria-describedby="form-headline"
             type="search"
