@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  trainomat:
+    image: kdbhdm/trainomat:2023-12-19
+    container_name: trainomat
+    expose:
+      - 80
+    restart: unless-stopped
+    environment:
+      - VIRTUAL_HOST=trainomat.bf-lernen.de
+      - LETSENCRYPT_HOST=trainomat.bf-lernen.de
+    networks:
+      - internal
+      - external
+
+networks:
+  external:
+    name: external
+    external: true
+  internal:
+    name: internal
+    external: true
+
