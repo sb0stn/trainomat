@@ -10,40 +10,23 @@
   -webkit-text-size-adjust: 100%;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-p {
-  margin: 0;
-  padding: 0;
-}
 
 a {
   text-decoration: none;
-}
 
-a:link {
-  color: #04182f;
-}
+  &:link,
+  &:visited,
+  &:hover {
+    color: #04182f;
+  }
 
-a:visited {
-  color: #04182f;
-}
+  &:hover {
+    text-decoration: underline;
+  }
 
-a:hover {
-  color: #04182f;
-  text-decoration: underline;
-}
-
-a:active {
-  color: #004080;
+  &:active {
+    color: #004080;
+  }
 }
 
 td {

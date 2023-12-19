@@ -7,7 +7,9 @@ import Root from "./routes/Root.jsx";
 import ItemDetail from "./routes/ItemDetail/ItemDetail.jsx";
 import Home from "./routes/Home/Home.jsx";
 import Info from "./routes/Info/Info.jsx";
-import "./index.css";
+import "./index.scss";
+import "normalize.css";
+import "@fontsource/inter/400.css";
 
 const queryClient = new QueryClient();
 
