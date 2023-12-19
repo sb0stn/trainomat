@@ -3,7 +3,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import Select from "react-select";
 import { useDebounce } from "rooks";
 import { useEffect, useState } from "react";
-import styles from "./SearchBar.module.css";
+import styles from "./SearchBar.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
@@ -146,18 +146,25 @@ export default function SearchBar({ status }) {
         <h1 id="form-headline">
           Suche nach Ressourcen zu digitaler Barrierefreiheit
         </h1>
-        <input
-          aria-labelledby="form-headline"
-          type="search"
-          name="q"
-          placeholder="Suchbegriff eingeben: Titel, Autor, Jahr"
-          value={inputValue}
-          className={styles.search}
-          onChange={(event) => {
-            setInputValue(event.currentTarget.value);
-            debouncedSubmit(event.currentTarget.form);
-          }}
-        />
+        <div className={styles.flabel}>
+          <input
+            autocomplete="off"
+            id="search-field"
+            aria-describedby="form-headline"
+            type="search"
+            name="q"
+            placeholder="Suchbegriff eingeben: Titel, Autor, Jahr"
+            value={inputValue}
+            className={styles.search}
+            onChange={(event) => {
+              setInputValue(event.currentTarget.value);
+              debouncedSubmit(event.currentTarget.form);
+            }}
+          />
+          <label htmlFor="search-field">
+            Suchbegriff eingeben: Titel, Autor, Jahr
+          </label>
+        </div>
         <Select
           name="tags"
           options={groupedTags}
