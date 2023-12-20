@@ -20,24 +20,22 @@ export default function Type({ item }) {
   const windowWidth = useWindowWidth();
 
   const itemTypeMap = {
-    webpage: { icon: faDesktop, label: "Webpage" },
-    videoRecording: { icon: faFilm, label: "Video Recording" },
-    statute: { icon: faScaleBalanced, label: "Statute" },
-    note: { icon: faClipboardList, label: "Note" },
-    journalArticle: { icon: faNewspaper, label: "Journal" },
-    encyclopediaArticle: { icon: faScroll, label: "Encyclopedia" },
-    document: { icon: faFile, label: "Document" },
-    attachment: { icon: faFile, label: "Attachment" },
-    book: { icon: faBook, label: "Book" },
-    report: { icon: faNewspaper, label: "Report" },
-    newspaperArticle: { icon: faNewspaper, label: "Newspaper Article" },
-    interview: { icon: faMicrophone, label: "Interview" },
-    computerProgram: { icon: faCode, label: "Computer Program" },
-    conferencePaper: { icon: faScroll, label: "Conference Paper" },
-    blogPost: { icon: faPenAlt, label: "Blog Post" },
+    webpage: { icon: faDesktop, label: "Webpage", labelDe: "Webseite" },
+    videoRecording: { icon: faFilm, label: "Video Recording", labelDe: "Videoaufzeichnung" },
+    statute: { icon: faScaleBalanced, label: "Statute", labelDe: "Statut" },
+    note: { icon: faClipboardList, label: "Note", labelDe: "Notiz" },
+    journalArticle: { icon: faNewspaper, label: "Journal", labelDe: "Fachartikel" },
+    encyclopediaArticle: { icon: faScroll, label: "Encyclopedia", labelDe: "Enzyklopädie"  },
+    document: { icon: faFile, label: "Document", labelDe: "Dokument" },
+    attachment: { icon: faFile, label: "Attachment", labelDe: "Anhang" },
+    book: { icon: faBook, label: "Book", labelDe: "Buch" },
+    report: { icon: faNewspaper, label: "Report", labelDe: "Report" },
+    newspaperArticle: { icon: faNewspaper, label: "Newspaper Article", labelDe: "Zeitungsartikel" },
+    interview: { icon: faMicrophone, label: "Interview", labelDe: "Interview" },
+    computerProgram: { icon: faCode, label: "Computer Program", labelDe: "Computer Programm" },
+    conferencePaper: { icon: faScroll, label: "Conference Paper", labelDe: "Konferenzpapier" },
+    blogPost: { icon: faPenAlt, label: "Blog Post", labelDe: "Blogartikel" },
   };
-
-  //report,newspaperArticle, interview, computerProgram, conferencePaper, blogPost
 
   const itemType = itemTypeMap[item.data.itemType] || {
     icon: faFile,
@@ -47,7 +45,7 @@ export default function Type({ item }) {
   return (
     <span className={styles.type}>
       <FontAwesomeIcon icon={itemType.icon} className={`${styles.icon}`} />
-      {itemType.label && windowWidth > 978 ? itemType.label : null}
+      {itemType.labelDe && windowWidth > 978 ? itemType.labelDe : null}
     </span>
   );
 }
