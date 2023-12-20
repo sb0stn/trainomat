@@ -21,18 +21,18 @@ export default function Type({ item }) {
 
   const itemTypeMap = {
     webpage: { icon: faDesktop, label: "Webpage", labelDe: "Webseite" },
-    videoRecording: { icon: faFilm, label: "Video Recording", labelDe: "Videoaufzeichnung" },
+    videoRecording: { icon: faFilm, label: "Video Recording", labelDe: "Video" },
     statute: { icon: faScaleBalanced, label: "Statute", labelDe: "Statut" },
     note: { icon: faClipboardList, label: "Note", labelDe: "Notiz" },
-    journalArticle: { icon: faNewspaper, label: "Journal", labelDe: "Fachartikel" },
+    journalArticle: { icon: faNewspaper, label: "Journal", labelDe: "Fachzeitschrift" },
     encyclopediaArticle: { icon: faScroll, label: "Encyclopedia", labelDe: "Enzyklopädie"  },
     document: { icon: faFile, label: "Document", labelDe: "Dokument" },
     attachment: { icon: faFile, label: "Attachment", labelDe: "Anhang" },
     book: { icon: faBook, label: "Book", labelDe: "Buch" },
-    report: { icon: faNewspaper, label: "Report", labelDe: "Report" },
+    report: { icon: faNewspaper, label: "Report", labelDe: "Bericht" },
     newspaperArticle: { icon: faNewspaper, label: "Newspaper Article", labelDe: "Zeitungsartikel" },
     interview: { icon: faMicrophone, label: "Interview", labelDe: "Interview" },
-    computerProgram: { icon: faCode, label: "Computer Program", labelDe: "Computer Programm" },
+    computerProgram: { icon: faCode, label: "Computer Program", labelDe: "Computerprogramm" },
     conferencePaper: { icon: faScroll, label: "Conference Paper", labelDe: "Konferenzpapier" },
     blogPost: { icon: faPenAlt, label: "Blog Post", labelDe: "Blogartikel" },
   };
