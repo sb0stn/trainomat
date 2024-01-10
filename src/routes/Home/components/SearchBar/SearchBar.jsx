@@ -134,10 +134,13 @@ export default function SearchBar({ status }) {
           const optionArray = optionsMapping[abbreviation];
           if (optionArray) {
             optionArray.push({ value: tag.tag, label: tag.tag });
+            optionArray.sort(({label: a}, {label: b}) => a.localeCompare(b));
             return { value: tag.tag, label: tag.tag };
           }
         }
         othersOptions.push({ value: tag.tag, label: tag.tag });
+        othersOptions.sort(({label: a}, {label: b}) => a.localeCompare(b));
+
         return { value: tag.tag, label: tag.tag };
       });
     });
