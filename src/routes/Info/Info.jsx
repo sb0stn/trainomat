@@ -36,7 +36,12 @@ export default function Info() {
     {
       category: "W1",
       description: "Weiterbildungskurs CPACC",
-      id: "weiterbildungskurs",
+      id: "weiterbildungskurs-cpacc",
+    },
+    {
+      category: "W2",
+      description: "Weiterbildungskurs WAS",
+      id: "weiterbildungskurs-was",
     },
     { category: "Z", description: "Zertifikate", id: "zertifikate" },
   ];
@@ -325,7 +330,7 @@ export default function Info() {
     },
     cpaccCourse: {
       headline: "Weiterbildungskurs CPACC (W1)",
-      id: "weiterbildungskurs",
+      id: "weiterbildungskurs-cpacc",
       items: [
         { tag: "(W1) Vielfalt", description: "" },
         { tag: "(W1) Multimedia", description: "" },
@@ -337,6 +342,14 @@ export default function Info() {
         { tag: "(W1) Mobile-Apps", description: "" },
         { tag: "(W1) Organisationen-Prozesse", description: "" },
         { tag: "(W1) Demografie-Gesetze", description: "" },
+      ],
+    },
+    wasCourse: {
+      headline: "Weiterbildungskurs WAS (W2)",
+      id: "weiterbildungskurs-was",
+      items: [
+        { tag: "(W2) Einführung Standards", description: "" },
+        { tag: "(W2) Prüfprozesse", description: "" },
       ],
     },
     certificates: {

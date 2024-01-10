@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   trainomat:
-    image: kdbhdm/trainomat:2023-12-19
+    image: kdbhdm/trainomat:latest
     container_name: trainomat
     expose:
       - 80
