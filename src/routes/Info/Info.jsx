@@ -344,7 +344,7 @@ export default function Info() {
         { tag: "(W1) Demografie-Gesetze", description: "" },
       ],
     },
-    cpaccCourse: {
+    wasCourse: {
       headline: "Weiterbildungskurs WAS (W2)",
       id: "weiterbildungskurs-was",
       items: [
