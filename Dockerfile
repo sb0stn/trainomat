@@ -1,10 +1,22 @@
-FROM node:20.10.0-alpine3.19 as build
+FROM node:20-slim AS base
 
+# node dependecies
+FROM base AS deps
 WORKDIR /app
-COPY . /app
+COPY package.json yarn.lock ./
+RUN yarn install -production=true --frozen-lockfile && \
+    yarn cache clean --force && \
+    rm -rf /tmp/*
 
-RUN npm install
-RUN npm run build
+# build source code
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+RUN yarn build
 
-FROM php:8.3.0-apache
-COPY --from=build /app/dist /var/www/html/
+# create production image
+FROM php:8.3.1-apache AS runner
+WORKDIR /app
+
+COPY --from=builder /app/dist /var/www/html/
