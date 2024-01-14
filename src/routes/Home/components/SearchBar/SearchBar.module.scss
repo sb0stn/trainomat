@@ -10,10 +10,28 @@
   }
 }
 
+@mixin flabel-inner {
+  transform: translateY(-90%) scale(.75);
+  background-color: #fff;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  padding: .5em;
+  left: 0;
+  box-shadow: 0 0 5px #ccc
+}
+
 .flabel {
   position: relative;
   margin-top: 30px;
   margin-inline: auto;
+
+  &[data-shouldfloat=true],
+  &:focus-within {
+    label {
+       @include flabel-inner;
+    }
+  }
 
   input {
     &:focus {
@@ -32,14 +50,7 @@
 
     &:focus+label,
     &:not(:placeholder-shown)+label {
-      transform: translateY(-90%) scale(.75);
-      background-color: #fff;
-      border-top-left-radius: 4px;
-      border-top-right-radius: 4px;
-      border-top-right-radius: 4px;
-      padding: .5em;
-      left: 0;
-      box-shadow: 0 0 5px #ccc
+      @include flabel-inner;
     }
   }
 

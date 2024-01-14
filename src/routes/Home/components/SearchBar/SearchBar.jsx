@@ -7,12 +7,14 @@ import styles from "./SearchBar.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
+
 export default function SearchBar({ status }) {
   const submit = useSubmit();
   const debouncedSubmit = useDebounce(submit, 200);
   const [inputValue, setInputValue] = useState("");
   const [_, setQueryString] = useState("");
   const [selectedTags, setSelectedTags] = useState();
+  const [tagsShouldFloat, setTagsShouldFloat] = useState(false);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -26,6 +28,7 @@ export default function SearchBar({ status }) {
           label: tag.replace(/\+/g, " ").trim(),
         }));
       setSelectedTags(tags);
+      setTagsShouldFloat(true);
     }
 
     const qParam = searchParams.get("q");
@@ -154,9 +157,11 @@ export default function SearchBar({ status }) {
         </h1>
         <div className={styles.flabel}>
           <input
+            autoCorrect="on"
+            spellcheck="true"
+            autoCapitalize="off"
             autoComplete="off"
             id="search-field"
-            aria-describedby="form-headline"
             type="search"
             name="q"
             placeholder="Suchbegriff eingeben: Titel, Autor, Jahr"
@@ -171,11 +176,17 @@ export default function SearchBar({ status }) {
             Suchbegriff eingeben: Titel, Autor, Jahr
           </label>
         </div>
+        <div
+        className={styles.flabel}
+        data-shouldFloat={tagsShouldFloat}
+        
+        >
         <Select
+          placeholder=""
+          inputId="tag-field"
           name="tags"
           options={groupedTags}
           isMulti
-          placeholder="Tags auswählen"
           closeMenuOnSelect={true}
           value={selectedTags}
           hideSelectedOptions={false}
@@ -186,6 +197,7 @@ export default function SearchBar({ status }) {
                     return `${acc}&tags=${tag.value}`;
                   }, "")
                 : "";
+            setTagsShouldFloat(selectedValue.length > 0);
             setSelectedTags(selectedValue);
             submit(`?q=${inputValue}${tagString}`);
           }}
@@ -225,6 +237,10 @@ export default function SearchBar({ status }) {
             }),
           }}
         />
+              <label htmlFor="tag-field">
+               Tags auswählen
+          </label>
+      </div>
         <button
           className={status == "loading" ? styles.loadingButton : styles.button}
           disabled={status == "loading"}
