@@ -16,7 +16,7 @@ function ItemDetail() {
   let navigate = useNavigate();
 
   useEffect(() => {
-    document.title = `TRAINomat ${state.data.title}`;
+    document.title = `${state.data.title} - TRAINomat`;
   }, []);
 
   return (

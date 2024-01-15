@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 export default function Info() {
   useEffect(() => {
-    document.title = `TRAINomat Info`;
+    document.title = `Info - TRAINomat`;
   }, []);
   const tagsData = [
     { category: "A", description: "Anwendungen", id: "anwendung" },

@@ -6,10 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
   faXmark,
-  faHome,
-  faInfoCircle,
-  faSection,
-  faLock,
 } from "@fortawesome/free-solid-svg-icons";
 import useIsMobile from "../../Hooks/useIsMobile.jsx";
 
@@ -61,20 +57,7 @@ export default function AppBar() {
             </>
           ) : (
             <ul>
-              <li>
-                <NavLink
-                  to={"/"}
-                  className={({ isActive }) =>
-                    isActive ? styles.active : styles.link
-                  }
-                >
-                  <FontAwesomeIcon
-                    icon={faHome}
-                    style={{ marginRight: "8px" }}
-                  />
-                  Startseite
-                </NavLink>
-              </li>
+
               <li>
                 <NavLink
                   to={"/info"}
@@ -82,42 +65,43 @@ export default function AppBar() {
                     isActive ? styles.active : styles.link
                   }
                 >
-                  <FontAwesomeIcon
-                    icon={faInfoCircle}
-                    style={{ marginRight: "8px" }}
-                  />
                   Info
                 </NavLink>
               </li>
 
               <li>
                 <NavLink
-                  to={"https://gpii.de/legal/de/impressum.html"}
-                  target="_blank"
-                  className={styles.link}
+                  to={"/impressum"}
+                  className={({ isActive }) =>
+                    isActive ? styles.active : styles.link
+                  }
+
                 >
-                  <FontAwesomeIcon
-                    icon={faSection}
-                    style={{ marginRight: "8px" }}
-                  />
                   Impressum
                 </NavLink>
               </li>
 
               <li>
                 <NavLink
-                  to={"https://gpii.de/legal/de/datenschutz.html"}
-                  target="_blank"
-                  className={styles.link}
+                  to={"/datenschutz"}
+                  className={({ isActive }) =>
+                    isActive ? styles.active : styles.link
+                  }
                 >
-                  <FontAwesomeIcon
-                    icon={faLock}
-                    style={{ marginRight: "8px" }}
-                  />
                   Datenschutz
                 </NavLink>
               </li>
-              
+
+              <li>
+                <NavLink
+                  to={"/barrierefreiheit"}
+                  className={({ isActive }) =>
+                    isActive ? styles.active : styles.link
+                  }
+                >
+                  Barrierefreiheit
+                </NavLink>
+              </li>
             </ul>
           )}
         </nav>
@@ -126,31 +110,12 @@ export default function AppBar() {
             <ul>
               <li>
                 <NavLink
-                  to={"/"}
-                  className={({ isActive }) =>
-                    isActive ? styles.active : styles.link
-                  }
-                  onClick={() => setMobileMenu(!mobileMenu)}
-                >
-                  <FontAwesomeIcon
-                    icon={faHome}
-                    style={{ marginRight: "8px" }}
-                  />
-                  Startseite
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
                   to={"/info"}
                   className={({ isActive }) =>
                     isActive ? styles.active : styles.link
                   }
                   onClick={() => setMobileMenu(!mobileMenu)}
                 >
-                  <FontAwesomeIcon
-                    icon={faInfoCircle}
-                    style={{ marginRight: "8px" }}
-                  />
                   Info
                 </NavLink>
               </li>
@@ -158,13 +123,11 @@ export default function AppBar() {
               <li>
                 <NavLink
                   to={"https://gpii.de/legal/de/impressum.html"}
-                  target="_blank"
-                  className={styles.link}
+                  className={({ isActive }) =>
+                    isActive ? styles.active : styles.link
+                  }
+                  onClick={() => setMobileMenu(!mobileMenu)}
                 >
-                  <FontAwesomeIcon
-                    icon={faSection}
-                    style={{ marginRight: "8px" }}
-                  />
                   Impressum
                 </NavLink>
               </li>
@@ -172,14 +135,24 @@ export default function AppBar() {
               <li>
                 <NavLink
                   to={"https://gpii.de/legal/de/datenschutz.html"}
-                  target="_blank"
-                  className={styles.link}
+                  className={({ isActive }) =>
+                    isActive ? styles.active : styles.link
+                  }
+                  onClick={() => setMobileMenu(!mobileMenu)}
                 >
-                  <FontAwesomeIcon
-                    icon={faLock}
-                    style={{ marginRight: "8px" }}
-                  />
                   Datenschutz
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
+                  to={"/barrierefreiheit"}
+                  className={({ isActive }) =>
+                    isActive ? styles.active : styles.link
+                  }
+                  onClick={() => setMobileMenu(!mobileMenu)}
+                >
+                  Barrierefreiheit
                 </NavLink>
               </li>
             </ul>
