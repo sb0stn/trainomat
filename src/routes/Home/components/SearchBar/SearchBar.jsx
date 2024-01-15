@@ -158,7 +158,7 @@ export default function SearchBar({ status }) {
         <div className={styles.flabel}>
           <input
             autoCorrect="on"
-            spellcheck="true"
+            spellCheck="true"
             autoCapitalize="off"
             autoComplete="off"
             id="search-field"
@@ -178,7 +178,7 @@ export default function SearchBar({ status }) {
         </div>
         <div
         className={styles.flabel}
-        data-shouldFloat={tagsShouldFloat}
+        data-shouldfloat={tagsShouldFloat}
         
         >
         <Select
