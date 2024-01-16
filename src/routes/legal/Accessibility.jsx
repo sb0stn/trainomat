@@ -9,7 +9,7 @@ export default function Accessibility() {
 
     return (
         <main className={styles.infoContainer}>
-            <h1 class="actual">Erklärung zur Barrierefreiheit</h1>
+            <h1>Erklärung zur Barrierefreiheit</h1>
             <h2>Anwendungsbereich</h2>
             <p>Diese Erklärung zur Barrierefreiheit bezieht sich auf das <a href="https://www.landesrecht-bw.de/bsbw/?pid=Dokumentanzeige&showdoccase=1&js_peid=Trefferliste&documentnumber=1&numberofresults=25&fromdoctodoc=yes&doc.id=jlr-BehGleichStGBW2014rahmen&doc.part=X&doc.price=0.0#focuspoint" target="_blank">Landesgesetz zur Gleichstellung von Menschen mit Behinderungen (Landes-Behindertengleichstellungsgesetz – L-BGG) vom 17. Dezember 2014, zuletzt mehrfach geändert durch Gesetz vom 18. Dez. 2018<span className="sr-only">&nbsp;(öffnet in neuem Fenster)</span></a>. Das Kompetenzzentrum für Digitale Barrierefreiheit ist bemüht, seine Webseiten und mobilen Anwendungen in Einklang mit § 10 Absatz 1 des Landes-Behindertengleichstellungsgesetzes (L-BGG) barrierefrei zugänglich zu gestalten.</p>
 
