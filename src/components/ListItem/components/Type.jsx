@@ -22,7 +22,7 @@ export default function Type({ item }) {
   const itemTypeMap = {
     webpage: { icon: faDesktop, label: "Webpage", labelDe: "Webseite" },
     videoRecording: { icon: faFilm, label: "Video Recording", labelDe: "Video" },
-    statute: { icon: faScaleBalanced, label: "Statute", labelDe: "Statut" },
+    statute: { icon: faScaleBalanced, label: "Statute", labelDe: "Gesetz" },
     note: { icon: faClipboardList, label: "Note", labelDe: "Notiz" },
     journalArticle: { icon: faNewspaper, label: "Journal", labelDe: "Fachzeitschrift" },
     encyclopediaArticle: { icon: faScroll, label: "Encyclopedia", labelDe: "Enzyklopädie"  },
