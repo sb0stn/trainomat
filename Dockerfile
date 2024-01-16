@@ -20,3 +20,6 @@ FROM php:8.3.1-apache AS runner
 WORKDIR /app
 
 COPY --from=builder /app/dist /var/www/html/
+COPY .htaccess /var/www/html/
+
+RUN a2enmod rewrite
