@@ -395,6 +395,19 @@ export default function Info() {
           kann den TRAINomat über die Auswahl von Tags so einstellen, dass er
           nur Ressourcen für ganz bestimmte Anwendungsbereiche anzeigt.
         </p>
+        <p>
+          Hinweis: Wir stellen Ihnen den TRAINomat kostenloses zur Verfügung ohne
+          Gewähr auf Vollständigkeit und Richtigkeit. Gleichzeitig machen wir
+          darauf aufmerksam, dass dieses Angebot von uns unter sehr 
+          begrenztem Aufwand "nebenbei" gepflegt wird.
+          Wir suchen nach Möglichkeiten, Fördermittel für die Kuratierung der Inhalte
+          des TRAINomats zu erhalten. Solange wir keine finanziellen Mittel für den 
+          TRAINomat zur Verfügung haben, bitten wir Sie, uns keine Vorschläge zur Aufnahme
+          weiterer Ressourcen in den TRAINomat zu senden - wir werden sie nicht bearbeiten.
+          Wenn Sie technische oder inhaltliche Fehler finden, können Sie uns das gerne
+          mitteilen an: 
+          <a href="mailto:trainomat@hdm-stuttgart.de">trainomat@hdm-stuttgart.de</a>. 
+        </p>
       </section>
 
       <section aria-labelledby="tagsHeading" role="region">
