@@ -1,3 +1,5 @@
+@import "../../outline.scss";
+
 .main {
   max-width: 1200px;
   padding: 12px 12px 0 12px;
@@ -36,15 +38,6 @@
   font-weight: 700;
   text-align: left;
 }
-
-/* .tableNoteContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 12px;
-  @media (max-width: 980px) {
-    grid-template-columns: 1fr;
-  }
-} */
 
 .tableNoteContainer h2 {
   color: #04182f !important;
@@ -94,4 +87,13 @@
   grid-area: icon;
   justify-self: end;
   margin-left: 24px;
+}
+
+.resouceHeading {
+  @include outline-on-focus;
+
+}
+
+.link {
+  @include outline-on-focus;
 }

@@ -1,4 +1,4 @@
-import styles from "./Tag.module.css";
+import styles from "./Tag.module.scss";
 import { useNavigate } from "react-router-dom";
 
 export default function Tag({ tag }) {
@@ -15,8 +15,8 @@ export default function Tag({ tag }) {
       }}
       onClick={() => navigate(`/?tags=${tag}`)}
       className={styles.tag}
-      aria-label={`Filtern nach Tag: ${tag}`}
     >
+      <span class="sr-only">Filtern nach <span lang="en">Tag</span>:</span>
       {tag}
     </span>
   );

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import ListItem from "../../../../components/ListItem/ListItem.jsx";
-import styles from "./ItemList.module.css";
+import styles from "./ItemList.module.scss";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";
 import LoadNewPageIndicator from "./components/LoadNewPageIndicator.jsx";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import Select from "react-select";
+import { germanAriaLiveMessages } from "../../../../helper/reactSelectGerman";
+
 
 export default function SearchResults({ setStatus }) {
   const { ref, inView } = useInView();
@@ -21,7 +23,7 @@ export default function SearchResults({ setStatus }) {
   const direction = searchParams.get("direction") ?? "desc"; //define default "asc"
   const [selectedOption, setSelectedOption] = useState(null);
 
-  const options = [
+  const sortOptions = [
     {
       label: "Titel aufsteigend A-Z",
       value: "titleAsc",
@@ -116,7 +118,7 @@ export default function SearchResults({ setStatus }) {
   }, [status]);
 
   useEffect(() => {
-    const foundOption = options.find(
+    const foundOption = sortOptions.find(
       (option) =>
         option.value.toLowerCase() === `${sort}${direction}`.toLowerCase() &&
         option.direction.toLowerCase() === direction.toLowerCase()
@@ -133,9 +135,9 @@ export default function SearchResults({ setStatus }) {
   console.log(items?.pages[0]?.totalResults);
 
   return (
-    <main aria-labelledby="search-headline" className={styles.table_container}>
+    <section aria-labelledby="search-headline" className={styles.table_container}>
       <div className={styles.results_head}>
-        <h3
+        <h2
           id="search-headline"
           style={{
             margin: "16px 12px",
@@ -146,14 +148,26 @@ export default function SearchResults({ setStatus }) {
           {items?.pages[0]?.totalResults === 1
             ? "Suchergebnis"
             : `${items?.pages[0]?.totalResults} Suchergebnisse`}{" "}
-        </h3>
+        </h2>
 
-        <form role="redion" aria-label="Sortieren">
-          <h4>Sortieren</h4>
+        <form role="region" aria-label="Sortieren">
+          <h3>Sortieren</h3>
 
           <Select
-            options={options}
-            defaultValue={options[3]}
+          ariaLiveMessages={germanAriaLiveMessages}
+           styles={{
+            control: (baseStyles, state) => ({
+              ...baseStyles,
+              outline: state.isFocused ? "2px solid #1c589d" : "",
+            }),
+            option: (baseStyles, state) => ({
+              ...baseStyles,
+              textDecoration: state.isFocused ? "underline" : "",
+            }
+            ),
+          }}
+            options={sortOptions}
+            defaultValue={sortOptions[3]}
             value={selectedOption}
             onChange={(selectedOption) => handleSort(selectedOption)}
             placeholder="Sortieren nach..."
@@ -207,6 +221,6 @@ export default function SearchResults({ setStatus }) {
 
       <button style={{ visibility: "hidden" }} ref={ref} />
       {/* Element to detect end of page */}
-    </main>
+    </section>
   );
 }

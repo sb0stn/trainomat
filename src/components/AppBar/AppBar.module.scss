@@ -1,3 +1,5 @@
+@import "../../outline.scss";
+
 .header {
   background-color: #f3f8fe;
   padding: 18px 0;
@@ -46,6 +48,8 @@
   display: flex;
   gap: 8px;
   cursor: pointer;
+
+  @include outline-on-focus;
 }
 
 .logo_svg {
@@ -89,6 +93,8 @@ nav ul li {
   text-decoration: none !important;
   color: #4a5765 !important;
   font-weight: 700;
+
+  @include outline-on-focus;
 }
 
 .active {
@@ -98,3 +104,4 @@ nav ul li {
   text-decoration-thickness: 3px !important;
   text-underline-offset: 5px !important;
 }
+

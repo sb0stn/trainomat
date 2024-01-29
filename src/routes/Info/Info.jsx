@@ -1,4 +1,4 @@
-import styles from "./Info.module.css";
+import styles from "./Info.module.scss";
 import Tag from "../ItemDetail/components/Tag.jsx";
 import { useEffect } from "react";
 
@@ -392,7 +392,7 @@ export default function Info() {
           der Hochschule der Medien Stuttgart. In der Zotero-Bibliothek sind
           Ressourcen (Webseiten und Dokumente) verlinkt, die zur Weiterbildung
           in verschiedenen Bereichen der Digitalen Barrierefreiheit dienen. Man
-          kann den TRAINomat über die Auswahl von Tags so einstellen, dass er
+          kann den TRAINomat über die Auswahl von <span lang="en">Tags</span> so einstellen, dass er
           nur Ressourcen für ganz bestimmte Anwendungsbereiche anzeigt.
         </p>
         <p>
@@ -411,26 +411,26 @@ export default function Info() {
       </section>
 
       <section aria-labelledby="tagsHeading" role="region">
-        <h2 id="tagsHeading">Tags</h2>
+        <h2 id="tagsHeading" lang="en">Tags</h2>
         <p>
-          Jeder Eintrag im TRAINomat ist mit einem oder mehreren Tags versehen,
-          die den Inhalt des Eintrags beschreiben. Durch Auswahl eines Tags
-          werden nur die Dokumente, die mit diesem Tag versehen sind, angezeigt.
-          Ein ausgewähltes Tag kann jederzeit wieder abgewählt werden. Durch die
-          Auswahl mehrerer Tags kann die Auswahl weiter präzisiert werden.
-          Beispiel: Mit den Tags <Tag key={1} tag={"(T) PDF"} /> und{" "}
+          Jeder Eintrag im TRAINomat ist mit einem oder mehreren <span lang="en">Tags</span> versehen,
+          die den Inhalt des Eintrags beschreiben. Durch Auswahl eines <span lang="en">Tags</span>
+          werden nur die Dokumente, die mit diesem <span lang="en">Tag</span> versehen sind, angezeigt.
+          Ein ausgewähltes <span lang="en">Tag</span> kann jederzeit wieder abgewählt werden. Durch die
+          Auswahl mehrerer <span lang="en">Tags</span> kann die Auswahl weiter präzisiert werden.
+          Beispiel: Mit den <span lang="en">Tags</span> <Tag key={1} tag={"(T) PDF"} /> und{" "}
           <Tag key={1} tag={"(Q) Einstieg"} /> werden Einträge zum Thema PDF
           angezeigt, die für Unerfahrene geeignet sind.
         </p>
         <br />
         <p>
-          Einträge, die mit dem Tag <Tag key={1} tag={"(E) *"} /> versehen sind,
+          Einträge, die mit dem <span lang="en">Tag</span> <Tag key={1} tag={"(E) *"} /> versehen sind,
           sind eine Empfehlung des Kompetenzzentrums.
         </p>
         <br />
         <p>
-          Die Tags sind in verschiedene Kategorien unterteilt. Die Kategorie
-          eines Tags wird durch seine Anfangsbuchstaben angezeigt:
+          Die <span lang="en">Tags</span> sind in verschiedene Kategorien unterteilt. Die Kategorie
+          eines <span lang="en">Tags</span> wird durch seine Anfangsbuchstaben angezeigt:
         </p>
         <br />
         {renderTagsTable(tagsData)}
@@ -447,7 +447,8 @@ export default function Info() {
 }
 
 const renderTagsTable = (data) => (
-  <section aria-label="Tags">
+  <section aria-labelledby="render-tags-table-id">
+    <span id="render-tags-table-id" lang="en" class="sr-only">Tags</span>
     <table>
       <thead>
         <tr>

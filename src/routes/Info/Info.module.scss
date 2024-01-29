@@ -1,3 +1,6 @@
+@import "../../outline.scss";
+
+
 .infoContainer {
   max-width: 1200px;
   margin: 24px auto;
@@ -44,4 +47,6 @@
 
 .infoContainer a {
   text-decoration: underline !important;
+
+  @include outline-on-focus;
 }

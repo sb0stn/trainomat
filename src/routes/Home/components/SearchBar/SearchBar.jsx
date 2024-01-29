@@ -1,12 +1,28 @@
 import { useSubmit } from "react-router-dom";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import Select from "react-select";
+import Select, { components } from 'react-select';
 import { useDebounce } from "rooks";
 import { useEffect, useState } from "react";
 import styles from "./SearchBar.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+import { germanAriaLiveMessages, germanScreenReaderStatus } from "../../../../helper/reactSelectGerman";
 
+
+
+const Group = (props) => {
+  return (
+    <div role="group" aria-labelledby={props.headingProps.id}>
+      <components.Group {...props} />
+    </div>
+  )
+}
+
+const GroupHeading = (props) => {
+  return (
+    <components.GroupHeading {...props} role="presentation" />
+  )
+}
 
 export default function SearchBar({ status }) {
   const submit = useSubmit();
@@ -15,6 +31,7 @@ export default function SearchBar({ status }) {
   const [_, setQueryString] = useState("");
   const [selectedTags, setSelectedTags] = useState();
   const [tagsShouldFloat, setTagsShouldFloat] = useState(false);
+
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -137,12 +154,12 @@ export default function SearchBar({ status }) {
           const optionArray = optionsMapping[abbreviation];
           if (optionArray) {
             optionArray.push({ value: tag.tag, label: tag.tag });
-            optionArray.sort(({label: a}, {label: b}) => a.localeCompare(b));
+            optionArray.sort(({ label: a }, { label: b }) => a.localeCompare(b));
             return { value: tag.tag, label: tag.tag };
           }
         }
         othersOptions.push({ value: tag.tag, label: tag.tag });
-        othersOptions.sort(({label: a}, {label: b}) => a.localeCompare(b));
+        othersOptions.sort(({ label: a }, { label: b }) => a.localeCompare(b));
 
         return { value: tag.tag, label: tag.tag };
       });
@@ -177,70 +194,86 @@ export default function SearchBar({ status }) {
           </label>
         </div>
         <div
-        className={styles.flabel}
-        data-shouldfloat={tagsShouldFloat}
-        
+          className={styles.flabel}
+          data-shouldfloat={tagsShouldFloat}
+
         >
-        <Select
-          placeholder=""
-          inputId="tag-field"
-          name="tags"
-          options={groupedTags}
-          isMulti
-          closeMenuOnSelect={true}
-          value={selectedTags}
-          hideSelectedOptions={false}
-          onChange={(selectedValue, action) => {
-            const tagString =
-              selectedValue.length > 0
-                ? selectedValue.reduce((acc, tag) => {
+          <Select
+            screenReaderStatus={germanScreenReaderStatus}
+            ariaLiveMessages={germanAriaLiveMessages}
+            placeholder=""
+            inputId="tag-field"
+            name="tags"
+            options={groupedTags}
+            isMulti
+            closeMenuOnSelect={true}
+            value={selectedTags}
+            hideSelectedOptions={false}
+            components={{ GroupHeading, Group, }}
+            onChange={(selectedValue, action) => {
+              const tagString =
+                selectedValue.length > 0
+                  ? selectedValue.reduce((acc, tag) => {
                     return `${acc}&tags=${tag.value}`;
                   }, "")
-                : "";
-            setTagsShouldFloat(selectedValue.length > 0);
-            setSelectedTags(selectedValue);
-            submit(`?q=${inputValue}${tagString}`);
-          }}
-          styles={{
-            control: (baseStyles, state) => ({
-              ...baseStyles,
-              border: "none",
-            }),
-            placeholder: (baseStyles, state) => ({
-              ...baseStyles,
-              color: "#767474",
-            }),
-            option: (baseStyles, state) => ({
-              ...baseStyles,
-              color: state.isSelected
-                ? "white"
-                : state.isFocused
-                ? "white"
-                : "black",
-              backgroundColor:
-                state.isFocused && state.isSelected
-                  ? "#A02121"
-                  : state.isSelected
-                  ? "#458775"
+                  : "";
+              setTagsShouldFloat(selectedValue.length > 0);
+              setSelectedTags(selectedValue);
+              submit(`?q=${inputValue}${tagString}`);
+            }}
+            styles={{
+              groupHeading: (baseStyles, state) => ({
+                ...baseStyles,
+                color: "black"
+              }),
+              noOptions: (baseStyles, state) => ({
+                ...baseStyles,
+                color: "black"
+              }),
+              control: (baseStyles, state) => ({
+                ...baseStyles,
+                border: "none",
+                outline: state.isFocused ? "2px solid #1c589d" : "",
+              }),
+              placeholder: (baseStyles, state) => ({
+                ...baseStyles,
+                color: "#767474",
+              }),
+              option: (baseStyles, state) => ({
+                ...baseStyles,
+                color: state.isSelected
+                  ? "white"
                   : state.isFocused
-                  ? "#1C589D"
-                  : "#E6E6E6",
-              borderRadius: "2px",
-              padding: "2px 8px",
-              width: "fit-content",
-              display: "inline-block",
-              margin: "2px",
-            }),
-            menuList: (baseStyles, state) => ({
-              ...baseStyles,
-              padding: "4px 8px",
-            }),
-          }}
-        />
-              <label htmlFor="tag-field">
-               Tags auswählen
+                    ? "white"
+                    : "black",
+                backgroundColor:
+                  state.isFocused && state.isSelected
+                    ? "#A02121"
+                    : state.isSelected
+                      ? "#458775"
+                      : state.isFocused
+                        ? "#1C589D"
+                        : "#E6E6E6",
+                borderRadius: "2px",
+                padding: "2px 8px",
+                width: "fit-content",
+                display: "inline-block",
+                margin: "2px",
+              }),
+              menuList: (baseStyles, state) => ({
+                ...baseStyles,
+                padding: "4px 8px",
+              }),
+              noOptionsMessage: (baseStyles, state) => ({
+                ...baseStyles,
+                color: "black"
+              })
+            }}
+          />
+          <label htmlFor="tag-field">
+            Tags auswählen
           </label>
-      </div>
+        </div>
         <button
           className={status == "loading" ? styles.loadingButton : styles.button}
           disabled={status == "loading"}
@@ -248,6 +281,7 @@ export default function SearchBar({ status }) {
           <span style={{ marginRight: "8px" }}>Suchen</span>
           {status == "loading" ? (
             <FontAwesomeIcon
+              role="presentation"
               icon={faCircleNotch}
               className={`${styles.spinner} ${styles.icon}`}
             />

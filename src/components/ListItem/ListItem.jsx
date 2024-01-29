@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "./ListItem.module.css";
+import styles from "./ListItem.module.scss";
 import React, { useEffect, useState } from "react";
 import Type from "./components/Type.jsx";
 import useIsMobile from "../../Hooks/useIsMobile";

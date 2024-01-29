@@ -1,5 +1,5 @@
 import logo from "../../assets/logo.svg";
-import styles from "./AppBar.module.css";
+import styles from "./AppBar.module.scss";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -36,11 +36,12 @@ export default function AppBar() {
         <span className={styles.slogan}>
           Eine Sammlung an Ressourcen zu digitaler Barrierefreiheit
         </span>
-        <nav>
+        <nav aria-label="Hauptnavigation">
           {isMobile ? (
             <>
               {mobileMenu ? (
                 <FontAwesomeIcon
+                  role="button"
                   aria-label="Menü schließen"
                   icon={faXmark}
                   className={styles.toggle_icon}
@@ -48,6 +49,7 @@ export default function AppBar() {
                 />
               ) : (
                 <FontAwesomeIcon
+                  role="button"
                   aria-label="Menu öffnen"
                   icon={faBars}
                   className={styles.toggle_icon}

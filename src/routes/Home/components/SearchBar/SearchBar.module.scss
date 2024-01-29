@@ -1,3 +1,6 @@
+@import "../../../../outline.scss";
+
+
 .form {
   background-color: #f3f8fe;
   padding: 0 0 18px;
@@ -21,6 +24,10 @@
   box-shadow: 0 0 5px #ccc
 }
 
+.outline-on-focus {
+  @include outline-on-focus;
+}
+
 .flabel {
   position: relative;
   margin-top: 30px;
@@ -34,9 +41,7 @@
   }
 
   input {
-    &:focus {
-      outline: none;
-    }
+    @include outline-on-focus;
 
     &::placeholder {
       color: transparent
@@ -76,6 +81,12 @@
   border-radius: 4px;
   font-weight: 700;
   cursor: pointer;
+
+  &:focus {
+    background-color: #fff;
+    color: #1c589d;
+    @include outline-on-focus;
+  }
 }
 
 .loadingButton {

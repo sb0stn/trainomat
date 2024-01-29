@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
-import styles from "./LoadNewPageIndicator.module.css";
+import styles from "./LoadNewPageIndicator.module.scss";
 
 export default function LoadNewPageIndicator({ isFetchingNextPage, pages }) {
   let resultsLoaded = pages[pages.length - 1].nextId;
@@ -13,6 +13,7 @@ export default function LoadNewPageIndicator({ isFetchingNextPage, pages }) {
     >
       <FontAwesomeIcon
         icon={faCircleNotch}
+        role="presentation"
         className={`${styles.spinner} ${styles.icon}`}
       />
       <div>

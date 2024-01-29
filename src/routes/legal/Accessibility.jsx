@@ -1,4 +1,4 @@
-import styles from "../Info/Info.module.css";
+import styles from "../Info/Info.module.scss";
 import { useEffect } from "react";
 
 export default function Accessibility() {

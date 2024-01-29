@@ -3,8 +3,8 @@ services:
   trainomat:
     image: kdbhdm/trainomat:latest
     container_name: trainomat
-    expose:
-      - 80
+    ports:
+      - 8888:80
     restart: unless-stopped
     environment:
       - VIRTUAL_HOST=trainomat.bf-lernen.de

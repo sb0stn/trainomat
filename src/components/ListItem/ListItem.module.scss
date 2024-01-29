@@ -1,3 +1,6 @@
+@import "../../outline.scss";
+
+
 .row {
   padding: 4px 8px;
   display: grid;
@@ -9,6 +12,7 @@
 
 .link {
   text-decoration: none;
+  @include outline-on-focus;
 }
 
 .tableData {

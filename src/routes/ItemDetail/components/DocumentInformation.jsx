@@ -1,4 +1,4 @@
-import styles from "../ItemDetail.module.css";
+import styles from "../ItemDetail.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt, faFile } from "@fortawesome/free-solid-svg-icons";
 
@@ -8,6 +8,7 @@ export default function DocumentInformation({ state }) {
       <h2 id="document-headline">
         {" "}
         <FontAwesomeIcon
+        role="presentation"
           icon={faFile}
           style={{ marginRight: "6px", width: "15px" }}
         />{" "}
@@ -42,6 +43,7 @@ export default function DocumentInformation({ state }) {
           <th>Zotero</th>
           <td>
             <a
+              className={styles.link}
               href={state.links.alternate.href}
               target="_blank"
               rel="noopener noreferrer"
@@ -51,7 +53,7 @@ export default function DocumentInformation({ state }) {
               <span style={{ marginLeft: "5px" }}>
                 <FontAwesomeIcon
                   icon={faExternalLinkAlt}
-                  aria-label="In Zotero öffnen"
+                  role="presentation"
                 />
               </span>
             </a>

@@ -42,7 +42,7 @@ export default function Role({ item }) {
 
   return (
     <span className={`${role.style}`}>
-      <FontAwesomeIcon icon={role.icon} className={`${styles.icon}`} />
+      <FontAwesomeIcon role="presentation" icon={role.icon} className={`${styles.icon}`} />
       {role.text}
     </span>
   );

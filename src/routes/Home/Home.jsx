@@ -11,8 +11,10 @@ export default function Home() {
 
   return (
     <>
+      <main>
       <SearchBar status={status} />
       <ItemList setStatus={setStatus} />
+      </main>
     </>
   );
 }

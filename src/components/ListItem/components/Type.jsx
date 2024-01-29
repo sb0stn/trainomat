@@ -13,7 +13,7 @@ import {
   faMicrophone,
   faPenAlt,
 } from "@fortawesome/free-solid-svg-icons";
-import styles from "../ListItem.module.css";
+import styles from "../ListItem.module.scss";
 import useWindowWidth from "../../../Hooks/useWindowWidth";
 
 export default function Type({ item }) {
@@ -44,7 +44,7 @@ export default function Type({ item }) {
 
   return (
     <span className={styles.type}>
-      <FontAwesomeIcon icon={itemType.icon} className={`${styles.icon}`} />
+      <FontAwesomeIcon icon={itemType.icon} className={`${styles.icon}`}                 role="presentation" />
       {itemType.labelDe && windowWidth > 978 ? itemType.labelDe : null}
     </span>
   );

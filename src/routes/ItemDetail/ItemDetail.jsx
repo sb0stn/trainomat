@@ -6,7 +6,7 @@ import {
   faExternalLinkAlt,
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
-import styles from "./ItemDetail.module.css";
+import styles from "./ItemDetail.module.scss";
 import Tag from "./components/Tag.jsx";
 import Note from "./components/Note.jsx";
 import DocumentInformation from "./components/DocumentInformation";
@@ -21,9 +21,11 @@ function ItemDetail() {
 
   return (
     <main className={styles.main}>
-      <nav aria-label="Zurück" onClick={() => navigate(-1)} tabIndex={0}>
-        <FontAwesomeIcon className={styles.icon} icon={faChevronLeft} />
+      <nav aria-label="Zurück">
+        <a className={styles.link} href="/">
+        <FontAwesomeIcon role="presentation" className={styles.icon} icon={faChevronLeft} />
         <span>Zurück</span>
+        </a>
       </nav>
       <h1 lang={state.data.language} style={{ lineHeight: "1.2" }}>
         {state.data.title}
@@ -33,14 +35,15 @@ function ItemDetail() {
         <a
           href={state.data.url}
           target="_blank"
+          className={styles.resouceHeading}
           style={{ wordBreak: "break-all" }}
         >
-          <h2 id="ressourceHeading">Ressource öffnen</h2>
+          <h2 id="ressourceHeading">Ressource <span className="sr-only">in Zotero</span> öffnen</h2>
           {state.data.url}
           <FontAwesomeIcon
+            role="presentation"
             className={styles.icon}
             icon={faExternalLinkAlt}
-            aria-label="In Zotero öffnen"
           />
         </a>
       </section>

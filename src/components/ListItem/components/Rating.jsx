@@ -21,6 +21,7 @@ export default function Rating({ item }) {
   return (
     <span className={styles.rating}>
       <FontAwesomeIcon
+      role="presentation"
         icon={faStar}
         className={styles.icon}
         style={{ color: "#FFC46C" }}

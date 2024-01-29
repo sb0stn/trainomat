@@ -1,4 +1,4 @@
-import styles from "./Note.module.css";
+import styles from "./Note.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboard, faLightbulb } from "@fortawesome/free-solid-svg-icons";
 
@@ -9,6 +9,7 @@ export default function Note({ extra }) {
       <div className={styles.corner}></div>
       <h2 id="noteHeading" style={{ display: "flex", alignItems: "center" }}>
         <FontAwesomeIcon
+        role="presentation"
           icon={faLightbulb}
           style={{ marginRight: "6px", width: "15px" }}
         />
