@@ -7,6 +7,7 @@ import styles from "./SearchBar.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 import { germanAriaLiveMessages, germanScreenReaderStatus } from "../../../../helper/reactSelectGerman";
+import CaretDown from "../../../../components/CaretDown/CaretDown";
 
 
 
@@ -23,6 +24,14 @@ const GroupHeading = (props) => {
     <components.GroupHeading {...props} role="presentation" />
   )
 }
+
+const DropdownIndicator = (props) => {
+  return (
+    <components.DropdownIndicator {...props}>
+      <CaretDown/>
+    </components.DropdownIndicator>
+  );
+};
 
 export default function SearchBar({ status }) {
   const submit = useSubmit();
@@ -209,7 +218,7 @@ export default function SearchBar({ status }) {
             closeMenuOnSelect={true}
             value={selectedTags}
             hideSelectedOptions={false}
-            components={{ GroupHeading, Group, }}
+            components={{ GroupHeading, Group, DropdownIndicator}}
             onChange={(selectedValue, action) => {
               const tagString =
                 selectedValue.length > 0

@@ -7,9 +7,18 @@ import { useInView } from "react-intersection-observer";
 import LoadNewPageIndicator from "./components/LoadNewPageIndicator.jsx";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import Select from "react-select";
+import Select, {components} from "react-select";
 import { germanAriaLiveMessages } from "../../../../helper/reactSelectGerman";
+import CaretDown from "../../../../components/CaretDown/CaretDown";
 
+
+const DropdownIndicator = (props) => {
+  return (
+    <components.DropdownIndicator {...props}>
+      <CaretDown/>
+    </components.DropdownIndicator>
+  );
+};
 
 export default function SearchResults({ setStatus }) {
   const { ref, inView } = useInView();
@@ -154,6 +163,7 @@ export default function SearchResults({ setStatus }) {
           <h3>Sortieren</h3>
 
           <Select
+          components={{DropdownIndicator}}
           ariaLiveMessages={germanAriaLiveMessages}
            styles={{
             control: (baseStyles, state) => ({
