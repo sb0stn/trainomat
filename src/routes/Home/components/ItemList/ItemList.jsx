@@ -141,7 +141,6 @@ export default function SearchResults({ setStatus }) {
       `?q=${q}&tags=${tags}&sort=${sortParam.zoteroValue}&direction=${sortParam.direction}`
     );
   }
-  console.log(items?.pages[0]?.totalResults);
 
   return (
     <section aria-labelledby="search-headline" className={styles.table_container}>
