@@ -40,11 +40,11 @@ export default function Accessibility() {
             <h2>Durchsetzungsverfahren</h2>
             <p>Um zu gewährleisten, dass diese Webseiten und mobilen Anwendungen den in § 10 Absatz 1 L-BGG beschriebenen Anforderungen genügen, können Sie sich per Email an das Kompetenzzentrum für Digitale Barrierefreiheit (<a href="mailto:barrierefreiheit@hdm-stuttgart.de">barrierefreiheit@hdm-stuttgart.de</a>) wenden und eine entsprechende Rückmeldung geben.</p>
 
-            <p>Falls das Kompetenzzentrum für Digitale Barrierefreiheit nicht innerhalb 4 Wochen auf Ihre Anfrage antwortet, können Sie sich an die Beauftragte der Landesregierung für die Belange von Menschen mit Behinderungen oder an die kommunalen Beauftragten für die Belange von Menschen mit Behinderungen im Rahmen der in § 14 Absatz 2 Satz 2 L-BGG und § 15 Absatz 3 Satz 2 L-BGG beschriebenen Ombudsfunktion wenden.</p>
+            <p>Falls das Kompetenzzentrum für Digitale Barrierefreiheit nicht innerhalb 4 Wochen auf Ihre Anfrage antwortet, können Sie sich an die Schlichtungsstelle des Landeszentrums Barrierefreiheit (LZ-BARR) wenden. Die Schlichtungsstelle erreichen Sie wie folgt: Landeszentrum Barrierefreiheit, Schlichtungsstelle, Else-Josenhans-Straße 6, 70173 Stuttgart, Telefon: 0711 123 39375, E-Mail: schlichtung@barrierefreiheit.bwl.de, Webseite: www.barrierefreiheit-bw.de</p>
+
+            <p>Alternativ, können Sie sich an die Beauftragte der Landesregierung für die Belange von Menschen mit Behinderungen oder an die kommunalen Beauftragten für die Belange von Menschen mit Behinderungen im Rahmen der in § 14 Absatz 2 Satz 2 L-BGG und § 15 Absatz 3 Satz 2 L-BGG beschriebenen Ombudsfunktion wenden.</p>
 
             <p>Die Beauftragte der Landesregierung für die Belange von Menschen mit Behinderungen können Sie wie folgt erreichen: Simone Fischer. Tel. 0711/279-3366. Email: <a href="mailto:Poststelle@bfbmb.bwl.de">Poststelle@bfbmb.bwl.de</a>. Adresse: Else-Josenhans-Straße 6, 70173 Stuttgart.</p>
-
-            <p>Alternativ, können Sie sich an die Schlichtungsstelle des Landeszentrums Barrierefreiheit (LZ-BARR) wenden. Die Schlichtungsstelle erreichen Sie wie folgt: Landeszentrum Barrierefreiheit, Schlichtungsstelle, Else-Josenhans-Straße 6, 70173 Stuttgart, Telefon: 0711 123 39375, E-Mail: schlichtung@barrierefreiheit.bwl.de, Webseite: www.barrierefreiheit-bw.de</p>
 
             <p>Die Kontaktdaten des für Sie zuständigen kommunalen Beauftragten für die Belange von Menschen mit Behinderungen können Sie über die Webseite des Stadt- oder Landkreises in Erfahrung bringen, in welchem Sie Ihren dauerhaften Wohnsitz haben.</p>
 
