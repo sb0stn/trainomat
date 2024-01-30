@@ -396,7 +396,7 @@ export default function Info() {
           nur Ressourcen für ganz bestimmte Anwendungsbereiche anzeigt.
         </p>
         <p>
-          Hinweis: Wir stellen Ihnen den TRAINomat kostenloses zur Verfügung ohne
+          Hinweis: Wir stellen Ihnen den TRAINomat kostenlos zur Verfügung ohne
           Gewähr auf Vollständigkeit und Richtigkeit. Gleichzeitig machen wir
           darauf aufmerksam, dass dieses Angebot von uns unter sehr 
           begrenztem Aufwand "nebenbei" gepflegt wird.
@@ -405,7 +405,7 @@ export default function Info() {
           TRAINomat zur Verfügung haben, bitten wir Sie, uns keine Vorschläge zur Aufnahme
           weiterer Ressourcen in den TRAINomat zu senden - wir werden sie nicht bearbeiten.
           Wenn Sie technische oder inhaltliche Fehler finden, können Sie uns das gerne
-          mitteilen an: 
+          mitteilen: 
           <a href="mailto:trainomat@hdm-stuttgart.de">trainomat@hdm-stuttgart.de</a>. 
         </p>
       </section>
