@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docker:build": "docker build -t kdbhdm/trainomat:latest --platform linux/amd64 .",
+    "docker:push": "docker push kdbhdm/trainomat:latest"
   },
   "dependencies": {
     "@fontsource/inter": "5.0.16",
