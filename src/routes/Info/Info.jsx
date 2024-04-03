@@ -339,7 +339,7 @@ export default function Info() {
         { tag: "(W1) Dokumente", description: "" },
         { tag: "(W1) PDF-eBooks", description: "" },
         { tag: "(W1) Web", description: "" },
-        { tag: "(W1) Prüfwerkzeuge Web", description: "" },
+        { tag: "(W1) Prüfwerkzeuge-Web", description: "" },
         { tag: "(W1) Software", description: "" },
         { tag: "(W1) Mobile-Apps", description: "" },
         { tag: "(W1) Organisationen-Prozesse", description: "" },
