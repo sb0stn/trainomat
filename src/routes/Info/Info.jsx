@@ -135,6 +135,7 @@ export default function Info() {
         { tag: "(I) Richtlinien", description: "" },
         { tag: "(I) Screenreader", description: "" },
         { tag: "(I) Selbstbedienungsterminal", description: "" },
+        { tag: "(I) Software", description: "" },
         { tag: "(I) Soziale Medien", description: "" },
         { tag: "(I) Tutorien", description: "" },
         { tag: "(I) UAN", description: "User Accessibility Needs" },
