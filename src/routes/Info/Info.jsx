@@ -126,6 +126,7 @@ export default function Info() {
         },
         { tag: "(I) Dokumente", description: "" },
         { tag: "(I) EAA", description: "European Accessibility Act" },
+        { tag: "(I) eBooks", description: "" },
         { tag: "(I) ILIAS", description: "" },
         { tag: "(I) Lehre", description: "" },
         { tag: "(I) Multimedia", description: "" },
