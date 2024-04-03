@@ -114,9 +114,6 @@ export default function Info() {
           tag: "(I) AT & AS",
           description: "Assistive Technologie & Adaptionsstrategien",
         },
-        { tag: "(I) Barrierefreie Dokumente", description: "" },
-        { tag: "(I) Barrierefreie Multimedia", description: "" },
-        { tag: "(I) Barrierefreies Web", description: "" },
         {
           tag: "(I) Bewusstsein",
           description:
@@ -127,9 +124,11 @@ export default function Info() {
           description:
             "Verordnung zur Schaffung barrierefreier Informationstechnik nach dem Behindertengleichstellungsgesetz (Barrierefreie-Informationstechnik-Verordnung – BITV 2.0)",
         },
+        { tag: "(I) Dokumente", description: "" },
         { tag: "(I) EAA", description: "European Accessibility Act" },
         { tag: "(I) ILIAS", description: "" },
         { tag: "(I) Lehre", description: "" },
+        { tag: "(I) Multimedia", description: "" },
         { tag: "(I) Onlinekurs", description: "" },
         { tag: "(I) Prozesse Bf", description: "" },
         { tag: "(I) Richtlinien", description: "" },
@@ -147,6 +146,7 @@ export default function Info() {
           tag: "(I) WCAG",
           description: "Web Content Accessibility Guidelines",
         },
+        { tag: "(I) Web", description: "" },
         { tag: "(I) Weiterbildung", description: "" },
         { tag: "(I) Werkzeuge zur Barrierefreiheit", description: "" },
         { tag: "(I) WZG", description: "Web-Zugänglichkeits-Gesetz" },
