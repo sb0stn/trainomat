@@ -24,7 +24,6 @@ export default function Accessibility() {
             <p>Es gibt zurzeit folgende Ausnahmen, die bis 31.03.2024 behoben werden:</p>
 
             <ul>
-                <li>Eine Erläuterung der Website in Gebärdensprache DGS sowie eine Erläuterung der Website in Leichter Sprache befinden sich in Planung.</li>
                 <li>Bei Nutzung mancher Screenreader werden in den Eingabefeldern zu den <span lang="en">Tags</span> und Sortierung einzelne Texte auf Englisch, doppelt oder nicht vollständig vorgelesen.</li>
                 <li>Der Button, um das <span lang="en">Tag</span>-Feld zu leeren, kann nicht mit der Tastatur erreicht werden. Sie können einen <span lang="en">Tag</span> per Tastatur löschen, indem Sie ihn im Formular erneut auswählen.</li>
             </ul>

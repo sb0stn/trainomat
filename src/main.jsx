@@ -8,11 +8,14 @@ import Home from "./routes/Home/Home.jsx";
 import Info from "./routes/Info/Info.jsx";
 import Imprint from "./routes/legal/Imprint.jsx";
 import Privacy from "./routes/legal/Privacy.jsx";
+import LS from "./routes/legal/LS.jsx";
+
 
 import "./index.scss";
 import "normalize.css";
 import "@fontsource/inter/400.css";
 import Accessibility from "./routes/legal/Accessibility.jsx";
+import DGS from "./routes/legal/DGS.jsx";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +39,14 @@ const router = createBrowserRouter([
       {
         path: "/impressum",
         element: <Imprint />,
+      },
+      {
+        path: "/leichte-sprache",
+        element: <LS />,
+      },
+      {
+        path: "/dgs",
+        element: <DGS />,
       },
       {
         path: "/datenschutz",

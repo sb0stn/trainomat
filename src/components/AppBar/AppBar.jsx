@@ -104,6 +104,28 @@ export default function AppBar() {
                   Barrierefreiheit
                 </NavLink>
               </li>
+
+              <li>
+                <NavLink
+                  to={"/leichte-sprache"}
+                  className={({ isActive }) =>
+                    isActive ? styles.active : styles.link
+                  }
+                >
+                  Erklärung in Leichter Sprache
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
+                  to={"/dgs"}
+                  className={({ isActive }) =>
+                    isActive ? styles.active : styles.link
+                  }
+                >
+                  Erklärung in Gebärdensprache
+                </NavLink>
+              </li>
             </ul>
           )}
         </nav>
@@ -155,6 +177,28 @@ export default function AppBar() {
                   onClick={() => setMobileMenu(!mobileMenu)}
                 >
                   Barrierefreiheit
+                </NavLink>
+              </li>
+
+                <li>
+                <NavLink
+                  to={"/leichte-sprache"}
+                  className={({ isActive }) =>
+                    isActive ? styles.active : styles.link
+                  }
+                >
+                  Erklärung in Leichter Sprache
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
+                  to={"/dgs"}
+                  className={({ isActive }) =>
+                    isActive ? styles.active : styles.link
+                  }
+                >
+                  Erklärung in Gebärdensprache
                 </NavLink>
               </li>
             </ul>

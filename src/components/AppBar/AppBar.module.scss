@@ -12,12 +12,14 @@
   display: grid;
   grid-template-areas:
     "logo nav"
-    "slogan slogan"
-    "mobileMenu mobileMenu";
-  align-items: center;
+    "slogan slogan";
+  align-items: start; // Adjusted to start to align items at the top
   max-width: 900px;
   margin: 0 auto;
   padding: 0 12px;
+  @media (min-width: 721px) {
+    grid-template-rows: auto auto; // Ensures two rows are available for content
+  }
 }
 
 .toggle_icon {
@@ -71,6 +73,7 @@
   color: #04182f;
   font-size: 0.9rem;
   margin-top: 4px;
+  grid-area: slogan; // Ensure slogan is placed correctly
 }
 
 nav {
@@ -81,8 +84,10 @@ nav {
 nav ul {
   list-style-type: none;
   display: flex;
+  flex-wrap: wrap; // Allows items to wrap to the next line
   gap: 12px;
   margin: 8px 0;
+  justify-content: flex-end; // Adjusts alignment for a cleaner look
 }
 
 nav ul li {
@@ -104,4 +109,3 @@ nav ul li {
   text-decoration-thickness: 3px !important;
   text-underline-offset: 5px !important;
 }
-

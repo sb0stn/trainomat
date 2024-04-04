@@ -15,7 +15,7 @@ COPY . .
 RUN npm run build
 
 # create production image
-FROM php:8.3.2-apache AS runner
+FROM php:8.3.4-apache AS runner
 WORKDIR /app
 
 COPY --from=builder /app/dist /var/www/html/
