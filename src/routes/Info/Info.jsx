@@ -99,6 +99,7 @@ export default function Info() {
         { tag: "(F) Checkliste", description: "" },
         { tag: "(F) Game", description: "" },
         { tag: "(F) Onlinekurs", description: "" },
+        { tag: "(F) Standard", description: "" },
         { tag: "(F) Video", description: "" },
         { tag: "(F) Webinar", description: "" },
         { tag: "(F) Webseite", description: "" },
