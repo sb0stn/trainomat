@@ -329,6 +329,10 @@ export default function Info() {
           tag: "(V) OhneHoerenOhneSehen",
           description: "Ohne Hören und ohne Sehen",
         },
+        {
+          tag: "(V) EingMentaleGesundheit",
+          description: "Eingeschränkte mentale Gesundheit = psychische Beeinträchtigungen",
+        },
       ],
     },
     cpaccCourse: {
