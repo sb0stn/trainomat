@@ -355,7 +355,8 @@ export default function Info() {
       headline: "Weiterbildungskurs WAS (W2)",
       id: "weiterbildungskurs-was",
       items: [
-        { tag: "(W2) Einführung Standards", description: "" },
+        { tag: "(W2) AT-Demos", description: "" },
+        { tag: "(W2) BITV 2.0 & Standards", description: "" },
         { tag: "(W2) Prüfprozesse", description: "" },
       ],
     },
