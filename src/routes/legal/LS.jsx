@@ -1,3 +1,8 @@
+/**
+ * Do not use this file as is, if you deploy your own version of the TRAINOmat!
+ * You need to provide your own details!
+ **/
+
 import styles from "../Info/Info.module.scss";
 import { useEffect } from "react";
 import wir from '../../assets/leichte-sprache/wir.png';
