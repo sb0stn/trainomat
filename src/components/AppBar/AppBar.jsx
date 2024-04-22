@@ -146,7 +146,7 @@ export default function AppBar() {
 
               <li>
                 <NavLink
-                  to={"https://gpii.de/legal/de/impressum.html"}
+                  to={"/impressum"}
                   className={({ isActive }) =>
                     isActive ? styles.active : styles.link
                   }
@@ -158,7 +158,7 @@ export default function AppBar() {
 
               <li>
                 <NavLink
-                  to={"https://gpii.de/legal/de/datenschutz.html"}
+                  to={"datenschutz"}
                   className={({ isActive }) =>
                     isActive ? styles.active : styles.link
                   }
