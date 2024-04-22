@@ -16,7 +16,7 @@ export default function Tag({ tag }) {
       onClick={() => navigate(`/?tags=${tag}`)}
       className={styles.tag}
     >
-      <span class="sr-only">Filtern nach <span lang="en">Tag</span>:</span>
+      <span className="sr-only">Filtern nach <span lang="en">Tag</span>:</span>
       {tag}
     </span>
   );
