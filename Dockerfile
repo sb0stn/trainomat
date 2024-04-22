@@ -1,24 +1,24 @@
 FROM node:20-slim AS base
 
-# node dependecies
-FROM base AS deps
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+COPY . /app
 WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci && \
-    rm -rf /tmp/*
 
-# build source code
-FROM base AS builder
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
-COPY . .
-RUN npm run build
+FROM base AS prod-deps
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
+
+
+FROM base AS build
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN pnpm run build
 
 # create production image
-FROM php:8.3.4-apache AS runner
+FROM php:8.3.6-apache AS runner
 WORKDIR /app
 
-COPY --from=builder /app/dist /var/www/html/
+COPY --from=build /app/dist /var/www/html/
 COPY .htaccess /var/www/html/
 
 RUN a2enmod rewrite
